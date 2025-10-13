@@ -4,15 +4,27 @@
   "description": "SEO Image Optimization Script for DroneFocal",
   "main": "scripts/image-optimizer.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "optimize-images": "node scripts/image-optimizer.js",
     "install-deps": "npm install"
   },
   "dependencies": {
-    "sharp": "^0.33.0",
     "fs-extra": "^11.1.1",
-    "path": "^0.12.7"
+    "next": "14.0.4",
+    "path": "^0.12.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sharp": "^0.33.0",
+    "tailwindcss": "3.4.0",
+    "typescript": "5.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "24.7.2",
+    "@types/react": "19.2.2"
+  },
   "keywords": [
     "image-optimization",
     "seo",
