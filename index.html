@@ -129,6 +129,20 @@
                 <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Tutorials</a>
                 <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">News</a>
                 <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Compare</a>
+                
+                <!-- Mobile Icons -->
+                <div class="flex items-center space-x-4 px-3 py-2 border-t border-gray-200 mt-2 pt-3">
+                    <!-- Search Icon -->
+                    <svg class="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <!-- User Icon -->
+                    <svg class="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    </svg>
+                </div>
             </div>
         </div>
     </header>
@@ -489,29 +503,49 @@
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
             
-            mobileMenuButton.addEventListener('click', function() {
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+            
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+            
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event bubbling
                 const isHidden = mobileMenu.classList.contains('hidden');
                 
                 if (isHidden) {
-                    // Show menu
-                    mobileMenu.classList.remove('hidden');
-                    menuIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
+                    openMobileMenu();
                 } else {
-                    // Hide menu
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+                    closeMobileMenu();
                 }
             });
             
             // Close menu when clicking on a link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+                    closeMobileMenu();
                 });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    // Check if click is outside the mobile menu and button
+                    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                        closeMobileMenu();
+                    }
+                }
+            });
+            
+            // Prevent menu from closing when clicking inside the menu
+            mobileMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
         });
         
