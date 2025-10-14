@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dronefocal.com'),
   title: 'DroneFocal - Expert Drone Reviews & Buying Guides',
   description: 'Get expert drone reviews, buying guides, and tutorials. Find the perfect drone for your needs with our comprehensive comparisons and recommendations.',
   keywords: 'drone reviews, drone buying guide, DJI drone, best drone, drone comparison',
@@ -34,9 +35,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicon */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/optimized/webp/dronefocal-logo.webp" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/optimized/webp/dronefocal-logo.webp" />
-        <link rel="apple-touch-icon" href="/images/optimized/webp/dronefocal-logo.webp" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMJXB0MYLE"></script>
