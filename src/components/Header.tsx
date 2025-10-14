@@ -1,89 +1,106 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Search, Drone } from 'lucide-react'
-
-const navigation = [
-  { name: 'Reviews', href: '/drone-reviews' },
-  { name: 'Buying Guides', href: '/buying-guides' },
-  { name: 'Tutorials', href: '/tutorials' },
-  { name: 'News', href: '/news' },
-  { name: 'Compare', href: '/compare' },
-]
+import Image from 'next/image'
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
 
   return (
-    <header className="bg-white dark:bg-dark-800 shadow-sm border-b border-gray-200 dark:border-dark-700">
-      <nav className="container-custom" aria-label="Global">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+    <header className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 z-50 w-full">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo Section */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Drone className="h-8 w-8 text-primary-600" />
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
-                DroneFocal
-              </span>
-            </Link>
+            <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <Image 
+                src="/images/optimized/webp/dronefocal-logo.webp" 
+                alt="DroneFocal Logo" 
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+              <span className="text-2xl font-bold text-gray-900">DroneFocal</span>
+            </a>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+          
+          {/* Navigation Menu */}
+          <div className="hidden md:flex md:items-center md:space-x-10">
+            <a href="/" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Home</a>
+            <a href="/drone-reviews" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Drone Reviews</a>
+            <a href="/buying-guides" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Buying Guides</a>
+            <a href="/tutorials" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Tutorials</a>
+            <a href="/news" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">News</a>
+            <a href="/compare" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Compare</a>
           </div>
-
-          {/* Search and Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {/* Search Button */}
-            <button className="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
-              <Search className="h-5 w-5" />
-            </button>
-
-            {/* Mobile menu button */}
-            <button
-              type="button"
-              className="md:hidden p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button 
+              onClick={toggleMobileMenu}
+              className="text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600"
             >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
             </button>
+          </div>
+          
+          {/* Right Icons */}
+          <div className="hidden md:flex items-center space-x-6">
+            {/* Search Icon */}
+            <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            {/* User Icon */}
+            <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-dark-700">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 block px-3 py-2 text-base font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+      </nav>
+      
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="px-4 py-2 space-y-1">
+            <a href="/" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Home</a>
+            <a href="/drone-reviews" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Drone Reviews</a>
+            <a href="/buying-guides" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Buying Guides</a>
+            <a href="/tutorials" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Tutorials</a>
+            <a href="/news" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>News</a>
+            <a href="/compare" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Compare</a>
+            
+            {/* Mobile Icons */}
+            <div className="flex items-center space-x-4 px-3 py-2 border-t border-gray-200 mt-2 pt-3">
+              {/* Search Icon */}
+              <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              {/* User Icon */}
+              <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              </svg>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   )
 }
-
-

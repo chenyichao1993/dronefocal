@@ -4,42 +4,59 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.6;
-  }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #ffffff;
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
-  }
-  
-  .card {
-    @apply bg-white dark:bg-dark-800 rounded-lg shadow-md border border-gray-200 dark:border-dark-700;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
-  }
+.article-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.article-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+.category-tag {
+  background: #3b82f6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rating-stars {
+  color: #fbbf24;
+}
+
+.sidebar-section {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.footer-link {
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  color: #3b82f6;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+}
+
+.social-icon:hover {
+  color: #3b82f6;
+}

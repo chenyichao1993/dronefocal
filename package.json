@@ -1,36 +1,39 @@
 {
-  "name": "dronefocal-image-optimizer",
+  "name": "dronefocal",
   "version": "1.0.0",
-  "description": "SEO Image Optimization Script for DroneFocal",
-  "main": "scripts/image-optimizer.js",
+  "description": "DroneFocal - Expert Drone Reviews & Buying Guides",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "optimize-images": "node scripts/image-optimizer.js",
-    "install-deps": "npm install"
+    "optimize-images": "node scripts/image-optimizer.js"
   },
   "dependencies": {
-    "fs-extra": "^11.1.1",
     "next": "14.0.4",
-    "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "^0.33.0",
+    "typescript": "5.3.3",
     "tailwindcss": "3.4.0",
-    "typescript": "5.3.3"
+    "sharp": "^0.33.0",
+    "fs-extra": "^11.1.1"
   },
   "devDependencies": {
-    "@types/node": "24.7.2",
-    "@types/react": "19.2.2"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.0.4"
   },
   "keywords": [
-    "image-optimization",
-    "seo",
-    "webp",
-    "avif",
-    "responsive-images"
+    "drone-reviews",
+    "drone-buying-guides",
+    "dji",
+    "drone-comparison",
+    "aerial-photography"
   ],
   "author": "DroneFocal Team",
   "license": "MIT"

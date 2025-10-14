@@ -1,25 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
       },
     ],
-    formats: ['image/webp', 'image/avif'],
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ]
   },
 }
 

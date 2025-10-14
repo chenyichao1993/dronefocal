@@ -4,48 +4,24 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: {
-    default: 'DroneFocal - Expert Drone Reviews & Buying Guides',
-    template: '%s | DroneFocal'
-  },
+  title: 'DroneFocal - Expert Drone Reviews & Buying Guides',
   description: 'Get expert drone reviews, buying guides, and tutorials. Find the perfect drone for your needs with our comprehensive comparisons and recommendations.',
-  keywords: ['drone reviews', 'best drone', 'drone buying guide', 'DJI drone', 'drone comparison', 'drone tutorials'],
+  keywords: 'drone reviews, drone buying guide, DJI drone, best drone, drone comparison',
   authors: [{ name: 'DroneFocal Team' }],
-  creator: 'DroneFocal',
-  publisher: 'DroneFocal',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://dronefocal.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://dronefocal.com',
     title: 'DroneFocal - Expert Drone Reviews & Buying Guides',
     description: 'Get expert drone reviews, buying guides, and tutorials. Find the perfect drone for your needs.',
-    siteName: 'DroneFocal',
+    type: 'website',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DroneFocal - Expert Drone Reviews & Buying Guides',
-    description: 'Get expert drone reviews, buying guides, and tutorials. Find the perfect drone for your needs.',
-    creator: '@dronefocal',
+    description: 'Get expert drone reviews, buying guides, and tutorials.',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
 }
 
@@ -55,15 +31,60 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body>
-        <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+    <html lang="en">
+      <head>
+        {/* Favicon */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/optimized/webp/dronefocal-logo.webp" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/optimized/webp/dronefocal-logo.webp" />
+        <link rel="apple-touch-icon" href="/images/optimized/webp/dronefocal-logo.webp" />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMJXB0MYLE"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HMJXB0MYLE');
+            `,
+          }}
+        />
+        
+        {/* Microsoft Clarity */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "sz5i3hrbah");
+            `,
+          }}
+        />
+        
+        {/* 百度统计 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?34a1971468567956f4e88f020387dafd";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-white">
+        <Header />
+        <main className="pt-28">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
