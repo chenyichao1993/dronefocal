@@ -40,7 +40,7 @@
         }
         .sidebar-section {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #d1d5db;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 24px;
@@ -341,19 +341,37 @@
                             <h4 class="text-sm font-medium text-gray-900 mb-1">
                                 DJI Mini 4 Pro: The Perfect Beginner Drone?
                             </h4>
-                            <p class="text-xs text-gray-500">25,600 views</p>
+                            <p class="text-xs text-gray-500 flex items-center">
+                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                25,600 views
+                            </p>
                         </div>
                         <div class="border-b border-gray-200 pb-4">
                             <h4 class="text-sm font-medium text-gray-900 mb-1">
                                 Drone Laws by State: Complete 2024 Guide
                             </h4>
-                            <p class="text-xs text-gray-500">18,900 views</p>
+                            <p class="text-xs text-gray-500 flex items-center">
+                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                18,900 views
+                            </p>
                         </div>
                         <div>
                             <h4 class="text-sm font-medium text-gray-900 mb-1">
                                 Best Drone Accessories Every Pilot Needs
                             </h4>
-                            <p class="text-xs text-gray-500">15,200 views</p>
+                            <p class="text-xs text-gray-500 flex items-center">
+                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                15,200 views
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -388,11 +406,14 @@
                         Get the latest drone news and reviews delivered to your inbox.
                     </p>
                     <div class="space-y-3">
-                        <input type="email" placeholder="Enter your email" 
+                        <input type="email" id="email-input" placeholder="Enter your email" 
                                class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                        <button id="subscribe-btn" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
                             Subscribe
                         </button>
+                        <div id="email-warning" class="hidden text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2">
+                            Please enter a valid email address to subscribe.
+                        </div>
                     </div>
                     <p class="text-xs text-gray-500 mt-2">
                         No spam, unsubscribe at any time.
@@ -484,6 +505,23 @@
         </div>
     </footer>
 
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
+            <div class="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-green-100 rounded-full">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 text-center mb-2">Successfully Subscribed!</h3>
+            <p class="text-gray-600 text-center mb-6">
+                Thank you for subscribing! We'll keep you updated with the latest drone news and reviews.
+            </p>
+            <button id="modal-close-btn" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                Got it
+            </button>
+        </div>
+    </div>
 
     <script>
         // Mobile menu functionality
@@ -538,6 +576,46 @@
                 e.stopPropagation();
             });
         });
+        
+        // Email subscription validation
+        document.getElementById('subscribe-btn').addEventListener('click', function() {
+            const emailInput = document.getElementById('email-input');
+            const warningDiv = document.getElementById('email-warning');
+            const successModal = document.getElementById('success-modal');
+            const email = emailInput.value.trim();
+            
+            // Hide previous warning
+            warningDiv.classList.add('hidden');
+            
+            // Check if email is empty or invalid
+            if (!email || !isValidEmail(email)) {
+                warningDiv.classList.remove('hidden');
+                emailInput.focus();
+                return;
+            }
+            
+            // If email is valid, show success modal
+            successModal.classList.remove('hidden');
+            emailInput.value = '';
+        });
+        
+        // Modal close functionality
+        document.getElementById('modal-close-btn').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+        
+        // Email validation function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
         
         // Simple interactions
         document.querySelectorAll('.article-card').forEach(card => {
