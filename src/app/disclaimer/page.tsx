@@ -115,7 +115,7 @@ export default function DisclaimerPage() {
         <div className="bg-gray-50 p-4 rounded-lg">
           <p className="text-gray-600">
             <strong>Email:</strong> motionjoy93@gmail.com<br />
-            <strong>Website:</strong> <a href="/" className="text-blue-600 hover:underline">DroneFocal.com</a>
+            <strong>Website:</strong> <a href="https://dronefocal.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">DroneFocal.com</a>
           </p>
         </div>
 
