@@ -497,9 +497,6 @@
             <div class="mt-8 pt-8 border-t border-gray-200">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <div class="flex items-center">
-                        <div class="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                            <span class="text-white text-xs font-bold">N</span>
-                        </div>
                         <p class="text-gray-500 text-sm">
                             © <span id="current-year">2025</span> DroneFocal. All rights reserved.
                         </p>
@@ -536,6 +533,11 @@
     <script>
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Update current year automatically
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
