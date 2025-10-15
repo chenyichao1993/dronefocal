@@ -1,12 +1,19 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { articles, getArticles, getTotalArticles, type Article } from '@/data/articles'
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
   const [showEmailWarning, setShowEmailWarning] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
+  
+  // Load More Articles State
+  const [displayedArticles, setDisplayedArticles] = useState<Article[]>([])
+  const [displayedCount, setDisplayedCount] = useState(6)
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasMoreArticles, setHasMoreArticles] = useState(true)
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -23,6 +30,37 @@ export default function HomePage() {
 
   const closeModal = () => {
     setShowSuccessModal(false)
+  }
+
+  // Initialize displayed articles
+  useEffect(() => {
+    const initialArticles = getArticles(6, 0)
+    setDisplayedArticles(initialArticles)
+  }, [])
+
+  // Load More Articles Function
+  const loadMoreArticles = async () => {
+    if (isLoading || !hasMoreArticles) return
+    
+    setIsLoading(true)
+    
+    // Simulate loading delay
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    const newArticles = getArticles(6, displayedCount)
+    const totalArticles = getTotalArticles()
+    
+    if (newArticles.length > 0) {
+      setDisplayedArticles(prev => [...prev, ...newArticles])
+      setDisplayedCount(prev => prev + 6)
+    }
+    
+    // Check if there are more articles
+    if (displayedCount + 6 >= totalArticles) {
+      setHasMoreArticles(false)
+    }
+    
+    setIsLoading(false)
   }
 
   return (
@@ -77,142 +115,87 @@ export default function HomePage() {
               </div>
             </article>
 
-            {/* Article Grid */}
+            {/* Dynamic Articles Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {/* Article 1 */}
-              <article className="article-card">
-                <div className="relative">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                    alt="Hot air balloon" 
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="category-tag" style={{background: '#10b981'}}>News</span>
+              {displayedArticles.map((article, index) => (
+                <article key={article.id} className="article-card">
+                  <div className="relative">
+                    <Image 
+                      src={article.image} 
+                      alt={article.title} 
+                      width={400}
+                      height={192}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span 
+                        className="category-tag" 
+                        style={{
+                          background: article.category === 'Review' ? '#3b82f6' :
+                                     article.category === 'News' ? '#10b981' :
+                                     article.category === 'Guide' ? '#8b5cf6' :
+                                     article.category === 'Comparison' ? '#f59e0b' :
+                                     article.category === 'Tutorial' ? '#ef4444' : '#6b7280'
+                        }}
+                      >
+                        {article.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    New FAA Part 108 Rule Could Lock DJI Pilots Out of BVLOS
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3">
-                    The Federal Aviation Administration has proposed new regulations that could significantly impact DJI drone operations beyond visual line of sight....
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <span className="font-medium">DroneFocal Team</span>
-                    <span className="mx-2">•</span>
-                    <span>2024-01-14</span>
-                    <span className="mx-2">•</span>
-                    <span>8 min read</span>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      {article.description}
+                    </p>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <span className="font-medium">{article.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{article.publishedAt}</span>
+                      <span className="mx-2">•</span>
+                      <span>{article.readTime}</span>
+                    </div>
                   </div>
-                </div>
-              </article>
-
-              {/* Article 2 */}
-              <article className="article-card">
-                <div className="relative">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                    alt="Ocean view" 
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="category-tag" style={{background: '#8b5cf6'}}>Guide</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Best Drones Under $500: Complete Buying Guide 2024
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3">
-                    Looking for a quality drone without breaking the bank? Our comprehensive guide covers the best budget-friendly options that deliver excellent...
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <span className="font-medium">DroneFocal Team</span>
-                    <span className="mx-2">•</span>
-                    <span>2024-01-13</span>
-                    <span className="mx-2">•</span>
-                    <span>10 min read</span>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            {/* More Articles */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {/* Article 3 */}
-              <article className="article-card">
-                <div className="relative">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                    alt="Orange flowers" 
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="category-tag" style={{background: '#f59e0b'}}>Comparison</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Autel EVO Lite+ vs DJI Air 3: Which Should You Choose?
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3">
-                    Two of the most popular mid-range drones go head-to-head. We compare features, performance, and value to help you make the rig...
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <span className="font-medium">DroneFocal Team</span>
-                    <span className="mx-2">•</span>
-                    <span>2024-01-12</span>
-                    <span className="mx-2">•</span>
-                    <span>15 min read</span>
-                  </div>
-                </div>
-              </article>
-
-              {/* Article 4 */}
-              <article className="article-card">
-                <div className="relative">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                    alt="Mountain landscape" 
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="category-tag" style={{background: '#ef4444'}}>Tutorial</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Drone Photography Tips: Master Aerial Composition
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3">
-                    Learn professional techniques for capturing stunning aerial photographs. From rule of thirds to leading lines, master the art of drone photography.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <span className="font-medium">DroneFocal Team</span>
-                    <span className="mx-2">•</span>
-                    <span>2024-01-11</span>
-                    <span className="mx-2">•</span>
-                    <span>7 min read</span>
-                  </div>
-                </div>
-              </article>
+                </article>
+              ))}
             </div>
 
             {/* Load More Button */}
-            <div className="text-center">
-              <button className="bg-white border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                Load More Articles
-              </button>
-            </div>
+            {hasMoreArticles && (
+              <div className="text-center">
+                <button 
+                  onClick={loadMoreArticles}
+                  disabled={isLoading}
+                  className={`bg-white border border-gray-300 text-gray-700 px-8 py-3 rounded-lg transition-colors ${
+                    isLoading 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'hover:bg-gray-50'
+                  }`}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Loading...
+                    </div>
+                  ) : (
+                    'Load More Articles'
+                  )}
+                </button>
+              </div>
+            )}
+            
+            {/* No More Articles Message */}
+            {!hasMoreArticles && displayedArticles.length > 6 && (
+              <div className="text-center">
+                <p className="text-gray-500 text-sm">
+                  All articles loaded. Check back later for more content!
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Right Sidebar */}
