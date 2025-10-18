@@ -146,7 +146,7 @@ export default async function ReviewPage({ params }: Props) {
           {/* Main Content */}
           <div className="lg:col-span-2">
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-6">
+        <nav className="breadcrumb-mobile flex items-center space-x-2 text-sm text-gray-500 mb-6">
           <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <span>/</span>
           <Link href="/drone-reviews" className="hover:text-blue-600 transition-colors">Drone Reviews</Link>
@@ -156,7 +156,7 @@ export default async function ReviewPage({ params }: Props) {
 
         {/* Article Header */}
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="article-title-mobile text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {article.title}
           </h1>
 
@@ -164,7 +164,8 @@ export default async function ReviewPage({ params }: Props) {
             {article.excerpt}
           </div>
 
-          <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center space-x-6">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1" />
@@ -209,6 +210,58 @@ export default async function ReviewPage({ params }: Props) {
                   {article.price}
                 </div>
               )}
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="article-metadata-mobile md:hidden">
+            <div className="metadata-row">
+              <div className="metadata-left">
+                <div className="flex items-center">
+                  <Calendar className="h-4 w-4 mr-2" />
+                  <time dateTime={article.date}>
+                    {new Date(article.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="h-4 w-4 mr-2" />
+                  {article.readTime}
+                </div>
+              </div>
+            </div>
+            
+            <div className="metadata-row">
+              <div className="metadata-right">
+                {/* Star Rating */}
+                <div className="rating-mobile">
+                  <div className="stars">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-4 w-4 ${
+                          i < Math.floor(article.rating || 0)
+                            ? 'text-yellow-400 fill-current'
+                            : 'text-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="rating-text">
+                    {article.rating}
+                  </span>
+                </div>
+                
+                {/* Price */}
+                {article.price && (
+                  <div className="price-mobile">
+                    {article.price}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </header>
