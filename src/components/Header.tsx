@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 export default function Header() {
@@ -13,6 +13,31 @@ export default function Header() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
   }
+
+  // 点击外部关闭移动端菜单
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMobileMenuOpen) {
+        const target = event.target as HTMLElement
+        const mobileMenu = document.querySelector('.mobile-menu')
+        const hamburgerButton = document.querySelector('.hamburger-button')
+        
+        // 如果点击的不是菜单本身和汉堡按钮，则关闭菜单
+        if (mobileMenu && !mobileMenu.contains(target) && hamburgerButton && !hamburgerButton.contains(target)) {
+          setIsMobileMenuOpen(false)
+        }
+      }
+    }
+
+    // 添加点击事件监听器
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <header className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 z-50 w-full">
@@ -46,7 +71,7 @@ export default function Header() {
           <div className="md:hidden">
             <button 
               onClick={toggleMobileMenu}
-              className="text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+              className="hamburger-button text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 {isMobileMenuOpen ? (
@@ -76,7 +101,7 @@ export default function Header() {
       
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="mobile-menu md:hidden bg-white border-t border-gray-200">
           <div className="px-4 py-2 space-y-1">
             <a href="/" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Home</a>
             <a href="/drone-reviews" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Drone Reviews</a>
