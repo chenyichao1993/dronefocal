@@ -160,9 +160,9 @@ export default async function ReviewPage({ params }: Props) {
             {article.title}
           </h1>
 
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
+          <div className="article-excerpt">
             {article.excerpt}
-          </p>
+          </div>
 
           <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center space-x-6">
