@@ -68,8 +68,8 @@ body {
 
 /* Enhanced Typography for Better Reading Experience */
 .article-content {
-  line-height: 1.8;
-  font-size: 1.25rem;
+  line-height: 1.7;
+  font-size: 1.125rem;
   color: #2d3748;
   max-width: 65ch;
   margin: 0 auto;
@@ -116,7 +116,7 @@ body {
 .article-content li {
   margin-bottom: 0.75rem;
   line-height: 1.7;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .article-content strong {
