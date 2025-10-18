@@ -61,46 +61,17 @@ export default async function ReviewPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
-        {/* Back Button */}
-        <div className="mb-6">
-          <Link
-            href="/drone-reviews"
-            className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Reviews
-          </Link>
-        </div>
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-6">
+          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+          <span>/</span>
+          <Link href="/drone-reviews" className="hover:text-blue-600 transition-colors">Drone Reviews</Link>
+          <span>/</span>
+          <span className="text-gray-900 font-medium">{article.title}</span>
+        </nav>
 
         {/* Article Header */}
         <header className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-4">
-              <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {article.category}
-              </span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {article.brand}
-              </span>
-            </div>
-            <div className="flex items-center">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i < Math.floor(article.rating || 0)
-                        ? 'text-yellow-400 fill-current'
-                        : 'text-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
-              <span className="ml-2 text-lg font-semibold text-gray-900 dark:text-white">
-                {article.rating}
-              </span>
-            </div>
-          </div>
 
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {article.title}
@@ -125,11 +96,35 @@ export default async function ReviewPage({ params }: Props) {
                 {article.readTime}
               </div>
             </div>
-            {article.price && (
-              <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                {article.price}
+            
+            {/* Rating and Price */}
+            <div className="flex items-center space-x-4">
+              {/* Star Rating */}
+              <div className="flex items-center">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < Math.floor(article.rating || 0)
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="ml-2 text-sm font-semibold text-gray-900 dark:text-white">
+                  {article.rating}
+                </span>
               </div>
-            )}
+              
+              {/* Price */}
+              {article.price && (
+                <div className="text-xl font-bold text-primary-600 dark:text-primary-400">
+                  {article.price}
+                </div>
+              )}
+            </div>
           </div>
         </header>
 
