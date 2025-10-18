@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ReviewsGrid from '@/components/ReviewsGrid'
 import FilterSidebar from '@/components/FilterSidebar'
+import { getAllArticles } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Drone Reviews - Expert Analysis & Ratings',
@@ -8,7 +9,27 @@ export const metadata: Metadata = {
   keywords: ['drone reviews', 'drone ratings', 'drone analysis', 'best drone', 'drone comparison'],
 }
 
-export default function DroneReviewsPage() {
+export default async function DroneReviewsPage() {
+  // Get brands dynamically from articles
+  const articles = await getAllArticles('reviews')
+  const brandCounts: { [key: string]: number } = {}
+  
+  articles.forEach(article => {
+    if (article.brand) {
+      const brandKey = article.brand.toLowerCase()
+      brandCounts[brandKey] = (brandCounts[brandKey] || 0) + 1
+    }
+  })
+
+  const brands = [
+    { name: 'All Brands', value: 'all', count: articles.length },
+    ...Object.entries(brandCounts).map(([brand, count]) => ({
+      name: brand.toUpperCase(),
+      value: brand,
+      count
+    }))
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -25,7 +46,7 @@ export default function DroneReviewsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <FilterSidebar />
+            <FilterSidebar brands={brands} />
           </div>
 
           {/* Main Content */}

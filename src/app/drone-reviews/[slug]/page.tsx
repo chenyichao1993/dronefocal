@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Star, Calendar, Clock, ArrowLeft, ExternalLink } from 'lucide-react'
 import { getArticleBySlug, getAllArticles } from '@/lib/content'
+import Sidebar from '@/components/Sidebar'
 
 interface Props {
   params: {
@@ -56,7 +57,10 @@ export default async function ReviewPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-3">
         {/* Back Button */}
         <div className="mb-6">
           <Link
@@ -220,6 +224,13 @@ export default async function ReviewPage({ params }: Props) {
                 </button>
               </div>
             </div>
+          </div>
+          </div>
+          </div>
+
+          {/* Right Sidebar */}
+          <div className="lg:col-span-1">
+            <Sidebar />
           </div>
         </div>
       </div>

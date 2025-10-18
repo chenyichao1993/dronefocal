@@ -3,25 +3,15 @@
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
-const categories = [
-  { name: 'All Categories', value: 'all', count: 156 },
-  { name: 'Professional', value: 'professional', count: 25 },
-  { name: 'Consumer', value: 'consumer', count: 45 },
-  { name: 'Beginner', value: 'beginner', count: 35 },
-  { name: 'Racing', value: 'racing', count: 18 },
-  { name: 'Toy', value: 'toy', count: 23 },
-  { name: 'Budget', value: 'budget', count: 10 }
-]
+interface Brand {
+  name: string
+  value: string
+  count: number
+}
 
-const brands = [
-  { name: 'All Brands', value: 'all', count: 156 },
-  { name: 'DJI', value: 'dji', count: 45 },
-  { name: 'Autel', value: 'autel', count: 12 },
-  { name: 'Parrot', value: 'parrot', count: 8 },
-  { name: 'Skydio', value: 'skydio', count: 6 },
-  { name: 'Holy Stone', value: 'holy-stone', count: 15 },
-  { name: 'Potensic', value: 'potensic', count: 10 }
-]
+interface FilterSidebarProps {
+  brands: Brand[]
+}
 
 const priceRanges = [
   { name: 'Under $200', value: '0-200', count: 25 },
@@ -38,16 +28,14 @@ const ratings = [
   { name: '3.0+ Stars', value: '3.0', count: 120 }
 ]
 
-export default function FilterSidebar() {
+export default function FilterSidebar({ brands }: FilterSidebarProps) {
   const [expandedSections, setExpandedSections] = useState({
-    category: true,
     brand: true,
     price: true,
     rating: true
   })
 
   const [selectedFilters, setSelectedFilters] = useState({
-    category: 'all',
     brand: 'all',
     price: 'all',
     rating: 'all'
@@ -130,14 +118,6 @@ export default function FilterSidebar() {
       </h3>
 
       <FilterSection
-        title="Category"
-        section="category"
-        options={categories}
-        selectedValue={selectedFilters.category}
-        onValueChange={(value) => handleFilterChange('category', value)}
-      />
-
-      <FilterSection
         title="Brand"
         section="brand"
         options={brands}
@@ -164,7 +144,6 @@ export default function FilterSidebar() {
       {/* Clear Filters */}
       <button
         onClick={() => setSelectedFilters({
-          category: 'all',
           brand: 'all',
           price: 'all',
           rating: 'all'
