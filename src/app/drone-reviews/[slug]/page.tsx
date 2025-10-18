@@ -29,21 +29,57 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${article.title} | DroneFocal`,
+    title: `${article.title} | DroneFocal - Expert Drone Reviews`,
     description: article.excerpt,
-    keywords: article.tags,
+    keywords: [
+      'drone review',
+      'DJI drone',
+      'professional drone',
+      'aerial photography',
+      'drone comparison',
+      article.brand?.toLowerCase(),
+      ...(article.tags || [])
+    ].filter(Boolean).join(', '),
+    authors: [{ name: article.author || 'DroneFocal Team' }],
     openGraph: {
       title: article.title,
       description: article.excerpt,
-      images: [article.image],
+      images: [
+        {
+          url: article.image,
+          width: 800,
+          height: 450,
+          alt: article.title,
+        }
+      ],
       type: 'article',
       publishedTime: article.date,
+      modifiedTime: article.date,
+      authors: [article.author || 'DroneFocal Team'],
+      section: 'Drone Reviews',
+      tags: article.tags,
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
       images: [article.image],
+      creator: '@dronefocal',
+      site: '@dronefocal',
+    },
+    alternates: {
+      canonical: `https://dronefocal.com/drone-reviews/${params.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }
@@ -55,9 +91,57 @@ export default async function ReviewPage({ params }: Props) {
     notFound()
   }
 
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "Product",
+      "name": article.title,
+      "brand": {
+        "@type": "Brand",
+        "name": article.brand || "DJI"
+      },
+      "image": article.image,
+      "offers": article.price ? {
+        "@type": "Offer",
+        "price": article.price.replace(/[^0-9.]/g, ''),
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      } : undefined
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": article.rating,
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": article.author || "DroneFocal Team"
+    },
+    "datePublished": article.date,
+    "headline": article.title,
+    "description": article.excerpt,
+    "publisher": {
+      "@type": "Organization",
+      "name": "DroneFocal",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dronefocal.com/logo.png"
+      }
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
+      <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
@@ -72,7 +156,6 @@ export default async function ReviewPage({ params }: Props) {
 
         {/* Article Header */}
         <header className="mb-8">
-
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {article.title}
           </h1>
@@ -85,11 +168,13 @@ export default async function ReviewPage({ params }: Props) {
             <div className="flex items-center space-x-6">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1" />
-                {new Date(article.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
+                <time dateTime={article.date}>
+                  {new Date(article.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-1" />
@@ -177,9 +262,12 @@ export default async function ReviewPage({ params }: Props) {
           </div>
         )}
 
-        {/* Article Content */}
-        <article className="prose prose-lg max-w-none dark:prose-invert">
-          <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
+        {/* Article Content with Enhanced Typography */}
+        <article className="prose prose-xl max-w-none dark:prose-invert">
+          <div 
+            className="article-content"
+            dangerouslySetInnerHTML={{ __html: article.contentHtml }} 
+          />
         </article>
 
         {/* Tags */}
@@ -229,6 +317,7 @@ export default async function ReviewPage({ params }: Props) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
