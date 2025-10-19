@@ -14,8 +14,6 @@ budget: "$1500-6000"
 views: "8,200"
 ---
 
-# Professional Photography Drone Buying Guide
-
 For professional photographers and cinematographers, choosing the right drone is crucial for delivering high-quality aerial content to clients. This guide covers everything you need to know about professional-grade drones.
 
 ## Professional Drone Requirements

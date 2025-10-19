@@ -14,8 +14,6 @@ budget: "$200-800"
 views: "12,500"
 ---
 
-# Complete Beginner's Guide to Buying Your First Drone
-
 Buying your first drone can be overwhelming with so many options available. This comprehensive guide will help you make an informed decision and avoid common beginner mistakes.
 
 ## Understanding Drone Basics
