@@ -1,9 +1,6 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArticleMeta } from '@/lib/content'
-import { useMemo } from 'react'
 
 interface RelatedArticlesProps {
   articles: ArticleMeta[]
@@ -11,8 +8,8 @@ interface RelatedArticlesProps {
 }
 
 export default function RelatedArticles({ articles, currentArticle }: RelatedArticlesProps) {
-  // 获取相关文章的逻辑
-  const relatedArticles = useMemo(() => {
+  // 获取相关文章的逻辑 - 服务器端计算
+  const getRelatedArticles = () => {
     if (!articles || articles.length === 0) return []
     
     return articles
@@ -40,7 +37,9 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
         return new Date(b.date).getTime() - new Date(a.date).getTime()
       })
       .slice(0, 3) // 显示3篇推荐文章
-  }, [articles, currentArticle])
+  }
+
+  const relatedArticles = getRelatedArticles()
 
   if (relatedArticles.length === 0) return null
 
