@@ -14,6 +14,7 @@ interface ReviewsGridProps {
 
 export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActiveFilters = false }: ReviewsGridProps) {
   const [currentSort, setCurrentSort] = useState(sortBy)
+  const [displayedCount, setDisplayedCount] = useState(6) // Show 6 reviews initially
 
   // Sort articles based on current sort option
   const sortedReviews = useMemo(() => {
@@ -49,6 +50,19 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
     }
   }, [reviews, currentSort])
 
+  // Get articles to display based on current count
+  const displayedReviews = useMemo(() => {
+    return sortedReviews.slice(0, displayedCount)
+  }, [sortedReviews, displayedCount])
+
+  // Check if there are more articles to load
+  const hasMoreReviews = displayedCount < sortedReviews.length
+
+  // Load more function
+  const handleLoadMore = () => {
+    setDisplayedCount(prev => prev + 6) // Load 6 more articles
+  }
+
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentSort(e.target.value)
   }
@@ -77,7 +91,7 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
       </div>
 
       {/* Reviews Grid */}
-      {sortedReviews.length === 0 ? (
+      {displayedReviews.length === 0 ? (
         <div className="text-center py-16">
           <div className="max-w-md mx-auto">
             <div className="mb-6">
@@ -138,7 +152,7 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sortedReviews.map((review) => (
+          {displayedReviews.map((review) => (
             <article key={review.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
               <Link 
                 href={`/drone-reviews/${review.slug}`}
@@ -258,10 +272,13 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
         </div>
       )}
 
-      {/* Load More Button - Only show when there are reviews */}
-      {reviews.length > 0 && (
+      {/* Load More Button - Only show when there are more reviews to load */}
+      {hasMoreReviews && (
         <div className="text-center mt-8">
-          <button className="btn-primary px-8 py-3">
+          <button 
+            onClick={handleLoadMore}
+            className="btn-primary px-8 py-3 hover:bg-primary-700 transition-colors"
+          >
             Load More Reviews
           </button>
         </div>
