@@ -62,9 +62,9 @@ export default function Header() {
             <a href="/" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Home</a>
             <a href="/drone-reviews" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Drone Reviews</a>
             <a href="/buying-guides" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Buying Guides</a>
-            <a href="/tutorials" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Tutorials</a>
+            {/* <a href="/tutorials" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Tutorials</a> */}
             <a href="/news" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">News</a>
-            <a href="/compare" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Compare</a>
+            {/* <a href="/compare" className="text-gray-800 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">Compare</a> */}
           </div>
           
           {/* Mobile Menu Button */}
@@ -106,9 +106,9 @@ export default function Header() {
             <a href="/" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Home</a>
             <a href="/drone-reviews" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Drone Reviews</a>
             <a href="/buying-guides" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Buying Guides</a>
-            <a href="/tutorials" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Tutorials</a>
+            {/* <a href="/tutorials" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Tutorials</a> */}
             <a href="/news" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>News</a>
-            <a href="/compare" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Compare</a>
+            {/* <a href="/compare" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors" onClick={closeMobileMenu}>Compare</a> */}
             
             {/* Mobile Icons */}
             <div className="flex items-center space-x-4 px-3 py-2 border-t border-gray-200 mt-2 pt-3">
