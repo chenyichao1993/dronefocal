@@ -1,136 +1,129 @@
-# DroneFocal - Expert Drone Reviews & Buying Guides
+# DroneFocal
 
-A modern Next.js website for drone reviews, buying guides, and industry insights.
+A comprehensive drone review and information website built with Next.js 14, TypeScript, and Tailwind CSS.
 
-## 🚀 Features
+## Features
 
-- **SEO Optimized**: Clean URLs without .html suffixes
-- **Global Analytics**: Google Analytics, Microsoft Clarity, and Baidu Analytics integrated
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Modern Stack**: Next.js 14, TypeScript, and Tailwind CSS
-- **Image Optimization**: Automatic image optimization with Next.js Image component
-- **Legal Pages**: Complete privacy policy, terms of service, cookie policy, and disclaimer
+- 🚁 **Drone Reviews**: Detailed reviews of popular drone models
+- 📚 **Buying Guides**: Comprehensive guides for drone purchasing decisions
+- 📰 **News**: Latest drone industry news and updates
+- 🔍 **Advanced Filtering**: Filter reviews by brand, price range, and rating
+- 📱 **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- ⚡ **Performance**: Server-side rendering with Next.js 14
+- 🎨 **Modern UI**: Clean, modern interface with Tailwind CSS
+- 🔗 **Related Articles**: Smart article recommendations
+- 📊 **SEO Optimized**: Built-in SEO features and structured data
 
-## 📁 Project Structure
+## Tech Stack
 
-```
-dronefocal/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Global layout with analytics
-│   │   ├── page.tsx            # Homepage
-│   │   ├── privacy-policy/     # Privacy policy page
-│   │   ├── terms-of-service/   # Terms of service page
-│   │   ├── cookie-policy/      # Cookie policy page
-│   │   └── disclaimer/         # Disclaimer page
-│   └── components/
-│       ├── Header.tsx          # Navigation header
-│       └── Footer.tsx          # Site footer
-├── public/
-│   └── images/                 # Static images
-├── scripts/
-│   └── image-optimizer.js      # Image optimization script
-└── package.json
-```
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Content**: Markdown (MDX) with frontmatter
+- **Images**: Next.js Image optimization with WebP/AVIF
+- **Icons**: Lucide React
+- **Deployment**: Vercel-ready
 
-## 🛠️ Development
+## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ 
 - npm or yarn
 
 ### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/chenyichao1993/dronefocal.git
+cd dronefocal
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### Development Server
+3. Run the development server:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-### Build for Production
-```bash
-npm run build
-npm start
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+dronefocal/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   │   ├── drone-reviews/   # Drone reviews pages
+│   │   ├── guides/          # Buying guides pages
+│   │   ├── news/            # News pages
+│   │   └── tutorials/       # Tutorial pages
+│   ├── components/          # React components
+│   ├── lib/                 # Utility functions
+│   └── content/             # Markdown content files
+├── public/
+│   └── images/              # Optimized images
+├── scripts/                 # Build and optimization scripts
+└── package.json
 ```
 
-## 📊 Analytics Integration
+## Content Management
 
-The website includes three analytics platforms:
+Articles are written in Markdown with frontmatter metadata:
 
-1. **Google Analytics** (G-HMJXB0MYLE)
-2. **Microsoft Clarity** (sz5i3hrbah)
-3. **Baidu Analytics** (34a1971468567956f4e88f020387dafd)
+```markdown
+---
+title: "Article Title"
+excerpt: "Article excerpt"
+image: "/images/article-image.webp"
+date: "2024-01-01"
+readTime: "5 min read"
+rating: 4.5
+price: "$999"
+brand: "DJI"
+category: "reviews"
+tags: ["drone", "review", "DJI"]
+---
 
-All analytics are automatically included on every page through the global layout.
+Article content here...
+```
 
-## 🔗 URL Structure
+## Image Optimization
 
-- Homepage: `/`
-- Privacy Policy: `/privacy-policy`
-- Terms of Service: `/terms-of-service`
-- Cookie Policy: `/cookie-policy`
-- Disclaimer: `/disclaimer`
+The project includes an automated image optimization script:
 
-## 🎨 Styling
+```bash
+npm run optimize-images
+```
 
-- **Framework**: Tailwind CSS
-- **Font**: Inter (Google Fonts)
-- **Design**: Clean, modern, professional
-- **Responsive**: Mobile-first approach
+This script:
+- Converts images to WebP/AVIF formats
+- Generates responsive image sizes
+- Creates thumbnails
+- Deletes original files after optimization
 
-## 📱 Features
+## Deployment
 
-- Fixed navigation header
-- Mobile hamburger menu
-- Email subscription with validation
-- Success modal for subscriptions
-- Popular articles sidebar
-- SEO-optimized meta tags
-- Automatic year updates in footer
+The project is ready for deployment on Vercel:
 
-## 🚀 Deployment
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Deploy automatically on push to main branch
-3. Free tier includes unlimited personal projects
+## Contributing
 
-### Other Platforms
-- Netlify
-- Railway
-- Render
-- Any Node.js hosting platform
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-## 📈 SEO Features
+## License
 
-- Clean URLs without file extensions
-- Meta tags and Open Graph
-- Structured data ready
-- Fast loading with Next.js optimization
-- Mobile-friendly design
-- Image optimization
+This project is licensed under the MIT License.
 
-## 🔧 Customization
+## Contact
 
-### Adding New Pages
-1. Create a new folder in `src/app/`
-2. Add a `page.tsx` file
-3. The page will automatically include analytics and layout
-
-### Modifying Analytics
-Edit the tracking codes in `src/app/layout.tsx`
-
-### Styling Changes
-Modify `src/app/globals.css` or component-specific styles
-
-## 📞 Contact
-
-- Email: motionjoy93@gmail.com
-- Website: DroneFocal.com
-
-## 📄 License
-
-MIT License - see LICENSE file for details
+For questions or suggestions, please open an issue on GitHub.
