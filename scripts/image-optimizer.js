@@ -211,6 +211,14 @@ class ImageOptimizer {
         const htmlPath = path.join(this.optimizedDir, `${baseName}-html.txt`);
         await fs.writeFile(htmlPath, htmlCode);
         
+        // 删除原始图片文件
+        try {
+            await fs.remove(imagePath);
+            console.log(`🗑️  Deleted original image: ${originalName}`);
+        } catch (error) {
+            console.warn(`⚠️  Warning: Could not delete original image ${originalName}:`, error.message);
+        }
+        
         return {
             baseName,
             originalInfo,

@@ -28,21 +28,6 @@ author: "DroneFocal Team"
 featured: true
 ---
 
-# DJI Mavic 3 Review: Professional Drone with Hasselblad Camera - Complete Analysis
-
-<picture>
-    <source srcset="/images/optimized/avif/dji-mavic-3-review.avif 982w" type="image/avif">
-    <source srcset="/images/optimized/responsive/dji-mavic-3-review-320w.webp 320w, /images/optimized/responsive/dji-mavic-3-review-640w.webp 640w, /images/optimized/responsive/dji-mavic-3-review-1024w.webp 982w, /images/optimized/responsive/dji-mavic-3-review-1920w.webp 982w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
-    <img 
-        src="/images/optimized/webp/dji-mavic-3-review.webp" 
-        alt="DJI Mavic 3 Professional Drone with Hasselblad Camera"
-        width="982" 
-        height="737"
-        loading="eager"
-        class="w-full h-auto rounded-lg shadow-md mb-8"
-    >
-</picture>
-
 The DJI Mavic 3 represents a significant leap forward in consumer drone technology, combining professional-grade camera capabilities with advanced flight features. This comprehensive review examines every aspect of this flagship drone, from its innovative dual-camera system to its impressive 46-minute flight time.
 
 ## Design and Build Quality
