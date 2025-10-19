@@ -135,7 +135,7 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredGuides.map((guide) => (
                   <article key={guide.slug} className="group bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300">
-                    <Link href={`/guides/${guide.slug}`} className="block">
+                    <Link href={`/guides/${guide.slug}`} className="block" target="_blank" rel="noopener noreferrer">
                       <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
                         <Image
                           src={guide.image}
