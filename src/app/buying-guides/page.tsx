@@ -96,8 +96,6 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                 </div>
               </div>
 
-
-
               {/* Clear Filters */}
               {searchParams.category && (
                 <Link
@@ -112,19 +110,6 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
 
           {/* Guides Grid */}
           <div className="lg:col-span-3">
-            {/* Results Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {filteredGuides.length} Guide{filteredGuides.length !== 1 ? 's' : ''} Found
-                </h2>
-                {searchParams.category && (
-                  <p className="text-gray-600 dark:text-gray-400 mt-1">
-                    Filtered by: Category: {searchParams.category}
-                  </p>
-                )}
-              </div>
-        </div>
 
             {/* Guides Grid */}
             {filteredGuides.length === 0 ? (
