@@ -90,11 +90,11 @@ export default function Header() {
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
-            {/* User Icon */}
-            <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+            {/* User Icon - Hidden */}
+            {/* <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <circle cx="12" cy="8" r="4"></circle>
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            </svg>
+            </svg> */}
           </div>
         </div>
       </nav>
@@ -117,11 +117,11 @@ export default function Header() {
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
-              {/* User Icon */}
-              <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+              {/* User Icon - Hidden */}
+              {/* <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <circle cx="12" cy="8" r="4"></circle>
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              </svg>
+              </svg> */}
             </div>
           </div>
         </div>
