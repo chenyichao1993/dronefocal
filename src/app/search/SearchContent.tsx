@@ -167,7 +167,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for drone reviews, guides, tutorials..."
+              placeholder="Search for drone reviews, guides, and news..."
               className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
             />
             <button
