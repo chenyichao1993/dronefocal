@@ -50,8 +50,8 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Comprehensive guides to help you find the perfect drone for your needs, whether you're a beginner or professional photographer.
-            </p>
-          </div>
+          </p>
+        </div>
         </div>
       </div>
 

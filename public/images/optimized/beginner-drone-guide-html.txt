@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: beginner-drone-guide -->
+<picture>
+    <source srcset="beginner-drone-guide.avif 2000w" type="image/avif">
+    <source srcset="beginner-drone-guide-320w.webp 320w, beginner-drone-guide-640w.webp 640w, beginner-drone-guide-1024w.webp 1024w, beginner-drone-guide-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="beginner-drone-guide.webp" 
+        alt="Beginner Drone Guide"
+        width="2000" 
+        height="1333"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

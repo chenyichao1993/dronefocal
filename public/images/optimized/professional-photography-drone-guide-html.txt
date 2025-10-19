@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: professional-photography-drone-guide -->
+<picture>
+    <source srcset="professional-photography-drone-guide.avif 1280w" type="image/avif">
+    <source srcset="professional-photography-drone-guide-320w.webp 320w, professional-photography-drone-guide-640w.webp 640w, professional-photography-drone-guide-1024w.webp 1024w, professional-photography-drone-guide-1920w.webp 1280w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="professional-photography-drone-guide.webp" 
+        alt="Professional Photography Drone Guide"
+        width="1280" 
+        height="851"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
