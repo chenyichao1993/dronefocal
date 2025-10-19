@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Sidebar() {
   const [email, setEmail] = useState('')
@@ -13,21 +14,23 @@ export default function Sidebar() {
     setIsClient(true)
   }, [])
 
-  // Real articles data
+  // Real articles data - limited to 5 articles max
   const popularArticles = [
     {
       title: "DJI Mavic 3 Review: Professional Drone with Hasselblad Camera",
       slug: "dji-mavic-3-review",
       category: "reviews",
-      views: "15,200"
+      views: "15,200",
+      image: "/images/optimized/webp/dji-mavic-3-review.webp"
     },
     {
       title: "DJI Mavic Air 2 Review: Professional 4K Drone with 48MP Camera",
       slug: "dji-mavic-air-2-review", 
       category: "reviews",
-      views: "12,800"
+      views: "12,800",
+      image: "/images/optimized/webp/dji-mavic-air-2-review.webp"
     }
-  ]
+  ].slice(0, 5) // Ensure max 5 articles
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -60,21 +63,42 @@ export default function Sidebar() {
           <div className="space-y-4">
             {popularArticles.map((article, index) => (
               <div key={article.slug} className={`${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
-                <Link 
-                  href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
-                  className="block hover:text-blue-600 transition-colors"
-                >
-                  <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors">
-                    {article.title}
-                  </h4>
-                </Link>
-                <p className="text-xs text-gray-500 flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                  </svg>
-                  {article.views} views
-                </p>
+                <div className="flex items-start space-x-3">
+                  {/* Article Thumbnail */}
+                  <div className="flex-shrink-0">
+                    <Link 
+                      href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
+                      className="block"
+                    >
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        width={40}
+                        height={40}
+                        className="sidebar-article-thumbnail w-10 h-10 rounded-lg object-cover"
+                      />
+                    </Link>
+                  </div>
+                  
+                  {/* Article Content */}
+                  <div className="flex-1 min-w-0">
+                    <Link 
+                      href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
+                      className="block hover:text-blue-600 transition-colors"
+                    >
+                      <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors line-clamp-2">
+                        {article.title}
+                      </h4>
+                    </Link>
+                    <p className="text-xs text-gray-500 flex items-center">
+                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                      {article.views} views
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
