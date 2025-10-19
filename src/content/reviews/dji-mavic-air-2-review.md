@@ -1,16 +1,31 @@
 ---
 title: "DJI Mavic Air 2 Review: Professional 4K Drone with 48MP Camera - Complete Analysis"
 excerpt: "Comprehensive review of the DJI Mavic Air 2 drone featuring 48MP camera, 4K video recording, and 34-minute flight time. Discover if this portable powerhouse is worth your investment."
-image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+image: "/images/optimized/webp/dji-mavic-air-2-review.webp"
 date: "2024-12-19"
 readTime: "6 min read"
 rating: 4.5
 price: "$799"
 brand: "DJI"
 category: "reviews"
+pros:
+  - "Outstanding 48MP camera with 1/2-inch CMOS sensor"
+  - "Smooth 4K video recording at up to 60fps"
+  - "Excellent 34-minute flight time"
+  - "Compact and portable design (570g)"
+  - "Advanced obstacle avoidance system"
+  - "Intelligent flight modes and subject tracking"
+  - "Great value for money"
+cons:
+  - "No 10-bit video recording"
+  - "Limited wind resistance compared to larger drones"
+  - "Battery life decreases in cold weather"
+  - "No zoom capability"
+  - "Requires smartphone for full functionality"
 tags: ["drone", "camera", "4K", "photography", "DJI", "Mavic Air 2"]
 slug: "dji-mavic-air-2-review"
 author: "DroneFocal Team"
+featured: true
 ---
 
 The DJI Mavic Air 2 represents a perfect balance between portability and professional-grade performance in the consumer drone market. This comprehensive review examines every aspect of this remarkable flying camera, from its impressive 48MP imaging capabilities to its extended 34-minute flight time. Whether you're a photography enthusiast or a content creator seeking reliable aerial footage, the Mavic Air 2 delivers exceptional value in a compact package.

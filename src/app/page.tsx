@@ -28,7 +28,7 @@ export default async function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {featuredArticles.map((article) => (
                 <article key={article.slug} className="card group hover:shadow-lg transition-shadow duration-300">
-                  <Link href={`/${article.category}/${article.slug}`} className="block">
+                  <Link href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`} className="block">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <Image
                         src={article.image}

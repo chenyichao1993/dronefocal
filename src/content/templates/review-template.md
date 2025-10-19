@@ -1,95 +1,110 @@
 ---
-title: "Your Review Title Here"
-slug: "your-review-slug-here"
-excerpt: "Brief description of the drone and your review summary."
-image: "https://images.unsplash.com/photo-xxxxx"
+title: "[产品名称] Review: [产品描述] - Complete Analysis"
+slug: "[产品名称]-review"
+excerpt: "Comprehensive review of [产品名称] featuring [主要特点]. Discover if this [产品类型] is worth your investment."
+image: "/images/optimized/webp/[产品名称]-review.webp"
 rating: 4.5
-price: "$999"
-category: "Professional" # or "Beginner", "Consumer"
-brand: "DJI" # or "Autel", "Parrot", "Skydio", etc.
-date: "2024-01-15" # YYYY-MM-DD format
-readTime: "10 min read"
+price: "$[价格]"
+category: "reviews"
+brand: "[品牌名称]"
+date: "[发布日期]"
+readTime: "[阅读时间] min read"
 pros:
-  - "First advantage"
-  - "Second advantage"
-  - "Third advantage"
+  - "[优点1]"
+  - "[优点2]"
+  - "[优点3]"
+  - "[优点4]"
+  - "[优点5]"
+  - "[优点6]"
+  - "[优点7]"
 cons:
-  - "First disadvantage"
-  - "Second disadvantage"
-  - "Third disadvantage"
-tags: ["tag1", "tag2", "tag3"]
+  - "[缺点1]"
+  - "[缺点2]"
+  - "[缺点3]"
+  - "[缺点4]"
+  - "[缺点5]"
+tags: ["[标签1]", "[标签2]", "[标签3]", "[标签4]", "[标签5]"]
 author: "DroneFocal Team"
-featured: false # Set to true for featured reviews
+featured: true
 ---
-
-# Your Review Title Here
-
-Write your comprehensive review here. Use proper markdown formatting.
 
 ## Introduction
 
-Start with an engaging introduction that hooks the reader.
+[产品名称] represents a significant advancement in [产品类别] technology, combining [主要特点] with [其他特点]. This comprehensive review will examine every aspect of this [产品类型] to help you determine if it's the right choice for your needs.
+
+## Key Features
+
+### [主要功能1]
+[详细描述主要功能1]
+
+### [主要功能2]
+[详细描述主要功能2]
+
+### [主要功能3]
+[详细描述主要功能3]
+
+## Performance Analysis
+
+### [性能指标1]
+[性能分析1]
+
+### [性能指标2]
+[性能分析2]
+
+### [性能指标3]
+[性能分析3]
 
 ## Design and Build Quality
 
-Describe the physical design, build quality, and materials.
+[设计描述]
 
-## Camera System
+## Camera and Video Capabilities
 
-Detail the camera specifications and performance.
+[相机和视频功能描述]
 
 ## Flight Performance
 
-Discuss flight characteristics, modes, and capabilities.
-
-## Image and Video Quality
-
-Analyze photo and video quality with examples.
+[飞行性能描述]
 
 ## Battery Life and Charging
 
-Cover battery performance and charging options.
+[电池续航和充电描述]
 
-## Remote Controller
+## User Experience
 
-Describe the controller features and usability.
-
-## Software and Features
-
-Detail the app and software features.
-
-## Pros and Cons
-
-### Pros
-- List the main advantages
-
-### Cons
-- List the main disadvantages
-
-## Who Should Buy This Drone?
-
-Identify the target audience.
+[用户体验描述]
 
 ## Comparison with Competitors
 
-Compare with similar drones in the market.
+### vs [竞品1]
+[对比分析1]
+
+### vs [竞品2]
+[对比分析2]
+
+## Price and Value
+
+[价格和价值分析]
+
+## Who Should Buy This?
+
+[目标用户群体]
 
 ## Final Verdict
 
-Provide your overall rating and recommendation.
+[最终评价和推荐]
 
-### Rating Breakdown
-- **Camera Quality**: X/5
-- **Flight Performance**: X/5
-- **Battery Life**: X/5
-- **Ease of Use**: X/5
-- **Value for Money**: X/5
-- **Overall**: X/5
+## Technical Specifications
 
-## Where to Buy
-
-List available retailers and prices.
+- **Weight**: [重量]
+- **Dimensions**: [尺寸]
+- **Camera**: [相机规格]
+- **Video Resolution**: [视频分辨率]
+- **Flight Time**: [飞行时间]
+- **Range**: [飞行距离]
+- **Battery**: [电池规格]
+- **Price**: [价格]
 
 ## Conclusion
 
-Summarize your review and provide final thoughts.
+[总结]
