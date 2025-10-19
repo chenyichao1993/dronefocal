@@ -358,7 +358,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: all 0.3s ease;
-  cursor: help;
 }
 
 .article-excerpt-hover {
@@ -367,7 +366,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: all 0.3s ease;
-  cursor: help;
 }
 
 .article-card:hover .article-title-hover,
