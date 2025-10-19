@@ -86,10 +86,12 @@ export default function Header() {
           {/* Right Icons */}
           <div className="hidden md:flex items-center space-x-6">
             {/* Search Icon */}
-            <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
+            <a href="/search" className="text-gray-600 hover:text-blue-600 transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </a>
             {/* User Icon - Hidden */}
             {/* <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <circle cx="12" cy="8" r="4"></circle>
@@ -113,10 +115,12 @@ export default function Header() {
             {/* Mobile Icons */}
             <div className="flex items-center space-x-4 px-3 py-2 border-t border-gray-200 mt-2 pt-3">
               {/* Search Icon */}
-              <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
+              <a href="/search" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </a>
               {/* User Icon - Hidden */}
               {/* <svg className="w-6 h-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <circle cx="12" cy="8" r="4"></circle>
