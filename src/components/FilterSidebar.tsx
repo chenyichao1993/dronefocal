@@ -38,7 +38,7 @@ export default function FilterSidebar({ brands, priceRanges, ratings, currentFil
   })
 
   const selectedFilters = {
-    brand: currentFilters.brand || 'all',
+    brand: currentFilters.brand?.toLowerCase() || 'all',
     price: currentFilters.price || 'all',
     rating: currentFilters.rating || 'all'
   }
