@@ -12,8 +12,6 @@ export const metadata: Metadata = {
 
 interface SearchParams {
   category?: string
-  budget?: string
-  difficulty?: string
 }
 
 interface Props {
@@ -29,22 +27,6 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
     if (searchParams.category && guide.tags && !guide.tags.includes(searchParams.category)) {
       return false
     }
-    if (searchParams.budget && guide.budget) {
-      const guideBudget = guide.budget.toLowerCase()
-      const searchBudget = searchParams.budget.toLowerCase()
-      if (searchBudget === 'under-500' && !guideBudget.includes('under') && !guideBudget.includes('200-400')) {
-        return false
-      }
-      if (searchBudget === '500-1500' && !guideBudget.includes('500') && !guideBudget.includes('800')) {
-        return false
-      }
-      if (searchBudget === 'over-1500' && !guideBudget.includes('1500') && !guideBudget.includes('2000')) {
-        return false
-      }
-    }
-    if (searchParams.difficulty && guide.difficulty !== searchParams.difficulty) {
-      return false
-    }
     return true
   })
 
@@ -55,17 +37,7 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
     { id: 'racing', name: 'Racing', count: guides.filter(g => g.tags?.includes('racing')).length },
   ]
 
-  const budgets = [
-    { id: 'under-500', name: 'Under $500', count: guides.filter(g => g.budget?.includes('200-400') || g.budget?.includes('under')).length },
-    { id: '500-1500', name: '$500 - $1500', count: guides.filter(g => g.budget?.includes('500') || g.budget?.includes('800')).length },
-    { id: 'over-1500', name: 'Over $1500', count: guides.filter(g => g.budget?.includes('1500') || g.budget?.includes('2000')).length },
-  ]
 
-  const difficulties = [
-    { id: 'beginner', name: 'Beginner', count: guides.filter(g => g.difficulty === 'beginner').length },
-    { id: 'intermediate', name: 'Intermediate', count: guides.filter(g => g.difficulty === 'intermediate').length },
-    { id: 'professional', name: 'Professional', count: guides.filter(g => g.difficulty === 'professional').length },
-  ]
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -113,54 +85,10 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                 </div>
               </div>
 
-              {/* Budget Filter */}
-              <div className="mb-6">
-                <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Budget</h4>
-                <div className="space-y-2">
-                  {budgets.map((budget) => (
-                    <Link
-                      key={budget.id}
-                      href={`/buying-guides?budget=${budget.id}`}
-                      className={`flex items-center justify-between px-3 py-2 rounded-md text-sm transition-colors ${
-                        searchParams.budget === budget.id
-                          ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <span>{budget.name}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {budget.count}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
 
-              {/* Difficulty Filter */}
-              <div className="mb-6">
-                <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Difficulty</h4>
-                <div className="space-y-2">
-                  {difficulties.map((difficulty) => (
-                    <Link
-                      key={difficulty.id}
-                      href={`/buying-guides?difficulty=${difficulty.id}`}
-                      className={`flex items-center justify-between px-3 py-2 rounded-md text-sm transition-colors ${
-                        searchParams.difficulty === difficulty.id
-                          ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <span>{difficulty.name}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {difficulty.count}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
 
               {/* Clear Filters */}
-              {(searchParams.category || searchParams.budget || searchParams.difficulty) && (
+              {searchParams.category && (
                 <Link
                   href="/buying-guides"
                   className="w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-center block"
@@ -179,13 +107,9 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   {filteredGuides.length} Guide{filteredGuides.length !== 1 ? 's' : ''} Found
                 </h2>
-                {(searchParams.category || searchParams.budget || searchParams.difficulty) && (
+                {searchParams.category && (
                   <p className="text-gray-600 dark:text-gray-400 mt-1">
-                    Filtered by: {[
-                      searchParams.category && `Category: ${searchParams.category}`,
-                      searchParams.budget && `Budget: ${searchParams.budget}`,
-                      searchParams.difficulty && `Difficulty: ${searchParams.difficulty}`
-                    ].filter(Boolean).join(', ')}
+                    Filtered by: Category: {searchParams.category}
                   </p>
                 )}
               </div>
