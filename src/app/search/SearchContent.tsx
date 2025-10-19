@@ -57,7 +57,13 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
   // Get search results
   const searchResults = useMemo(() => {
-    if (!searchQuery.trim()) return []
+    if (!searchQuery.trim()) {
+      // If no search query, show articles based on selected category
+      const filteredArticles = selectedCategory === 'all' 
+        ? articles 
+        : articles.filter(article => article.category === selectedCategory)
+      return sortArticles(filteredArticles, sortBy)
+    }
     
     const results = searchArticles(searchQuery, articles, selectedCategory)
     return sortArticles(results, sortBy)
@@ -81,8 +87,29 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
   // Handle search
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
+    updateURL()
+  }
+
+  // Handle category change
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+    updateURL()
+  }
+
+  // Handle sort change
+  const handleSortChange = (sort: string) => {
+    setSortBy(sort)
+    updateURL()
+  }
+
+  // Update URL with current parameters
+  const updateURL = () => {
     const url = new URL(window.location.href)
-    url.searchParams.set('q', searchQuery)
+    if (searchQuery.trim()) {
+      url.searchParams.set('q', searchQuery)
+    } else {
+      url.searchParams.delete('q')
+    }
     url.searchParams.set('category', selectedCategory)
     url.searchParams.set('sort', sortBy)
     window.history.pushState({}, '', url.toString())
@@ -169,7 +196,6 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                 { value: 'all', label: 'All', count: articles.length },
                 { value: 'reviews', label: 'Reviews', count: articles.filter(a => a.category === 'reviews').length },
                 { value: 'guides', label: 'Guides', count: articles.filter(a => a.category === 'guides').length },
-                { value: 'tutorials', label: 'Tutorials', count: articles.filter(a => a.category === 'tutorials').length },
                 { value: 'news', label: 'News', count: articles.filter(a => a.category === 'news').length },
               ].map((category) => (
                 <label key={category.value} className="flex items-center cursor-pointer">
@@ -178,7 +204,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                     name="category"
                     value={category.value}
                     checked={selectedCategory === category.value}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    onChange={(e) => handleCategoryChange(e.target.value)}
                     className="mr-3"
                   />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
@@ -194,7 +220,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
             <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Sort by</h4>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={(e) => handleSortChange(e.target.value)}
               className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             >
               <option value="relevance">Relevance</option>
@@ -208,7 +234,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
       {/* Search Results */}
       <div className="lg:col-span-3">
-        {!searchQuery.trim() ? (
+        {!searchQuery.trim() && searchResults.length === 0 ? (
           <div className="text-center py-12">
             <Search className="mx-auto h-12 w-12 text-gray-400 mb-4" />
             <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
