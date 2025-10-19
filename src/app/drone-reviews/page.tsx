@@ -38,7 +38,11 @@ export default async function DroneReviewsPage({
       name: brand.toUpperCase(),
       value: brand,
       count
-    }))
+    })),
+    // Add additional brands from footer
+    { name: 'Autel', value: 'autel', count: 0 },
+    { name: 'Parrot', value: 'parrot', count: 0 },
+    { name: 'Skydio', value: 'skydio', count: 0 }
   ]
 
   // Calculate price range counts
