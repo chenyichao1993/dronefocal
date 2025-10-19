@@ -4,12 +4,12 @@ const path = require('path');
 
 class ImageOptimizer {
     constructor() {
-        this.originalDir = path.join(__dirname, '../images/original');
-        this.optimizedDir = path.join(__dirname, '../images/optimized');
+        this.originalDir = path.join(__dirname, '../public/images/original');
+        this.optimizedDir = path.join(__dirname, '../public/images/optimized');
         this.webpDir = path.join(this.optimizedDir, 'webp');
         this.avifDir = path.join(this.optimizedDir, 'avif');
         this.responsiveDir = path.join(this.optimizedDir, 'responsive');
-        this.thumbnailsDir = path.join(__dirname, '../images/thumbnails');
+        this.thumbnailsDir = path.join(__dirname, '../public/images/thumbnails');
         
         // 响应式图片尺寸
         this.responsiveSizes = [320, 640, 1024, 1920];

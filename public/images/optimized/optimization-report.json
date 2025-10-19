@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-10-19T02:40:07.980Z",
+  "totalImages": 1,
+  "images": [
+    {
+      "name": "dji-mavic-3-review",
+      "originalFormat": "png",
+      "originalDimensions": "982x737",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    }
+  ]
+}
