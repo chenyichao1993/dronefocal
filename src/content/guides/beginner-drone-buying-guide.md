@@ -11,6 +11,7 @@ author: "DroneFocal Team"
 featured: true
 difficulty: "beginner"
 budget: "$200-800"
+views: "12,500"
 ---
 
 # Complete Beginner's Guide to Buying Your First Drone
