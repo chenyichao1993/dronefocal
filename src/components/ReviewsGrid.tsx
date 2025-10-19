@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Star, ExternalLink, Calendar, Clock } from 'lucide-react'
 import { ArticleMeta } from '@/lib/content'
+import { useState, useMemo } from 'react'
 
 interface ReviewsGridProps {
   reviews: ArticleMeta[]
@@ -12,6 +13,45 @@ interface ReviewsGridProps {
 }
 
 export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActiveFilters = false }: ReviewsGridProps) {
+  const [currentSort, setCurrentSort] = useState(sortBy)
+
+  // Sort articles based on current sort option
+  const sortedReviews = useMemo(() => {
+    const sorted = [...reviews]
+    
+    switch (currentSort) {
+      case 'newest':
+        return sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      
+      case 'rating':
+        return sorted.sort((a, b) => {
+          const ratingA = parseFloat(a.rating?.toString() || '0')
+          const ratingB = parseFloat(b.rating?.toString() || '0')
+          return ratingB - ratingA
+        })
+      
+      case 'price-low':
+        return sorted.sort((a, b) => {
+          const priceA = parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0')
+          const priceB = parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0')
+          return priceA - priceB
+        })
+      
+      case 'price-high':
+        return sorted.sort((a, b) => {
+          const priceA = parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0')
+          const priceB = parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0')
+          return priceB - priceA
+        })
+      
+      default:
+        return sorted
+    }
+  }, [reviews, currentSort])
+
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentSort(e.target.value)
+  }
   return (
     <div>
       {/* Sort Options */}
@@ -21,8 +61,9 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
             Sort by:
           </span>
           <select
-            defaultValue={sortBy}
-            className="border border-gray-300 dark:border-dark-600 rounded-lg px-3 py-2 bg-white dark:bg-dark-800 text-gray-900 dark:text-white"
+            value={currentSort}
+            onChange={handleSortChange}
+            className="border border-gray-300 dark:border-dark-600 rounded-lg px-3 py-2 bg-white dark:bg-dark-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="newest">Newest First</option>
             <option value="rating">Highest Rated</option>
@@ -31,12 +72,12 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
           </select>
         </div>
         <div className="text-sm text-gray-600 dark:text-gray-400">
-          {reviews.length} reviews found
+          {sortedReviews.length} reviews found
         </div>
       </div>
 
       {/* Reviews Grid */}
-      {reviews.length === 0 ? (
+      {sortedReviews.length === 0 ? (
         <div className="text-center py-16">
           <div className="max-w-md mx-auto">
             <div className="mb-6">
@@ -97,7 +138,7 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reviews.map((review) => (
+          {sortedReviews.map((review) => (
             <article key={review.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
               <Link 
                 href={`/drone-reviews/${review.slug}`}
