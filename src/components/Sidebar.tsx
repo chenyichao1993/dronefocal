@@ -1,11 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Sidebar() {
   const [email, setEmail] = useState('')
   const [showEmailWarning, setShowEmailWarning] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -119,7 +124,7 @@ export default function Sidebar() {
             >
               Subscribe
             </button>
-            {showEmailWarning && (
+            {isClient && showEmailWarning && (
               <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2">
                 Please enter a valid email address to subscribe.
               </div>
@@ -132,7 +137,7 @@ export default function Sidebar() {
       </div>
 
       {/* Success Modal */}
-      {showSuccessModal && (
+      {isClient && showSuccessModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
             <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-green-100 rounded-full">
