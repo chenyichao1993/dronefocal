@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Star, Calendar, Clock, ArrowLeft, ExternalLink } from 'lucide-react'
 import { getArticleBySlug, getAllArticles } from '@/lib/content'
+import { getPopularArticles } from '@/lib/popularity'
 import Sidebar from '@/components/Sidebar'
 
 interface Props {
@@ -90,6 +91,9 @@ export default async function ReviewPage({ params }: Props) {
   if (!article) {
     notFound()
   }
+
+  // Get popular articles for sidebar
+  const popularArticles = await getPopularArticles(5)
 
   // Structured Data for SEO
   const structuredData = {
@@ -366,7 +370,7 @@ export default async function ReviewPage({ params }: Props) {
 
           {/* Right Sidebar */}
           <div className="lg:col-span-1">
-            <Sidebar />
+            <Sidebar popularArticles={popularArticles} />
           </div>
         </div>
       </div>
