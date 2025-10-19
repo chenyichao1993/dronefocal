@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Sidebar() {
   const [email, setEmail] = useState('')
@@ -11,6 +12,22 @@ export default function Sidebar() {
   useEffect(() => {
     setIsClient(true)
   }, [])
+
+  // Real articles data
+  const popularArticles = [
+    {
+      title: "DJI Mavic 3 Review: Professional Drone with Hasselblad Camera",
+      slug: "dji-mavic-3-review",
+      category: "reviews",
+      views: "15,200"
+    },
+    {
+      title: "DJI Mavic Air 2 Review: Professional 4K Drone with 48MP Camera",
+      slug: "dji-mavic-air-2-review", 
+      category: "reviews",
+      views: "12,800"
+    }
+  ]
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -41,66 +58,25 @@ export default function Sidebar() {
             <h3 className="text-lg font-semibold text-gray-900">Popular This Week</h3>
           </div>
           <div className="space-y-4">
-            <div className="border-b border-gray-200 pb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-1">
-                DJI Mini 4 Pro: The Perfect Beginner Drone?
-              </h4>
-              <p className="text-xs text-gray-500 flex items-center">
-                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-                25,600 views
-              </p>
-            </div>
-            <div className="border-b border-gray-200 pb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-1">
-                Drone Laws by State: Complete Guide
-              </h4>
-              <p className="text-xs text-gray-500 flex items-center">
-                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-                18,900 views
-              </p>
-            </div>
-            <div className="border-b border-gray-200 pb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-1">
-                Best Drone Accessories Every Pilot Needs
-              </h4>
-              <p className="text-xs text-gray-500 flex items-center">
-                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-                15,200 views
-              </p>
-            </div>
-            <div className="border-b border-gray-200 pb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-1">
-                DJI Air 3 vs Mini 4 Pro: Which Drone Should You Buy?
-              </h4>
-              <p className="text-xs text-gray-500 flex items-center">
-                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-                12,800 views
-              </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-medium text-gray-900 mb-1">
-                Drone Photography Tips for Stunning Aerial Shots
-              </h4>
-              <p className="text-xs text-gray-500 flex items-center">
-                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-                9,500 views
-              </p>
-            </div>
+            {popularArticles.map((article, index) => (
+              <div key={article.slug} className={`${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
+                <Link 
+                  href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
+                  className="block hover:text-blue-600 transition-colors"
+                >
+                  <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors">
+                    {article.title}
+                  </h4>
+                </Link>
+                <p className="text-xs text-gray-500 flex items-center">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  {article.views} views
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
