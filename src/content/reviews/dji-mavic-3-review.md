@@ -9,6 +9,7 @@ category: "reviews"
 brand: "DJI"
 date: "2025-10-18"
 readTime: "15 min read"
+views: "15,200"
 pros:
   - "Exceptional Hasselblad 4/3 camera with 20MP sensor"
   - "Dual-camera system with 162mm telephoto lens"

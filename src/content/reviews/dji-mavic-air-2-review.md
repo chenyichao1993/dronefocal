@@ -8,6 +8,7 @@ rating: 4.5
 price: "$799"
 brand: "DJI"
 category: "reviews"
+views: "12,800"
 pros:
   - "Outstanding 48MP camera with 1/2-inch CMOS sensor"
   - "Smooth 4K video recording at up to 60fps"

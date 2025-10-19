@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/content'
+import { getPopularArticles } from '@/lib/popularity'
 import Sidebar from '@/components/Sidebar'
 
 export default async function HomePage() {
@@ -16,6 +17,9 @@ export default async function HomePage() {
   
   // Get featured articles (first 6)
   const featuredArticles = allArticles.slice(0, 6)
+  
+  // Get popular articles for sidebar
+  const popularArticles = await getPopularArticles(5)
 
   return (
     <>
@@ -89,7 +93,7 @@ export default async function HomePage() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <Sidebar />
+            <Sidebar popularArticles={popularArticles} />
           </div>
         </div>
       </main>

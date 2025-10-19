@@ -4,7 +4,21 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Sidebar() {
+interface PopularArticle {
+  title: string
+  slug: string
+  category: string
+  views: string
+  image: string
+  rating?: number
+  date: string
+}
+
+interface SidebarProps {
+  popularArticles?: PopularArticle[]
+}
+
+export default function Sidebar({ popularArticles = [] }: SidebarProps) {
   const [email, setEmail] = useState('')
   const [showEmailWarning, setShowEmailWarning] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
@@ -14,23 +28,40 @@ export default function Sidebar() {
     setIsClient(true)
   }, [])
 
-  // Real articles data - limited to 5 articles max
-  const popularArticles = [
-    {
-      title: "DJI Mavic 3 Review: Professional Drone with Hasselblad Camera",
-      slug: "dji-mavic-3-review",
-      category: "reviews",
-      views: "15,200",
-      image: "/images/optimized/webp/dji-mavic-3-review.webp"
-    },
-    {
-      title: "DJI Mavic Air 2 Review: Professional 4K Drone with 48MP Camera",
-      slug: "dji-mavic-air-2-review", 
-      category: "reviews",
-      views: "12,800",
-      image: "/images/optimized/webp/dji-mavic-air-2-review.webp"
+  // Get article URL based on category
+  const getArticleUrl = (article: PopularArticle) => {
+    const category = article.category
+    const slug = article.slug
+    
+    switch (category) {
+      case 'reviews':
+        return `/drone-reviews/${slug}`
+      case 'news':
+        return `/news/${slug}`
+      case 'tutorials':
+        return `/tutorials/${slug}`
+      case 'guides':
+        return `/guides/${slug}`
+      default:
+        return `/${category}/${slug}`
     }
-  ].slice(0, 5) // Ensure max 5 articles
+  }
+
+  // Get category display name and color
+  const getCategoryInfo = (category: string) => {
+    switch (category) {
+      case 'reviews':
+        return { name: 'Reviews', color: 'bg-blue-100 text-blue-800' }
+      case 'news':
+        return { name: 'News', color: 'bg-green-100 text-green-800' }
+      case 'tutorials':
+        return { name: 'Tutorials', color: 'bg-purple-100 text-purple-800' }
+      case 'guides':
+        return { name: 'Guides', color: 'bg-orange-100 text-orange-800' }
+      default:
+        return { name: category, color: 'bg-gray-100 text-gray-800' }
+    }
+  }
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -61,46 +92,61 @@ export default function Sidebar() {
             <h3 className="text-lg font-semibold text-gray-900">Popular This Week</h3>
           </div>
           <div className="space-y-4">
-            {popularArticles.map((article, index) => (
-              <div key={article.slug} className={`${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
-                <div className="flex items-start space-x-3">
-                  {/* Article Thumbnail */}
-                  <div className="flex-shrink-0">
-                    <Link 
-                      href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
-                      className="block"
-                    >
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        width={40}
-                        height={40}
-                        className="sidebar-article-thumbnail w-10 h-10 rounded-lg object-cover"
-                      />
-                    </Link>
+            {popularArticles.length > 0 ? (
+              popularArticles.map((article, index) => {
+                const categoryInfo = getCategoryInfo(article.category)
+                return (
+                  <div key={article.slug} className={`${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
+                    <div className="flex items-start space-x-3">
+                      {/* Article Thumbnail */}
+                      <div className="flex-shrink-0">
+                        <Link 
+                          href={getArticleUrl(article)}
+                          className="block"
+                        >
+                          <Image
+                            src={article.image}
+                            alt={article.title}
+                            width={40}
+                            height={40}
+                            className="sidebar-article-thumbnail w-10 h-10 rounded-lg object-cover"
+                          />
+                        </Link>
+                      </div>
+                      
+                      {/* Article Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center mb-1">
+                          <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color} mr-2`}>
+                            {categoryInfo.name}
+                          </span>
+                        </div>
+                        <Link 
+                          href={getArticleUrl(article)}
+                          className="block hover:text-blue-600 transition-colors"
+                        >
+                          <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors line-clamp-2">
+                            {article.title}
+                          </h4>
+                        </Link>
+                        <p className="text-xs text-gray-500 flex items-center">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                          </svg>
+                          {article.views || '0'} views
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  
-                  {/* Article Content */}
-                  <div className="flex-1 min-w-0">
-                    <Link 
-                      href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`}
-                      className="block hover:text-blue-600 transition-colors"
-                    >
-                      <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors line-clamp-2">
-                        {article.title}
-                      </h4>
-                    </Link>
-                    <p className="text-xs text-gray-500 flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                      </svg>
-                      {article.views} views
-                    </p>
-                  </div>
-                </div>
+                )
+              })
+            ) : (
+              // No articles state
+              <div className="text-center py-4">
+                <p className="text-sm text-gray-500">No articles available</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
