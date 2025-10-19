@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Search, Filter, Calendar, Clock, Star } from 'lucide-react'
+import { Search, Filter, Calendar, Clock, Eye } from 'lucide-react'
 import { ArticleMeta } from '@/lib/content'
 
 interface SearchContentProps {
@@ -326,12 +326,12 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                           </span>
                           <Clock className="w-3 h-3 mr-1" />
                           <span className="mr-3">{article.readTime}</span>
-                          {article.views && (
-                            <>
-                              <Star className="w-3 h-3 mr-1" />
-                              <span>{article.views} views</span>
-                            </>
-                          )}
+                            {article.views && (
+                              <>
+                                <Eye className="w-3 h-3 mr-1" />
+                                <span>{article.views} views</span>
+                              </>
+                            )}
                         </div>
                       </div>
                     </div>
