@@ -76,7 +76,18 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                       }`}
                     >
-                      <span>{category.name}</span>
+                      <div className="flex items-center">
+                        <div className={`w-4 h-4 rounded-full mr-3 border-2 flex items-center justify-center ${
+                          searchParams.category === category.id
+                            ? 'border-blue-600 dark:border-blue-400'
+                            : 'border-gray-300 dark:border-gray-600'
+                        }`}>
+                          {searchParams.category === category.id && (
+                            <div className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400"></div>
+                          )}
+                        </div>
+                        <span>{category.name}</span>
+                      </div>
                       <span className="text-xs text-gray-500 dark:text-gray-400">
                         {category.count}
                       </span>
