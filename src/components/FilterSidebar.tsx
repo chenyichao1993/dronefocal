@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 interface Brand {
@@ -9,37 +10,38 @@ interface Brand {
   count: number
 }
 
-interface FilterSidebarProps {
-  brands: Brand[]
+interface FilterOption {
+  name: string
+  value: string
+  count: number
 }
 
-const priceRanges = [
-  { name: 'Under $200', value: '0-200', count: 25 },
-  { name: '$200 - $500', value: '200-500', count: 35 },
-  { name: '$500 - $1000', value: '500-1000', count: 45 },
-  { name: '$1000 - $2000', value: '1000-2000', count: 30 },
-  { name: 'Over $2000', value: '2000+', count: 21 }
-]
+interface FilterSidebarProps {
+  brands: Brand[]
+  priceRanges: FilterOption[]
+  ratings: FilterOption[]
+  currentFilters: {
+    brand?: string
+    price?: string
+    rating?: string
+  }
+}
 
-const ratings = [
-  { name: '4.5+ Stars', value: '4.5', count: 45 },
-  { name: '4.0+ Stars', value: '4.0', count: 78 },
-  { name: '3.5+ Stars', value: '3.5', count: 95 },
-  { name: '3.0+ Stars', value: '3.0', count: 120 }
-]
-
-export default function FilterSidebar({ brands }: FilterSidebarProps) {
+export default function FilterSidebar({ brands, priceRanges, ratings, currentFilters }: FilterSidebarProps) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  
   const [expandedSections, setExpandedSections] = useState({
     brand: true,
     price: true,
     rating: true
   })
 
-  const [selectedFilters, setSelectedFilters] = useState({
-    brand: 'all',
-    price: 'all',
-    rating: 'all'
-  })
+  const selectedFilters = {
+    brand: currentFilters.brand || 'all',
+    price: currentFilters.price || 'all',
+    rating: currentFilters.rating || 'all'
+  }
 
   const toggleSection = (section: string) => {
     setExpandedSections(prev => ({
@@ -49,10 +51,15 @@ export default function FilterSidebar({ brands }: FilterSidebarProps) {
   }
 
   const handleFilterChange = (filterType: string, value: string) => {
-    setSelectedFilters(prev => ({
-      ...prev,
-      [filterType]: value
-    }))
+    const params = new URLSearchParams(searchParams.toString())
+    
+    if (value === 'all') {
+      params.delete(filterType)
+    } else {
+      params.set(filterType, value)
+    }
+    
+    router.push(`/drone-reviews?${params.toString()}`)
   }
 
   const FilterSection = ({ 
@@ -143,11 +150,7 @@ export default function FilterSidebar({ brands }: FilterSidebarProps) {
 
       {/* Clear Filters */}
       <button
-        onClick={() => setSelectedFilters({
-          brand: 'all',
-          price: 'all',
-          rating: 'all'
-        })}
+        onClick={() => router.push('/drone-reviews')}
         className="w-full text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
       >
         Clear All Filters
