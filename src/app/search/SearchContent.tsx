@@ -285,55 +285,53 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
               </h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {searchResults.map((article) => {
                 const categoryInfo = getCategoryInfo(article.category)
                 return (
-                  <Link key={article.slug} href={getArticleUrl(article)} className="group block">
+                  <Link key={article.slug} href={getArticleUrl(article)} className="group">
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
-                      <div className="flex flex-col md:flex-row">
-                        <div className="relative h-48 md:h-32 md:w-48 bg-gray-100 dark:bg-gray-700 flex-shrink-0">
-                          <Image
-                            src={article.image}
-                            alt={article.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute top-3 left-3">
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color}`}>
-                              {categoryInfo.name}
-                            </span>
-                          </div>
+                      <div className="relative h-48 bg-gray-100 dark:bg-gray-700">
+                        <Image
+                          src={article.image}
+                          alt={article.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color}`}>
+                            {categoryInfo.name}
+                          </span>
                         </div>
-                        <div className="p-6 flex-1">
-                          <h4 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
-                            <span dangerouslySetInnerHTML={{ 
-                              __html: highlightText(article.title, searchQuery) 
-                            }} />
-                          </h4>
-                          <p className="text-gray-600 dark:text-gray-400 mb-4">
-                            <span dangerouslySetInnerHTML={{ 
-                              __html: highlightText(article.excerpt, searchQuery) 
-                            }} />
-                          </p>
-                          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            <span className="mr-4">
-                              {new Date(article.date).toLocaleDateString('en-US', { 
-                                year: 'numeric', 
-                                month: 'long', 
-                                day: 'numeric' 
-                              })}
-                            </span>
-                            <Clock className="w-4 h-4 mr-1" />
-                            <span className="mr-4">{article.readTime}</span>
-                            {article.views && (
-                              <>
-                                <Star className="w-4 h-4 mr-1" />
-                                <span>{article.views} views</span>
-                              </>
-                            )}
-                          </div>
+                      </div>
+                      <div className="p-4">
+                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2 line-clamp-2">
+                          <span dangerouslySetInnerHTML={{ 
+                            __html: highlightText(article.title, searchQuery) 
+                          }} />
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-3">
+                          <span dangerouslySetInnerHTML={{ 
+                            __html: highlightText(article.excerpt, searchQuery) 
+                          }} />
+                        </p>
+                        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                          <Calendar className="w-3 h-3 mr-1" />
+                          <span className="mr-3">
+                            {new Date(article.date).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                          <Clock className="w-3 h-3 mr-1" />
+                          <span className="mr-3">{article.readTime}</span>
+                          {article.views && (
+                            <>
+                              <Star className="w-3 h-3 mr-1" />
+                              <span>{article.views} views</span>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
