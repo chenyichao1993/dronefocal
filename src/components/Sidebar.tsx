@@ -96,7 +96,7 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
               popularArticles.map((article, index) => {
                 const categoryInfo = getCategoryInfo(article.category)
                 return (
-                  <div key={article.slug} className={`${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
+                  <div key={article.slug} className={`sidebar-article ${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
                     <div className="flex items-start space-x-3">
                       {/* Article Thumbnail */}
                       <div className="flex-shrink-0">
@@ -120,7 +120,7 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
                           href={getArticleUrl(article)}
                           className="block hover:text-blue-600 transition-colors"
                         >
-                          <h4 className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 mb-1">
+                          <h4 className="sidebar-title-hover text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors mb-1">
                             <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color} mr-2`}>
                               {categoryInfo.name}
                             </span>
