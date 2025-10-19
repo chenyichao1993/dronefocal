@@ -261,7 +261,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                 {relatedArticles.map((article) => {
                   const categoryInfo = getCategoryInfo(article.category)
                   return (
-                    <Link key={article.slug} href={getArticleUrl(article)} className="group">
+                    <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
                         <div className="relative h-48 bg-gray-100 dark:bg-gray-700">
                           <Image
@@ -315,7 +315,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
               {searchResults.map((article) => {
                 const categoryInfo = getCategoryInfo(article.category)
                 return (
-                  <Link key={article.slug} href={getArticleUrl(article)} className="group">
+                  <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
                       <div className="relative h-48 bg-gray-100 dark:bg-gray-700">
                         <Image
