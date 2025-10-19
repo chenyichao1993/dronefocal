@@ -47,7 +47,7 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
   const isGuideArticle = currentArticle.category === 'guides'
 
   return (
-    <div className="related-articles-section mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <div className="related-articles-section">
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h3>
       <div className="related-articles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {relatedArticles.map(article => {
