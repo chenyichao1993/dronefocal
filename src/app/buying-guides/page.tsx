@@ -132,28 +132,23 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredGuides.map((guide) => (
-                  <article key={guide.slug} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow duration-300">
+                  <article key={guide.slug} className="group bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300">
                     <Link href={`/guides/${guide.slug}`} className="block">
-                      <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
+                      <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
                         <Image
                           src={guide.image}
                           alt={guide.title}
                           fill
-                          className="object-cover"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                            {guide.category === 'guides' ? 'Guides' : guide.category}
-                          </span>
-                        </div>
                         {guide.difficulty && (
                           <div className="absolute top-4 right-4">
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              guide.difficulty === 'beginner' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' :
-                              guide.difficulty === 'intermediate' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300' :
-                              'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
+                            <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                              guide.difficulty === 'beginner' ? 'bg-green-500/90 text-white' :
+                              guide.difficulty === 'intermediate' ? 'bg-yellow-500/90 text-white' :
+                              'bg-red-500/90 text-white'
                             }`}>
                               {guide.difficulty === 'beginner' ? '⭐ Beginner' :
                                guide.difficulty === 'intermediate' ? '⭐⭐ Intermediate' :
@@ -164,47 +159,25 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                       </div>
                       
                       <div className="p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {guide.title}
                         </h3>
                         
-                        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                        <p className="text-gray-600 dark:text-gray-400 mb-5 line-clamp-3 leading-relaxed">
                           {guide.excerpt}
                         </p>
                         
-                        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
-                          <div className="flex items-center space-x-4">
-                            <div className="flex items-center">
-                              <Clock className="w-4 h-4 mr-1" />
-                              <span>{guide.readTime}</span>
-                            </div>
-                            {guide.budget && (
-                              <div className="flex items-center">
-                                <DollarSign className="w-4 h-4 mr-1" />
-                                <span>{guide.budget}</span>
-                              </div>
-                            )}
+                        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                          <div className="flex items-center">
+                            <Clock className="w-4 h-4 mr-1.5" />
+                            <span className="font-medium">{guide.readTime}</span>
                           </div>
                           <div className="flex items-center">
-                            <Users className="w-4 h-4 mr-1" />
-                            <span>Updated {new Date(guide.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span className="font-medium">{new Date(guide.date).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '/')}</span>
                           </div>
-                        </div>
-                        
-                        <div className="flex items-center justify-between">
-                          <div className="flex flex-wrap gap-2">
-                            {guide.tags?.slice(0, 3).map((tag) => (
-                              <span
-                                key={tag}
-                                className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full text-xs"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          <span className="text-blue-600 dark:text-blue-400 font-medium text-sm">
-                            Read Guide →
-                          </span>
                         </div>
                       </div>
                     </Link>
