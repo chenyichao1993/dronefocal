@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-mavic-3-classic-review -->
+<picture>
+    <source srcset="dji-mavic-3-classic-review.avif 1140w" type="image/avif">
+    <source srcset="dji-mavic-3-classic-review-320w.webp 320w, dji-mavic-3-classic-review-640w.webp 640w, dji-mavic-3-classic-review-1024w.webp 1024w, dji-mavic-3-classic-review-1920w.webp 1140w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="dji-mavic-3-classic-review.webp" 
+        alt="Dji Mavic 3 Classic Review"
+        width="1140" 
+        height="855"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
