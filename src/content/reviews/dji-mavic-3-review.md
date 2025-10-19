@@ -5,7 +5,7 @@ excerpt: "Comprehensive review of DJI Mavic 3 professional drone featuring Hasse
 image: "/images/optimized/webp/dji-mavic-3-review.webp"
 rating: 4.7
 price: "$2,199"
-category: "Professional"
+category: "reviews"
 brand: "DJI"
 date: "2025-10-18"
 readTime: "15 min read"
