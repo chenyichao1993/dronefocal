@@ -6,6 +6,7 @@ import { Star, Calendar, Clock, ArrowLeft, ExternalLink } from 'lucide-react'
 import { getArticleBySlug, getAllArticles } from '@/lib/content'
 import { getPopularArticles } from '@/lib/popularity'
 import Sidebar from '@/components/Sidebar'
+import RelatedArticles from '@/components/RelatedArticles'
 
 interface Props {
   params: {
@@ -94,6 +95,9 @@ export default async function ReviewPage({ params }: Props) {
 
   // Get popular articles for sidebar
   const popularArticles = await getPopularArticles(5)
+  
+  // Get all articles for related articles
+  const allArticles = await getAllArticles('reviews')
 
   // Structured Data for SEO
   const structuredData = {
@@ -348,23 +352,8 @@ export default async function ReviewPage({ params }: Props) {
 
         {/* Author and Share */}
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                By {article.author || 'DroneFocal Team'}
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                Share this review:
-              </span>
-              <div className="flex items-center space-x-2">
-                <button className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  <ExternalLink className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* Related Articles */}
+          <RelatedArticles articles={allArticles} currentArticle={article} />
           </div>
           </div>
 
