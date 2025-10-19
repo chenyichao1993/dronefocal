@@ -116,16 +116,14 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
                       
                       {/* Article Content */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center mb-1">
-                          <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color} mr-2`}>
-                            {categoryInfo.name}
-                          </span>
-                        </div>
                         <Link 
                           href={getArticleUrl(article)}
                           className="block hover:text-blue-600 transition-colors"
                         >
-                          <h4 className="text-sm font-medium text-gray-900 mb-1 hover:text-blue-600 transition-colors line-clamp-2">
+                          <h4 className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 mb-1">
+                            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${categoryInfo.color} mr-2`}>
+                              {categoryInfo.name}
+                            </span>
                             {article.title}
                           </h4>
                         </Link>
