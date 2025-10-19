@@ -48,16 +48,25 @@ For professional photographers and cinematographers, choosing the right drone is
 **Flight Time**: 28 minutes
 **Best for**: High-end cinematography, commercial work
 
+<div class="pros-cons-container">
+<div>
+
 **Pros:**
 - Exceptional image quality
 - Professional workflow integration
 - Dual operator capability
 - Advanced obstacle avoidance
 
+</div>
+<div>
+
 **Cons:**
 - Very expensive
 - Complex setup
 - Requires two operators
+
+</div>
+</div>
 
 ### 2. DJI Mavic 3 Pro
 **Price**: $2,199
@@ -66,15 +75,24 @@ For professional photographers and cinematographers, choosing the right drone is
 **Flight Time**: 43 minutes
 **Best for**: Professional photography, real estate
 
+<div class="pros-cons-container">
+<div>
+
 **Pros:**
 - Excellent image quality
 - Long flight time
 - Compact and portable
 - Great value for money
 
+</div>
+<div>
+
 **Cons:**
 - Limited to single operator
 - No thermal imaging
+
+</div>
+</div>
 
 ### 3. Autel EVO II Pro V3
 **Price**: $1,399
@@ -83,15 +101,24 @@ For professional photographers and cinematographers, choosing the right drone is
 **Flight Time**: 40 minutes
 **Best for**: Professional photography, mapping
 
+<div class="pros-cons-container">
+<div>
+
 **Pros:**
 - 6K video capability
 - No geofencing restrictions
 - Good flight time
 - Competitive pricing
 
+</div>
+<div>
+
 **Cons:**
 - Limited ecosystem
 - Fewer accessories
+
+</div>
+</div>
 
 ### 4. DJI Air 3
 **Price**: $1,099
@@ -100,15 +127,24 @@ For professional photographers and cinematographers, choosing the right drone is
 **Flight Time**: 46 minutes
 **Best for**: Professional content creation
 
+<div class="pros-cons-container">
+<div>
+
 **Pros:**
 - Dual camera system
 - Excellent flight time
 - Advanced features
 - Good value
 
+</div>
+<div>
+
 **Cons:**
 - Smaller sensor than Mavic 3
 - Limited manual controls
+
+</div>
+</div>
 
 ## Camera System Comparison
 

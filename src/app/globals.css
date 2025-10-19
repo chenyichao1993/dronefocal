@@ -556,3 +556,40 @@ body {
     border-radius: 0.5rem;
   }
 }
+
+/* Pros and Cons Layout - Desktop Side by Side */
+@media (min-width: 768px) {
+  .pros-cons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1.5rem 0;
+  }
+  
+  .pros-cons-container h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .pros-cons-container ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+  
+  .pros-cons-container li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+}
+
+/* Mobile: Keep vertical layout */
+@media (max-width: 767px) {
+  .pros-cons-container {
+    display: block;
+  }
+  
+  .pros-cons-container > div {
+    margin-bottom: 1.5rem;
+  }
+}
