@@ -350,3 +350,42 @@ body {
     font-size: 1.125rem;
   }
 }
+
+/* Article Card Hover Effects - Inline Expansion */
+.article-title-hover {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: help;
+}
+
+.article-excerpt-hover {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: help;
+}
+
+.article-card:hover .article-title-hover,
+.article-card:hover .article-excerpt-hover {
+  -webkit-line-clamp: unset;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Mobile Responsive - Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .article-card:hover .article-title-hover,
+  .article-card:hover .article-excerpt-hover {
+    -webkit-line-clamp: 2; /* Keep original line limits on mobile */
+    overflow: hidden;
+  }
+  
+  .article-card:hover .article-excerpt-hover {
+    -webkit-line-clamp: 3;
+  }
+}

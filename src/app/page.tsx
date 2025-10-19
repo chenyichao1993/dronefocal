@@ -27,7 +27,7 @@ export default async function HomePage() {
             {/* Articles Grid - Card Style */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {featuredArticles.map((article) => (
-                <article key={article.slug} className="card group hover:shadow-lg transition-shadow duration-300">
+                <article key={article.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
                   <Link href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`} className="block">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <Image
@@ -49,10 +49,10 @@ export default async function HomePage() {
                     </div>
 
                     <div className="p-6">
-                      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+                      <h2 className="article-title-hover text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                         {article.title}
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                      <p className="article-excerpt-hover text-gray-600 dark:text-gray-400 mb-4">
                         {article.excerpt}
                       </p>
 
