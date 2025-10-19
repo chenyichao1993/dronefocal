@@ -52,9 +52,9 @@ export default function Footer() {
               Buying Guides
             </h3>
             <ul className="space-y-3">
-              <li><a href="/buying-guides?difficulty=beginner" className="footer-link">Beginner's Guide</a></li>
-              <li><a href="/buying-guides?difficulty=professional" className="footer-link">Professional Photography</a></li>
-              <li><a href="/buying-guides?budget=under-500" className="footer-link">Budget Options</a></li>
+              <li><a href="/buying-guides?category=beginner" className="footer-link">Beginner's Guide</a></li>
+              <li><a href="/buying-guides?category=professional" className="footer-link">Professional Photography</a></li>
+              <li><a href="/buying-guides?category=budget" className="footer-link">Budget Options</a></li>
               <li><a href="/buying-guides?category=racing" className="footer-link">Racing & FPV</a></li>
             </ul>
           </div>
