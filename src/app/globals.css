@@ -510,9 +510,35 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 0.25rem;
   }
   
   .related-article-meta span {
+    white-space: nowrap;
+  }
+  
+  /* 优化移动端星星图标 */
+  .related-article-meta svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin-right: 0.25rem !important;
+    flex-shrink: 0;
+  }
+  
+  .related-article-meta .flex {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  .related-article-meta .flex span {
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  /* 确保评分区域不会换行 */
+  .related-article-meta > div:last-child {
     white-space: nowrap;
   }
   
