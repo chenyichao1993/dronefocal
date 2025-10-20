@@ -11,12 +11,30 @@ export default async function HomePage() {
   const allGuides = await getAllArticles('guides')
   const allNews = await getAllArticles('news')
   
-  // Combine all articles and sort by date
-  const allArticles = [...allReviews, ...allTutorials, ...allGuides, ...allNews]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  // Process news articles: change category to "News" for homepage display
+  const processedNewsArticles = allNews.map(article => ({
+    ...article,
+    category: 'News'
+  }))
   
-  // Get featured articles (first 6)
-  const featuredArticles = allArticles.slice(0, 6)
+  // Combine all articles with weights: reviews > guides > news > tutorials
+  const allArticles = [
+    ...allReviews.map(article => ({ ...article, weight: 4 })),
+    ...allGuides.map(article => ({ ...article, weight: 3 })),
+    ...processedNewsArticles.map(article => ({ ...article, weight: 2 })),
+    ...allTutorials.map(article => ({ ...article, weight: 1 }))
+  ]
+    .sort((a, b) => {
+      // First sort by weight (higher weight first)
+      if (a.weight !== b.weight) {
+        return b.weight - a.weight
+      }
+      // Then sort by date within same weight
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+  
+  // Get all articles (no limit, all articles will be displayed)
+  const featuredArticles = allArticles
   
   // Get popular articles for sidebar
   const popularArticles = await getPopularArticles(5)
@@ -78,17 +96,7 @@ export default async function HomePage() {
               ))}
             </div>
 
-            {/* Load More Button */}
-            {allArticles.length > 6 && (
-              <div className="text-center mt-8">
-                <Link
-                  href="/drone-reviews"
-                  className="btn-primary px-8 py-3"
-                >
-                  View All Articles
-                </Link>
-              </div>
-            )}
+            {/* Load More Button - Removed since all articles are now displayed */}
           </div>
 
           {/* Sidebar */}
