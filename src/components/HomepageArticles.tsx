@@ -76,10 +76,19 @@ export default function HomepageArticles({ articles }: HomepageArticlesProps) {
         <div className="text-center mt-8">
           <button
             onClick={handleLoadMore}
-            className="btn-primary px-8 py-3 hover:bg-primary-700 transition-colors"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
           >
             Load More Articles ({articles.length - displayCount} remaining)
           </button>
+        </div>
+      )}
+
+      {/* All Articles Loaded Message */}
+      {!hasMore && articles.length > 6 && (
+        <div className="text-center mt-8">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            All articles loaded. You've viewed all {articles.length} articles.
+          </p>
         </div>
       )}
     </>
