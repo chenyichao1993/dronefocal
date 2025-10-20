@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import NewsGrid from '@/components/NewsGrid'
+import NewsContent from '@/components/NewsContent'
+import { getAllNewsArticles } from '@/lib/news'
 
 export const metadata: Metadata = {
   title: 'Drone News & Industry Updates',
@@ -7,22 +8,13 @@ export const metadata: Metadata = {
   keywords: ['drone news', 'drone industry', 'drone regulations', 'drone technology', 'drone updates'],
 }
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const newsArticles = await getAllNewsArticles()
+  
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Drone News & Updates
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Stay informed with the latest drone industry news, product launches, 
-            regulatory updates, and technological advancements.
-          </p>
-        </div>
-
-        <NewsGrid />
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <NewsContent articles={newsArticles} />
       </div>
     </div>
   )
