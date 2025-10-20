@@ -43,8 +43,15 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
 
   if (relatedArticles.length === 0) return null
 
-  // 判断是否为 guide 文章
+  // 判断是否为 guide 文章或 news 相关文章（都使用简洁样式）
   const isGuideArticle = currentArticle.category === 'guides'
+  const isNewsArticle = currentArticle.category === 'news' || 
+                       currentArticle.category === 'Product Launch' ||
+                       currentArticle.category === 'Technology' ||
+                       currentArticle.category === 'Regulations' ||
+                       currentArticle.category === 'Industry News' ||
+                       currentArticle.category === 'Events'
+  const useSimpleStyle = isGuideArticle || isNewsArticle
 
   return (
     <div className="related-articles-section">
@@ -87,8 +94,8 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
                     <h4 className="related-article-title text-xs md:text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-1">
                       {article.title}
                     </h4>
-                    {/* 只有非 guide 文章才显示详细信息 */}
-                    {!isGuideArticle && (
+                    {/* 只有非 guide 和 news 文章才显示详细信息 */}
+                    {!useSimpleStyle && (
                       <div className="related-article-meta text-xs text-gray-500 dark:text-gray-400">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center">
