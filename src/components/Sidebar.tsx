@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface PopularArticle {
   title: string
@@ -47,21 +48,6 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
     }
   }
 
-  // Get category display name and color
-  const getCategoryInfo = (category: string) => {
-    switch (category) {
-      case 'reviews':
-        return { name: 'Reviews', color: 'bg-blue-100 text-blue-800' }
-      case 'news':
-        return { name: 'News', color: 'bg-green-100 text-green-800' }
-      case 'tutorials':
-        return { name: 'Tutorials', color: 'bg-purple-100 text-purple-800' }
-      case 'guides':
-        return { name: 'Guides', color: 'bg-orange-100 text-orange-800' }
-      default:
-        return { name: category, color: 'bg-gray-100 text-gray-800' }
-    }
-  }
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

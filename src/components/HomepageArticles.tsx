@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleMeta } from '@/lib/content'
+import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface HomepageArticlesProps {
   articles: ArticleMeta[]
@@ -23,27 +24,25 @@ export default function HomepageArticles({ articles }: HomepageArticlesProps) {
     <>
       {/* Articles Grid - Card Style */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {displayedArticles.map((article) => (
-          <article key={article.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
-            <Link href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`} className="block">
-              <div className="relative overflow-hidden rounded-t-lg">
-                <Image 
-                  src={article.image} 
-                  alt={article.title} 
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {article.category === 'reviews' ? 'Reviews' : 
-                     article.category === 'tutorials' ? 'Tutorials' :
-                     article.category === 'guides' ? 'Guides' :
-                     article.category === 'news' ? 'News' : 
-                     article.category}
-                  </span>
+        {displayedArticles.map((article) => {
+          const categoryInfo = getCategoryInfo(article.category)
+          return (
+            <article key={article.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
+              <Link href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`} className="block">
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <Image 
+                    src={article.image} 
+                    alt={article.title} 
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${categoryInfo.color}`}>
+                      {categoryInfo.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
               <div className="p-6">
                 <h2 className="article-title-hover text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -68,7 +67,8 @@ export default function HomepageArticles({ articles }: HomepageArticlesProps) {
               </div>
             </Link>
           </article>
-        ))}
+          )
+        })}
       </div>
 
       {/* Load More Button */}

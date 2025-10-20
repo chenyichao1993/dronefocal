@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Search, Filter, Calendar, Clock, Eye } from 'lucide-react'
 import { ArticleMeta } from '@/lib/content'
+import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface SearchContentProps {
   searchParams: {

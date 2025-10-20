@@ -28,7 +28,13 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     getAllArticles('news'),
   ])
   
-  const allArticles = [...reviews, ...guides, ...tutorials, ...news]
+  // Process news articles: change category to "news" for unified display
+  const processedNewsArticles = news.map(article => ({
+    ...article,
+    category: 'news'
+  }))
+  
+  const allArticles = [...reviews, ...guides, ...tutorials, ...processedNewsArticles]
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
