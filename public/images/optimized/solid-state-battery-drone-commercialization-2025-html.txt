@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: solid-state-battery-drone-commercialization-2025 -->
+<picture>
+    <source srcset="solid-state-battery-drone-commercialization-2025.avif 2364w" type="image/avif">
+    <source srcset="solid-state-battery-drone-commercialization-2025-320w.webp 320w, solid-state-battery-drone-commercialization-2025-640w.webp 640w, solid-state-battery-drone-commercialization-2025-1024w.webp 1024w, solid-state-battery-drone-commercialization-2025-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="solid-state-battery-drone-commercialization-2025.webp" 
+        alt="Solid State Battery Drone Commercialization 2025"
+        width="2364" 
+        height="1773"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

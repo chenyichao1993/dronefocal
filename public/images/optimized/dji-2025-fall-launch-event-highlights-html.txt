@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-2025-fall-launch-event-highlights -->
+<picture>
+    <source srcset="dji-2025-fall-launch-event-highlights.avif 2364w" type="image/avif">
+    <source srcset="dji-2025-fall-launch-event-highlights-320w.webp 320w, dji-2025-fall-launch-event-highlights-640w.webp 640w, dji-2025-fall-launch-event-highlights-1024w.webp 1024w, dji-2025-fall-launch-event-highlights-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="dji-2025-fall-launch-event-highlights.webp" 
+        alt="Dji 2025 Fall Launch Event Highlights"
+        width="2364" 
+        height="1773"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
