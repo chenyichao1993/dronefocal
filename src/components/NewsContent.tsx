@@ -118,67 +118,70 @@ export default function NewsContent({ articles }: NewsContentProps) {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedArticles.map((article) => (
-            <article key={article.slug} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
-              <div className="relative">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-primary-600 text-white px-2 py-1 rounded text-xs font-medium">
-                    {article.category}
-                  </span>
-                </div>
-                {article.trending && (
-                  <div className="absolute top-3 right-3">
-                    <span className="bg-red-600 text-white px-2 py-1 rounded text-xs font-medium">
-                      Trending
+            <Link 
+              key={article.slug} 
+              href={`/news/${article.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
+                <div className="relative">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-primary-600 text-white px-2 py-1 rounded text-xs font-medium">
+                      {article.category}
                     </span>
                   </div>
-                )}
-              </div>
-              
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                  <Link href={`/news/${article.slug}`}>
+                  {article.trending && (
+                    <div className="absolute top-3 right-3">
+                      <span className="bg-red-600 text-white px-2 py-1 rounded text-xs font-medium">
+                        Trending
+                      </span>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="p-4">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                     {article.title}
-                  </Link>
-                </h2>
-                
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
-                  {article.excerpt}
-                </p>
-                
-                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      {new Date(article.date).toLocaleDateString()}
+                  </h2>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {new Date(article.date).toLocaleDateString()}
+                      </span>
+                      <span className="flex items-center">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {article.readTime}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      By {article.author}
                     </span>
-                    <span className="flex items-center">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {article.readTime}
+                    <span className="inline-flex items-center text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
+                      Read more
+                      <ArrowRight className="ml-1 h-3 w-3" />
                     </span>
                   </div>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
-                    By {article.author}
-                  </span>
-                  <Link 
-                    href={`/news/${article.slug}`}
-                    className="inline-flex items-center text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
-                  >
-                    Read more
-                    <ArrowRight className="ml-1 h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       )}
