@@ -46,9 +46,8 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
         return sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
       case 'popular':
         return sorted.sort((a, b) => {
-          const viewsA = parseInt(a.views?.replace(/,/g, '') || '0')
-          const viewsB = parseInt(b.views?.replace(/,/g, '') || '0')
-          return viewsB - viewsA
+          // Since ArticleMeta doesn't have views, sort by date (newest first)
+          return new Date(b.date).getTime() - new Date(a.date).getTime()
         })
       case 'relevance':
       default:
@@ -76,9 +75,8 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
     
     const popularArticles = articles
       .sort((a, b) => {
-        const viewsA = parseInt(a.views?.replace(/,/g, '') || '0')
-        const viewsB = parseInt(b.views?.replace(/,/g, '') || '0')
-        return viewsB - viewsA
+        // Sort by date (newest first) since ArticleMeta doesn't have views
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
       })
       .slice(0, 6)
     
@@ -353,12 +351,6 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                           </span>
                           <Clock className="w-3 h-3 mr-1" />
                           <span className="mr-3">{article.readTime}</span>
-                            {article.views && (
-                              <>
-                                <Eye className="w-3 h-3 mr-1" />
-                                <span>{article.views} views</span>
-                              </>
-                            )}
                         </div>
                       </div>
                     </div>

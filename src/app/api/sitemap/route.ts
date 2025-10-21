@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getAllArticles } from '@/lib/content'
 
 export async function GET() {
   const baseUrl = 'https://dronefocal.com'
@@ -16,14 +16,12 @@ export async function GET() {
     '/contact'
   ]
 
-  // Dynamic pages from database
-  const [reviews, articles] = await Promise.all([
-    prisma.review.findMany({
-      select: { slug: true, updatedAt: true }
-    }),
-    prisma.article.findMany({
-      select: { slug: true, updatedAt: true }
-    })
+  // Dynamic pages from static files
+  const [reviews, guides, tutorials, news] = await Promise.all([
+    getAllArticles('reviews'),
+    getAllArticles('guides'),
+    getAllArticles('tutorials'),
+    getAllArticles('news')
   ])
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -44,18 +42,40 @@ export async function GET() {
       (review) => `
   <url>
     <loc>${baseUrl}/drone-reviews/${review.slug}</loc>
-    <lastmod>${review.updatedAt.toISOString()}</lastmod>
+    <lastmod>${review.date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`
     )
     .join('')}
-  ${articles
+  ${guides
+    .map(
+      (guide) => `
+  <url>
+    <loc>${baseUrl}/guides/${guide.slug}</loc>
+    <lastmod>${guide.date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+    )
+    .join('')}
+  ${tutorials
+    .map(
+      (tutorial) => `
+  <url>
+    <loc>${baseUrl}/tutorials/${tutorial.slug}</loc>
+    <lastmod>${tutorial.date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+    )
+    .join('')}
+  ${news
     .map(
       (article) => `
   <url>
     <loc>${baseUrl}/news/${article.slug}</loc>
-    <lastmod>${article.updatedAt.toISOString()}</lastmod>
+    <lastmod>${article.date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`

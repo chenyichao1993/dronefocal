@@ -43,7 +43,7 @@ export default function FilterSidebar({ brands, priceRanges, ratings, currentFil
     rating: currentFilters.rating || 'all'
   }
 
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: keyof typeof expandedSections) => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
@@ -77,7 +77,7 @@ export default function FilterSidebar({ brands, priceRanges, ratings, currentFil
   }) => (
     <div className="mb-6">
       <button
-        onClick={() => toggleSection(section)}
+        onClick={() => toggleSection(section as keyof typeof expandedSections)}
         className="flex items-center justify-between w-full text-left font-semibold text-gray-900 dark:text-white mb-3"
       >
         {title}

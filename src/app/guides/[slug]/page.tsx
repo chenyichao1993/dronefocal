@@ -92,7 +92,16 @@ export default async function GuidePage({ params }: Props) {
   }
 
   // Get popular articles for sidebar
-  const popularArticles = await getPopularArticles(5)
+  const popularArticlesData = await getPopularArticles(5)
+  const popularArticles = popularArticlesData.map(article => ({
+    title: article.title,
+    slug: article.slug,
+    category: article.category,
+    views: '0', // Default value since ArticleMeta doesn't have views
+    image: article.image,
+    rating: article.rating,
+    date: article.date
+  }))
   
   // Get all articles for related articles
   const allArticles = await getAllArticles('guides')
