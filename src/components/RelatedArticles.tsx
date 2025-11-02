@@ -5,9 +5,10 @@ import { ArticleMeta } from '@/lib/content'
 interface RelatedArticlesProps {
   articles: ArticleMeta[]
   currentArticle: ArticleMeta
+  articleType?: 'news' | 'guides' | 'reviews' | 'tutorials' // 明确指定文章类型，用于生成正确的URL
 }
 
-export default function RelatedArticles({ articles, currentArticle }: RelatedArticlesProps) {
+export default function RelatedArticles({ articles, currentArticle, articleType }: RelatedArticlesProps) {
   // 获取相关文章的逻辑 - 服务器端计算
   const getRelatedArticles = () => {
     if (!articles || articles.length === 0) return []
@@ -60,9 +61,24 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
         {relatedArticles.map(article => {
           // 根据文章类型生成不同的链接
           const getArticleUrl = (article: ArticleMeta) => {
-            const category = article.category
             const slug = article.slug
             
+            // 如果明确指定了 articleType，优先使用它
+            if (articleType) {
+              switch (articleType) {
+                case 'news':
+                  return `/news/${slug}`
+                case 'guides':
+                  return `/guides/${slug}`
+                case 'reviews':
+                  return `/drone-reviews/${slug}`
+                case 'tutorials':
+                  return `/tutorials/${slug}`
+              }
+            }
+            
+            // 否则根据 category 判断（兼容旧逻辑）
+            const category = article.category
             switch (category) {
               case 'reviews':
                 return `/drone-reviews/${slug}`
@@ -72,7 +88,15 @@ export default function RelatedArticles({ articles, currentArticle }: RelatedArt
                 return `/tutorials/${slug}`
               case 'news':
                 return `/news/${slug}`
+              // 对于 news 目录下的文章，即使 category 是 "Technology" 等，也应该走 news 路由
+              // 这里通过检查 currentArticle 的类型来推断
               default:
+                // 如果当前文章是 news 类型，且 related articles 也在同一个列表，则使用 news 路由
+                const isNewsContext = currentArticle.category === 'news' || 
+                                      ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events'].includes(currentArticle.category)
+                if (isNewsContext && ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
+                  return `/news/${slug}`
+                }
                 return `/${category}/${slug}`
             }
           }

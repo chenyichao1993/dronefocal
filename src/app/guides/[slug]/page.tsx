@@ -218,7 +218,7 @@ export default async function GuidePage({ params }: Props) {
               )}
 
               {/* Related Articles */}
-              <RelatedArticles articles={allArticles} currentArticle={article} />
+              <RelatedArticles articles={allArticles} currentArticle={article} articleType="guides" />
             </div>
           </div>
 

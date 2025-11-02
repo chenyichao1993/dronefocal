@@ -217,7 +217,7 @@ export default async function NewsPage({ params }: Props) {
             )}
 
             {/* Related Articles */}
-            <RelatedArticles articles={allNewsArticles} currentArticle={article} />
+            <RelatedArticles articles={allNewsArticles} currentArticle={article} articleType="news" />
           </div>
 
           {/* Right Sidebar */}

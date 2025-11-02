@@ -364,7 +364,7 @@ export default async function ReviewPage({ params }: Props) {
           )}
 
           {/* Related Articles */}
-          <RelatedArticles articles={allArticles} currentArticle={article} />
+          <RelatedArticles articles={allArticles} currentArticle={article} articleType="reviews" />
         </div>
           </div>
 
