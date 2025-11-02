@@ -16,7 +16,7 @@ export default function Header() {
 
   // 点击外部关闭移动端菜单
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       if (isMobileMenuOpen) {
         const target = event.target as HTMLElement
         const mobileMenu = document.querySelector('.mobile-menu')
