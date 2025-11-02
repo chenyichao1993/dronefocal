@@ -10,10 +10,15 @@ const nextConfig = {
       },
     ],
   },
-  // Skip build trace collection by using a minimal config
   experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/**',
+        '.git/**',
+        '.next/**',
+        'out/**',
+        '*.tsbuildinfo',
+      ],
     },
   },
 }
