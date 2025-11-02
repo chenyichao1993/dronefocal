@@ -87,15 +87,13 @@ jspm_packages/
 tmp/
 temp/
 
-# Editor directories and files
-.vscode
-.idea
+# Editor directories and files (already defined above, keeping here for clarity)
+# .vscode and .idea already defined above
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.swp
-*.swo
+# *.swp and *.swo already defined above
 
 # AI chat history (SpecStory)
 .specstory/
