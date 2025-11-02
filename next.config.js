@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -10,6 +9,12 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  // Skip build trace collection by using a minimal config
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
 }
 
