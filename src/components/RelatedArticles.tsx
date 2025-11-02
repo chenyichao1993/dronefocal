@@ -30,8 +30,8 @@ export default function RelatedArticles({ articles, currentArticle, articleType 
         if (diffA !== diffB) return diffA - diffB
         
         // 3. 同标签优先
-        const commonTagsA = a.tags?.filter(tag => currentArticle.tags?.includes(tag)).length || 0
-        const commonTagsB = b.tags?.filter(tag => currentArticle.tags?.includes(tag)).length || 0
+        const commonTagsA = a.tags?.filter((tag: string) => currentArticle.tags?.includes(tag)).length || 0
+        const commonTagsB = b.tags?.filter((tag: string) => currentArticle.tags?.includes(tag)).length || 0
         if (commonTagsA !== commonTagsB) return commonTagsB - commonTagsA
         
         // 4. 按日期排序
