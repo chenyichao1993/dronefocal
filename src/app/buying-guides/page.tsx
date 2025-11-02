@@ -143,19 +143,6 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        {guide.difficulty && (
-                          <div className="absolute top-4 right-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                              guide.difficulty === 'Beginner' ? 'bg-green-500/90 text-white' :
-                              guide.difficulty === 'Intermediate' ? 'bg-yellow-500/90 text-white' :
-                              'bg-red-500/90 text-white'
-                            }`}>
-                              {guide.difficulty === 'Beginner' ? '⭐ Beginner' :
-                               guide.difficulty === 'Intermediate' ? '⭐⭐ Intermediate' :
-                               '⭐⭐⭐ Advanced'}
-                            </span>
-                          </div>
-                        )}
                       </div>
                       
                       <div className="p-6">
