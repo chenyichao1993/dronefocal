@@ -3,21 +3,22 @@ import { NextResponse } from 'next/server'
 export async function GET() {
   const robotsTxt = `User-agent: *
 Allow: /
-
-Sitemap: https://dronefocal.com/sitemap.xml
-
-# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
-# Allow important pages
+# Sitemaps
+Sitemap: https://dronefocal.com/sitemap.xml
+
+# Allow important directories
 Allow: /drone-reviews/
 Allow: /buying-guides/
+Allow: /guides/
 Allow: /tutorials/
 Allow: /news/
-Allow: /compare/`
+Allow: /compare/
+Allow: /search/`
 
   return new NextResponse(robotsTxt, {
     headers: {

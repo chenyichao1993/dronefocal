@@ -13,13 +13,20 @@ export async function GET() {
     '/news',
     '/compare',
     '/about',
-    '/contact'
+    '/contact',
+    '/search',
+    '/privacy-policy',
+    '/terms-of-service',
+    '/cookie-policy',
+    '/disclaimer'
   ]
 
   // Dynamic pages from markdown files
-  const [reviews, articles] = await Promise.all([
+  const [reviews, news, guides, tutorials] = await Promise.all([
     getAllArticles('reviews'),
-    getAllArticles('news')
+    getAllArticles('news'),
+    getAllArticles('guides'),
+    getAllArticles('tutorials')
   ])
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -46,7 +53,7 @@ export async function GET() {
   </url>`
     )
     .join('')}
-  ${articles
+  ${news
     .map(
       (article) => `
   <url>
@@ -54,6 +61,28 @@ export async function GET() {
     <lastmod>${new Date(article.date).toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>`
+    )
+    .join('')}
+  ${guides
+    .map(
+      (guide) => `
+  <url>
+    <loc>${baseUrl}/guides/${guide.slug}</loc>
+    <lastmod>${new Date(guide.date).toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+    )
+    .join('')}
+  ${tutorials
+    .map(
+      (tutorial) => `
+  <url>
+    <loc>${baseUrl}/tutorials/${tutorial.slug}</loc>
+    <lastmod>${new Date(tutorial.date).toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>`
     )
     .join('')}
