@@ -13,7 +13,8 @@ const nextConfig = {
   experimental: {
     outputFileTracingExcludes: {
       '*': [
-        'node_modules/**',
+        'node_modules/@types/**',
+        'node_modules/.cache/**',
         '.git/**',
         '.next/**',
         'out/**',
