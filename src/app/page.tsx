@@ -37,6 +37,17 @@ export default async function HomePage() {
   
   // Get popular articles for sidebar
   const popularArticles = await getPopularArticles(5)
+  
+  // Convert to PopularArticle format for Sidebar component
+  const sidebarArticles = popularArticles.map(article => ({
+    title: article.title,
+    slug: article.slug,
+    category: article.category,
+    views: article.views || '0',
+    image: article.image,
+    rating: article.rating,
+    date: article.date
+  }))
 
   return (
     <>
@@ -50,7 +61,7 @@ export default async function HomePage() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <Sidebar popularArticles={popularArticles} />
+            <Sidebar popularArticles={sidebarArticles} />
           </div>
         </div>
       </main>

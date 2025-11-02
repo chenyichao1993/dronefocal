@@ -34,6 +34,7 @@ export interface ArticleMeta {
   // News specific
   source?: string
   featured?: boolean
+  views?: string
 }
 
 export interface Article extends ArticleMeta {

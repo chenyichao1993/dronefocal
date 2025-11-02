@@ -94,6 +94,17 @@ export default async function GuidePage({ params }: Props) {
   // Get popular articles for sidebar
   const popularArticles = await getPopularArticles(5)
   
+  // Convert to PopularArticle format for Sidebar component
+  const sidebarArticles = popularArticles.map(article => ({
+    title: article.title,
+    slug: article.slug,
+    category: article.category,
+    views: article.views || '0',
+    image: article.image,
+    rating: article.rating,
+    date: article.date
+  }))
+  
   // Get all articles for related articles
   const allArticles = await getAllArticles('guides')
 
@@ -213,7 +224,7 @@ export default async function GuidePage({ params }: Props) {
 
           {/* Right Sidebar */}
           <div className="lg:col-span-1">
-            <Sidebar popularArticles={popularArticles} />
+            <Sidebar popularArticles={sidebarArticles} />
           </div>
         </div>
       </div>
