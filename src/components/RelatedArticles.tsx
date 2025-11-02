@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ArticleMeta } from '@/lib/content'
 
 interface RelatedArticlesProps {
-  articles: ArticleMeta[]
-  currentArticle: ArticleMeta
+  articles: (ArticleMeta | any)[] // 支持 ArticleMeta 和 NewsArticle 类型
+  currentArticle: ArticleMeta | any
   articleType?: 'news' | 'guides' | 'reviews' | 'tutorials' // 明确指定文章类型，用于生成正确的URL
 }
 
@@ -60,24 +60,25 @@ export default function RelatedArticles({ articles, currentArticle, articleType 
       <div className="related-articles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {relatedArticles.map(article => {
           // 根据文章类型生成不同的链接
-          const getArticleUrl = (article: ArticleMeta) => {
+          const getArticleUrl = (article: any) => {
             const slug = article.slug
             
-            // 如果明确指定了 articleType，优先使用它
-            if (articleType) {
-              switch (articleType) {
-                case 'news':
-                  return `/news/${slug}`
-                case 'guides':
-                  return `/guides/${slug}`
-                case 'reviews':
-                  return `/drone-reviews/${slug}`
-                case 'tutorials':
-                  return `/tutorials/${slug}`
-              }
+            // 如果明确指定了 articleType，直接使用它（这是最可靠的方式）
+            // 所有来自 news 目录的文章，无论 category 是什么，都应该使用 /news/ 路径
+            if (articleType === 'news') {
+              return `/news/${slug}`
+            }
+            if (articleType === 'guides') {
+              return `/guides/${slug}`
+            }
+            if (articleType === 'reviews') {
+              return `/drone-reviews/${slug}`
+            }
+            if (articleType === 'tutorials') {
+              return `/tutorials/${slug}`
             }
             
-            // 否则根据 category 判断（兼容旧逻辑）
+            // 如果没有指定 articleType，根据 category 判断（兼容旧逻辑）
             const category = article.category
             switch (category) {
               case 'reviews':
@@ -89,11 +90,10 @@ export default function RelatedArticles({ articles, currentArticle, articleType 
               case 'news':
                 return `/news/${slug}`
               // 对于 news 目录下的文章，即使 category 是 "Technology" 等，也应该走 news 路由
-              // 这里通过检查 currentArticle 的类型来推断
               default:
                 // 如果当前文章是 news 类型，且 related articles 也在同一个列表，则使用 news 路由
                 const isNewsContext = currentArticle.category === 'news' || 
-                                      ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events'].includes(currentArticle.category)
+                                  ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events'].includes(currentArticle.category)
                 if (isNewsContext && ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
                   return `/news/${slug}`
                 }
