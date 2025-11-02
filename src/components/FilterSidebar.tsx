@@ -46,7 +46,7 @@ export default function FilterSidebar({ brands, priceRanges, ratings, currentFil
   const toggleSection = (section: string) => {
     setExpandedSections(prev => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section as keyof typeof prev]
     }))
   }
 
