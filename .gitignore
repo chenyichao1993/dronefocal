@@ -95,7 +95,8 @@ temp/
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
+*.swo
 
 # AI chat history (SpecStory)
 .specstory/
