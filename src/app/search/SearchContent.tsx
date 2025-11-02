@@ -126,17 +126,24 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
   // Get article URL
   const getArticleUrl = (article: ArticleMeta) => {
-    switch (article.category) {
+    const category = article.category
+    const slug = article.slug
+    
+    switch (category) {
       case 'reviews':
-        return `/drone-reviews/${article.slug}`
+        return `/drone-reviews/${slug}`
       case 'guides':
-        return `/guides/${article.slug}`
+        return `/guides/${slug}`
       case 'tutorials':
-        return `/tutorials/${article.slug}`
+        return `/tutorials/${slug}`
       case 'news':
-        return `/news/${article.slug}`
+        return `/news/${slug}`
+      // news 文章的 category 可能是 "Technology", "Product Launch" 等，都应该使用 /news/ 路径
       default:
-        return `/${article.category}/${article.slug}`
+        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
+          return `/news/${slug}`
+        }
+        return `/${category}/${slug}`
     }
   }
 

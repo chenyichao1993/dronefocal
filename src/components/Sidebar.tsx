@@ -34,6 +34,7 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
     const category = article.category
     const slug = article.slug
     
+    // 对于 news 目录下的文章，无论 category 是什么（Technology, Product Launch 等），都应该使用 /news/ 路径
     switch (category) {
       case 'reviews':
         return `/drone-reviews/${slug}`
@@ -43,7 +44,11 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
         return `/tutorials/${slug}`
       case 'guides':
         return `/guides/${slug}`
+      // news 文章的 category 可能是 "Technology", "Product Launch" 等
       default:
+        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
+          return `/news/${slug}`
+        }
         return `/${category}/${slug}`
     }
   }
