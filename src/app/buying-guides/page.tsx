@@ -37,6 +37,27 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
     { id: 'racing', name: 'Racing', count: guides.filter(g => g.tags?.includes('racing')).length },
   ]
 
+  // Helper function to get category info from guide tags
+  const getCategoryFromTags = (tags: string[] | undefined): { name: string; color: string } | null => {
+    if (!tags) return null
+    const categoryIds = ['beginner', 'professional', 'budget', 'racing']
+    for (const categoryId of categoryIds) {
+      if (tags.includes(categoryId)) {
+        const category = categories.find(c => c.id === categoryId)
+        if (category) {
+          const colorMap: Record<string, string> = {
+            'beginner': 'bg-green-500/90',
+            'professional': 'bg-yellow-500/90',
+            'budget': 'bg-blue-500/90',
+            'racing': 'bg-red-500/90'
+          }
+          return { name: category.name, color: colorMap[categoryId] || 'bg-blue-500/90' }
+        }
+      }
+    }
+    return null
+  }
+
 
 
   return (
@@ -143,6 +164,16 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
+                        {(() => {
+                          const categoryInfo = getCategoryFromTags(guide.tags)
+                          return categoryInfo && (
+                            <div className="absolute top-4 right-4">
+                              <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm text-white ${categoryInfo.color}`}>
+                                {categoryInfo.name}
+                              </span>
+                            </div>
+                          )
+                        })()}
                       </div>
                       
                       <div className="p-6">
