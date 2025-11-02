@@ -146,13 +146,13 @@ export default async function BuyingGuidesPage({ searchParams }: Props) {
                         {guide.difficulty && (
                           <div className="absolute top-4 right-4">
                             <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                              guide.difficulty === 'beginner' ? 'bg-green-500/90 text-white' :
-                              guide.difficulty === 'intermediate' ? 'bg-yellow-500/90 text-white' :
+                              guide.difficulty === 'Beginner' ? 'bg-green-500/90 text-white' :
+                              guide.difficulty === 'Intermediate' ? 'bg-yellow-500/90 text-white' :
                               'bg-red-500/90 text-white'
                             }`}>
-                              {guide.difficulty === 'beginner' ? '⭐ Beginner' :
-                               guide.difficulty === 'intermediate' ? '⭐⭐ Intermediate' :
-                               '⭐⭐⭐ Professional'}
+                              {guide.difficulty === 'Beginner' ? '⭐ Beginner' :
+                               guide.difficulty === 'Intermediate' ? '⭐⭐ Intermediate' :
+                               '⭐⭐⭐ Advanced'}
                             </span>
                           </div>
                         )}
