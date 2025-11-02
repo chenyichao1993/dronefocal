@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getAllArticles } from '@/lib/content'
 
 export async function GET() {
   const baseUrl = 'https://dronefocal.com'
@@ -16,14 +16,10 @@ export async function GET() {
     '/contact'
   ]
 
-  // Dynamic pages from database
+  // Dynamic pages from markdown files
   const [reviews, articles] = await Promise.all([
-    prisma.review.findMany({
-      select: { slug: true, updatedAt: true }
-    }),
-    prisma.article.findMany({
-      select: { slug: true, updatedAt: true }
-    })
+    getAllArticles('reviews'),
+    getAllArticles('news')
   ])
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -44,7 +40,7 @@ export async function GET() {
       (review) => `
   <url>
     <loc>${baseUrl}/drone-reviews/${review.slug}</loc>
-    <lastmod>${review.updatedAt.toISOString()}</lastmod>
+    <lastmod>${new Date(review.date).toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`
@@ -55,7 +51,7 @@ export async function GET() {
       (article) => `
   <url>
     <loc>${baseUrl}/news/${article.slug}</loc>
-    <lastmod>${article.updatedAt.toISOString()}</lastmod>
+    <lastmod>${new Date(article.date).toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`
