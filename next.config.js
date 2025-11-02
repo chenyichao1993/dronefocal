@@ -10,18 +10,9 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    outputFileTracingExcludes: {
-      '*': [
-        'node_modules/@types/**',
-        'node_modules/.cache/**',
-        '.git/**',
-        '.next/**',
-        'out/**',
-        '*.tsbuildinfo',
-      ],
-    },
-  },
+  // Remove outputFileTracingExcludes to ensure all runtime files are included
+  // The original stack overflow was likely due to .gitignore patterns,
+  // which we've already fixed by simplifying it
 }
 
 module.exports = nextConfig
