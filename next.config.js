@@ -10,6 +10,10 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    // Disable output file tracing to avoid stack overflow in build traces collection
+    outputFileTracing: false,
+  },
 }
 
 module.exports = nextConfig
