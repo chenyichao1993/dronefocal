@@ -1,56 +1,11 @@
 {
-  "timestamp": "2025-10-20T17:08:16.455Z",
-  "totalImages": 6,
+  "timestamp": "2025-11-03T13:26:56.869Z",
+  "totalImages": 1,
   "images": [
     {
-      "name": "5g-drone-network-expansion-2025",
+      "name": "dji-mavic-3-pro-reviewjpg",
       "originalFormat": "png",
-      "originalDimensions": "2364x1773",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "ai-autonomous-flight-breakthrough-2025",
-      "originalFormat": "png",
-      "originalDimensions": "2364x1773",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "dji-2025-fall-launch-event-highlights",
-      "originalFormat": "png",
-      "originalDimensions": "2364x1773",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "global-drone-regulations-unified-2025",
-      "originalFormat": "png",
-      "originalDimensions": "2364x1773",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "solid-state-battery-drone-commercialization-2025",
-      "originalFormat": "png",
-      "originalDimensions": "2364x1773",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "urban-airspace-low-altitude-economy-2025",
-      "originalFormat": "png",
-      "originalDimensions": "2364x1773",
+      "originalDimensions": "1280x960",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,

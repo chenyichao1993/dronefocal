@@ -1,0 +1,14 @@
+<!-- Optimized Image: dji-mavic-3-pro-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-mavic-3-pro-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-mavic-3-pro-review-320w.webp 320w, /images/optimized/responsive/dji-mavic-3-pro-review-640w.webp 640w, /images/optimized/responsive/dji-mavic-3-pro-review-1024w.webp 1024w, /images/optimized/responsive/dji-mavic-3-pro-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-mavic-3-pro-review.webp" 
+        alt="DJI Mavic 3 Pro Review - Triple Camera Professional Drone"
+        width="1920" 
+        height="1080"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
