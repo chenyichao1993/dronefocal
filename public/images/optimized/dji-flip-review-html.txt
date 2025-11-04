@@ -1,0 +1,14 @@
+<!-- Optimized Image: dji-flip-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-flip-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-flip-review-320w.webp 320w, /images/optimized/responsive/dji-flip-review-640w.webp 640w, /images/optimized/responsive/dji-flip-review-1024w.webp 1024w, /images/optimized/responsive/dji-flip-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-flip-review.webp" 
+        alt="DJI Flip Review - Vlog Drone with Foldable Protective Guard and 4K Camera"
+        width="1920" 
+        height="1080"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
