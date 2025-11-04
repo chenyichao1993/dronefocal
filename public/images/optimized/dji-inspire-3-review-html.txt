@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-inspire-3-review -->
+<picture>
+    <source srcset="dji-inspire-3-review.avif 1920w" type="image/avif">
+    <source srcset="dji-inspire-3-review-320w.webp 320w, dji-inspire-3-review-640w.webp 640w, dji-inspire-3-review-1024w.webp 1024w, dji-inspire-3-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="dji-inspire-3-review.webp" 
+        alt="DJI Inspire 3 professional 8K cinema drone with Zenmuse X9-8K Air camera system and transformable design"
+        width="1920" 
+        height="1080"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
