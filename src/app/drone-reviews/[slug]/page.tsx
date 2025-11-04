@@ -110,6 +110,28 @@ export default async function ReviewPage({ params }: Props) {
   // Get all articles for related articles
   const allArticles = await getAllArticles('reviews')
 
+  // Calculate price valid until date (1 year from now)
+  const priceValidUntil = new Date()
+  priceValidUntil.setFullYear(priceValidUntil.getFullYear() + 1)
+  const priceValidUntilStr = priceValidUntil.toISOString().split('T')[0]
+
+  // Create review object
+  const reviewObject = {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": article.rating,
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": article.author || "DroneFocal Team"
+    },
+    "datePublished": article.date,
+    "headline": article.title,
+    "description": article.excerpt
+  }
+
   // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -123,11 +145,20 @@ export default async function ReviewPage({ params }: Props) {
         "name": article.brand || "DJI"
       },
       "image": article.image,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": article.rating,
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
+      },
+      "review": reviewObject,
       "offers": article.price ? {
         "@type": "Offer",
         "price": article.price.replace(/[^0-9.]/g, ''),
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
+        "priceValidUntil": priceValidUntilStr,
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
           "applicableCountry": "US",
