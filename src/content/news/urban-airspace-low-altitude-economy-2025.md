@@ -10,6 +10,7 @@ readTime: "4 min read"
 author: "DroneFocal Team"
 featured: false
 trending: true
+views: "26,300"
 ---
 
 Fifty major cities across North America, Europe, and Asia have announced the coordinated opening of low-altitude airspace (0-200 meters) for commercial drone operations. This unprecedented initiative marks the beginning of a new era in urban air mobility and creates vast opportunities for drone-based services in metropolitan areas.

@@ -10,6 +10,7 @@ readTime: "5 min read"
 author: "DroneFocal Team"
 featured: true
 trending: false
+views: "28,600"
 ---
 
 The International Civil Aviation Organization (ICAO) has unveiled the world's first comprehensive global drone regulations, creating a unified framework for unmanned aircraft operations across 195 member countries. This historic agreement marks the end of fragmented national regulations and opens new possibilities for international drone commerce and operations.

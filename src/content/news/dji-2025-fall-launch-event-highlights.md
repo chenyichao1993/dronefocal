@@ -10,6 +10,7 @@ readTime: "5 min read"
 author: "DroneFocal Team"
 featured: true
 trending: true
+views: "42,400"
 ---
 
 DJI's highly anticipated fall launch event has revealed a suite of revolutionary drone technologies that promise to redefine the industry standard. The event, held in Shenzhen, showcased five new drone models featuring advanced AI integration, cutting-edge camera systems, and unprecedented autonomous capabilities.
