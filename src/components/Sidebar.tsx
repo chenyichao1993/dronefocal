@@ -29,6 +29,23 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
     setIsClient(true)
   }, [])
 
+  // 侧边栏专用的分类信息函数：将 news 的细分分类统一显示为 "News"
+  const getSidebarCategoryInfo = (category: string) => {
+    // News 的细分分类列表
+    const newsSubCategories = ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General']
+    
+    // 如果是 news 的细分分类，统一显示为 "News"
+    if (newsSubCategories.includes(category)) {
+      return { 
+        name: 'News', 
+        color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' 
+      }
+    }
+    
+    // 否则使用原来的 getCategoryInfo
+    return getCategoryInfo(category)
+  }
+
   // Get article URL based on category
   const getArticleUrl = (article: PopularArticle) => {
     const category = article.category
@@ -85,7 +102,7 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
           <div className="space-y-4">
             {popularArticles.length > 0 ? (
               popularArticles.map((article, index) => {
-                const categoryInfo = getCategoryInfo(article.category)
+                const categoryInfo = getSidebarCategoryInfo(article.category)
                 return (
                   <div key={article.slug} className={`sidebar-article ${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
                     <div className="flex items-start space-x-3">
