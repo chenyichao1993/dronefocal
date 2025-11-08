@@ -1,0 +1,14 @@
+<!-- Optimized Image: dji-neo-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-neo-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-neo-review-320w.webp 320w, /images/optimized/responsive/dji-neo-review-640w.webp 640w, /images/optimized/responsive/dji-neo-review-1024w.webp 1024w, /images/optimized/responsive/dji-neo-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-neo-review.webp" 
+        alt="DJI Neo Review - Ultra-Lightweight Vlog Drone with 4K Camera and Voice Control"
+        width="1072" 
+        height="804"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
