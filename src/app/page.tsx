@@ -2,6 +2,7 @@ import { getAllArticles } from '@/lib/content'
 import { getPopularArticles } from '@/lib/popularity'
 import Sidebar from '@/components/Sidebar'
 import HomepageArticles from '@/components/HomepageArticles'
+import FeaturedCarousel from '@/components/FeaturedCarousel'
 
 export default async function HomePage() {
   // Get all articles from all categories
@@ -15,6 +16,17 @@ export default async function HomePage() {
     ...article,
     displayCategory: 'news' // 用于显示，保留原始 category 用于路径生成
   }))
+  
+  // Get featured articles for carousel (筛选出 featured: true 的文章)
+  const allFeaturedArticles = [
+    ...allReviews,
+    ...allGuides,
+    ...processedNewsArticles,
+    ...allTutorials
+  ]
+    .filter(article => article.featured === true)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 5) // 最多显示5篇轮播文章
   
   // Combine all articles with weights: reviews > guides > news > tutorials
   const allArticles = [
@@ -56,6 +68,10 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Articles Grid */}
           <div className="lg:col-span-2">
+            {/* Featured Carousel */}
+            <FeaturedCarousel articles={allFeaturedArticles} />
+            
+            {/* Articles List */}
             <HomepageArticles articles={featuredArticles} />
           </div>
 
