@@ -10,10 +10,10 @@ export default async function HomePage() {
   const allGuides = await getAllArticles('guides')
   const allNews = await getAllArticles('news')
   
-  // Process news articles: change category to "News" for homepage display
+  // Process news articles: keep original category for URL generation, add displayCategory for homepage display
   const processedNewsArticles = allNews.map(article => ({
     ...article,
-    category: 'News'
+    displayCategory: 'news' // 用于显示，保留原始 category 用于路径生成
   }))
   
   // Combine all articles with weights: reviews > guides > news > tutorials

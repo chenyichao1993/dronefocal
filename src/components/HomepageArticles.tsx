@@ -20,15 +20,40 @@ export default function HomepageArticles({ articles }: HomepageArticlesProps) {
     setDisplayCount(prev => prev + 6)
   }
 
+  // Get article URL based on category
+  const getArticleUrl = (article: ArticleMeta & { displayCategory?: string }) => {
+    const category = article.category
+    const slug = article.slug
+    
+    switch (category) {
+      case 'reviews':
+        return `/drone-reviews/${slug}`
+      case 'news':
+        return `/news/${slug}`
+      case 'tutorials':
+        return `/tutorials/${slug}`
+      case 'guides':
+        return `/guides/${slug}`
+      // news 文章的 category 可能是 "Technology", "Product Launch" 等，都应该使用 /news/ 路径
+      default:
+        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
+          return `/news/${slug}`
+        }
+        return `/${category}/${slug}`
+    }
+  }
+
   return (
     <>
       {/* Articles Grid - Card Style */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {displayedArticles.map((article) => {
-          const categoryInfo = getCategoryInfo(article.category)
+          // 使用 displayCategory 显示标签（如果有），否则使用 category
+          const displayCategory = (article as any).displayCategory || article.category
+          const categoryInfo = getCategoryInfo(displayCategory)
           return (
             <article key={article.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
-              <Link href={`/${article.category === 'reviews' ? 'drone-reviews' : article.category}/${article.slug}`} className="block">
+              <Link href={getArticleUrl(article)} className="block">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <Image 
                     src={article.image} 
