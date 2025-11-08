@@ -49,15 +49,23 @@ The transmission system delivers reliable 720p live feed that feels stable for m
 
 The 1/2-inch CMOS sensor with 12MP resolution might seem modest, but the results exceed expectations for a $199 drone. During daylight conditions, the Neo produces sharp, vibrant images that rival those from more expensive entry-level drones. The 4K/30fps video quality maintains excellent detail and color accuracy, with smooth stabilization that belies the drone's minimal size.
 
-What impressed me most was the 117.6° wide-angle lens with 14mm equivalent focal length. This ultra-wide perspective is perfect for Vlog shots, selfies, and capturing environmental context. The f/2.8 aperture provides reasonable low-light performance, though the smaller sensor limits results compared to larger drones. The RockSteady and HorizonBalancing electronic image stabilization work effectively, producing smooth footage. Low-light performance reveals the sensor size limitations, but for most users shooting during daylight hours or in well-lit indoor spaces—which represents the majority of Vlog content—this limitation matters less than you'd expect.
+What impressed me most was the 117.6° wide-angle lens with 14mm equivalent focal length. This ultra-wide perspective is perfect for Vlog shots, selfies, and capturing environmental context.
+
+The f/2.8 aperture provides reasonable low-light performance, though the smaller sensor limits results compared to larger drones. The RockSteady and HorizonBalancing electronic image stabilization work effectively, producing smooth footage.
+
+Low-light performance reveals the sensor size limitations, but for most users shooting during daylight hours or in well-lit indoor spaces—which represents the majority of Vlog content—this limitation matters less than you'd expect.
 
 ## Control Options: Accessibility Meets Flexibility
 
-The Neo's multiple control options represent its most innovative feature. The ability to control the drone through the DJI Fly app's virtual joysticks, voice commands, or the optional RC-N3 remote controller means users can choose the method that feels most natural. Voice control works surprisingly well for basic commands, though it's not suitable for complex maneuvers. The DJI Fly app's virtual joystick control provides full functionality for users who prefer smartphone control, while the optional RC-N3 remote controller provides more precise control for extended shooting sessions.
+The Neo's multiple control options represent its most innovative feature. The ability to control the drone through the DJI Fly app's virtual joysticks, voice commands, or the optional RC-N3 remote controller means users can choose the method that feels most natural.
+
+Voice control works surprisingly well for basic commands, though it's not suitable for complex maneuvers. The DJI Fly app's virtual joystick control provides full functionality for users who prefer smartphone control, while the optional RC-N3 remote controller provides more precise control for extended shooting sessions.
 
 ## Intelligent Features: Making Professional Shots Accessible
 
-The Neo's intelligent tracking and automated shooting modes create cinematic sequences with minimal effort. The Follow mode works well for Vlog shots, while the Circle and Rocket modes produce impressive results for social media content. The AI-powered subject tracking performs adequately for the Neo's use cases, providing sufficient capability without requiring advanced skills. The DJI Fly app provides an intuitive interface with flight tutorials, making the Neo particularly beginner-friendly.
+The Neo's intelligent tracking and automated shooting modes create cinematic sequences with minimal effort. The Follow mode works well for Vlog shots, while the Circle and Rocket modes produce impressive results for social media content.
+
+The AI-powered subject tracking performs adequately for the Neo's use cases, providing sufficient capability without requiring advanced skills. The DJI Fly app provides an intuitive interface with flight tutorials, making the Neo particularly beginner-friendly.
 
 ## Comparison: Finding the Right Fit
 
@@ -65,11 +73,15 @@ The Mini 2's 31-minute flight time and longer transmission range justify the $44
 
 ## Honest Assessment: Pros and Cons
 
-The Neo's ultra-lightweight design delivers genuine advantages that heavier drones can't provide. Indoor filming becomes genuinely safe, close-proximity shots become possible, and the multiple control options make flying accessible to complete beginners. The 4K video quality and wide-angle lens provide professional capabilities that entry-level users shouldn't expect at this price point. However, the 18-minute flight time limits extended shooting sessions, and the lack of obstacle avoidance requires careful piloting, especially for beginners. The smaller sensor limits low-light performance compared to larger drones, and the shorter transmission range means this isn't a drone for long-distance flying.
+The Neo's ultra-lightweight design delivers genuine advantages that heavier drones can't provide. Indoor filming becomes genuinely safe, close-proximity shots become possible, and the multiple control options make flying accessible to complete beginners. The 4K video quality and wide-angle lens provide professional capabilities that entry-level users shouldn't expect at this price point.
+
+However, the 18-minute flight time limits extended shooting sessions, and the lack of obstacle avoidance requires careful piloting, especially for beginners. The smaller sensor limits low-light performance compared to larger drones, and the shorter transmission range means this isn't a drone for long-distance flying.
 
 ## Who Should Buy the Neo
 
-The Neo excels for Vlog creators, social media content creators, and beginners who prioritize ultra-portability and safety for indoor or close-proximity filming. The 135g weight and full propeller guard make it ideal for indoor shoots and situations where traditional drones feel risky. Budget-conscious buyers who want professional-quality video without professional-level prices will find the Neo particularly appealing. However, users requiring maximum flight time, long-distance transmission, or advanced obstacle avoidance should consider higher-end models like the Mini series.
+The Neo excels for Vlog creators, social media content creators, and beginners who prioritize ultra-portability and safety for indoor or close-proximity filming. The 135g weight and full propeller guard make it ideal for indoor shoots and situations where traditional drones feel risky.
+
+Budget-conscious buyers who want professional-quality video without professional-level prices will find the Neo particularly appealing. However, users requiring maximum flight time, long-distance transmission, or advanced obstacle avoidance should consider higher-end models like the Mini series.
 
 ## Final Verdict
 
@@ -82,5 +94,7 @@ The DJI Neo earns a **4.3/5 star rating** based on extensive real-world testing.
 - **Value**: 4.5/5 - Professional features at entry-level price
 - **Ease of Use**: 5/5 - Multiple control options make flying accessible to beginners
 
-For Vlog creators, social media content creators, and beginners who need ultra-portable, safe indoor filming capability, the Neo represents exceptional value. The combination of 4K video, wide-angle lens, multiple control options, and genuine safety features creates a package that serves specific needs better than more expensive alternatives. If you're choosing between the Neo and Mini series, the decision comes down to specific use cases—the Mini series offers superior flight time and outdoor capability, but the Neo provides unique advantages for indoor filming and beginner accessibility.
+For Vlog creators, social media content creators, and beginners who need ultra-portable, safe indoor filming capability, the Neo represents exceptional value. The combination of 4K video, wide-angle lens, multiple control options, and genuine safety features creates a package that serves specific needs better than more expensive alternatives.
+
+If you're choosing between the Neo and Mini series, the decision comes down to specific use cases—the Mini series offers superior flight time and outdoor capability, but the Neo provides unique advantages for indoor filming and beginner accessibility.
 
