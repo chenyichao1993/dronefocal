@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-air-3-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-air-3-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-air-3-review-320w.webp 320w, /images/optimized/responsive/dji-air-3-review-640w.webp 640w, /images/optimized/responsive/dji-air-3-review-1024w.webp 1024w, /images/optimized/responsive/dji-air-3-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-air-3-review.webp" 
+        alt="DJI Air 3 Review - Dual Camera System Drone with 24mm Wide-Angle and 70mm Telephoto Cameras"
+        width="3840" 
+        height="2160"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
