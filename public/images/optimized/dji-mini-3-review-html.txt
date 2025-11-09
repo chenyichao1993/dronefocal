@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-mini-3-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-mini-3-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-mini-3-review-320w.webp 320w, /images/optimized/responsive/dji-mini-3-review-640w.webp 640w, /images/optimized/responsive/dji-mini-3-review-1024w.webp 1024w, /images/optimized/responsive/dji-mini-3-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-mini-3-review.webp" 
+        alt="DJI Mini 3 Review - Enhanced Imaging and Extended Flight Time Drone with 4K HDR Camera"
+        width="1388" 
+        height="960"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
