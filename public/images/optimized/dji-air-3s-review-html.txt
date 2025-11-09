@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-air-3s-review -->
+<picture>
+    <source srcset="/images/optimized/avif/dji-air-3s-review.avif" type="image/avif">
+    <source srcset="/images/optimized/responsive/dji-air-3s-review-320w.webp 320w, /images/optimized/responsive/dji-air-3s-review-640w.webp 640w, /images/optimized/responsive/dji-air-3s-review-1024w.webp 1024w, /images/optimized/responsive/dji-air-3s-review-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="/images/optimized/webp/dji-air-3s-review.webp" 
+        alt="DJI Air 3S Review - 1-Inch Sensor Drone with Nightscape Obstacle Avoidance and 14 Stops Dynamic Range"
+        width="1219" 
+        height="914"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
