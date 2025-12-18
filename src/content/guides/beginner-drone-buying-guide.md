@@ -85,6 +85,8 @@ A drone, also known as an Unmanned Aerial Vehicle (UAV), is an aircraft without 
 - **Equipment insurance**: Covers drone replacement
 - **Commercial insurance**: Required for business use
 
+For a broader look at how rules affect everyday hobby pilots, see our overview article <a href="/news/how-drone-regulations-affect-hobby-pilots" target="_blank" rel="noopener noreferrer">How Drone Regulations Affect Everyday Hobby Pilots</a> on the Drone News section.
+
 ## Top Beginner Drone Recommendations
 
 ### 1. DJI Mini 3
@@ -158,6 +160,8 @@ A drone, also known as an Unmanned Aerial Vehicle (UAV), is an aircraft without 
 - Land with 20-30% battery remaining
 - Store batteries properly
 
+If you want a simple, repeatable process before every flight, follow our dedicated <a href="/tutorials/drone-pre-flight-checklist" target="_blank" rel="noopener noreferrer">Drone Pre‑Flight Checklist</a> tutorial.
+
 ## Maintenance and Care
 
 ### Regular Maintenance
@@ -185,5 +189,7 @@ Remember to start with a beginner-friendly model, practice regularly, and always
 3. **Visit local stores** to see drones in person
 4. **Join online communities** for support and advice
 5. **Start with a simulator** to practice flying
+6. Read our focused guide <a href="/guides/best-drones-for-beginners" target="_blank" rel="noopener noreferrer">Best Drones for Beginners: How to Choose Your First Drone</a> for a budget‑oriented decision framework
+7. Learn about safety and common regulatory themes in the <a href="/tutorials/drone-safety-and-regulations-guide" target="_blank" rel="noopener noreferrer">Drone Safety and Regulations Guide for Everyday Pilots</a>
 
 Happy flying!
