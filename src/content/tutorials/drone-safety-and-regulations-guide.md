@@ -1,7 +1,7 @@
 ---
 title: "Drone Safety and Regulations Guide for Everyday Pilots"
 excerpt: "A practical, non‑legal overview of common safety principles and regulatory themes that affect hobby and recreational drone pilots around the world."
-image: "/images/optimized/webp/beginner-drone-guide.webp"
+image: "/images/optimized/webp/drone-safety-and-regulations-hero.webp"
 date: "2025-10-20"
 readTime: "10 min read"
 category: "tutorials"

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Star, ExternalLink, Calendar, Clock } from 'lucide-react'
 import { ArticleMeta } from '@/lib/content'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 
 interface ReviewsGridProps {
   reviews: ArticleMeta[]
@@ -15,6 +15,7 @@ interface ReviewsGridProps {
 export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActiveFilters = false }: ReviewsGridProps) {
   const [currentSort, setCurrentSort] = useState(sortBy)
   const [displayedCount, setDisplayedCount] = useState(6) // Show 6 reviews initially
+  const [isMounted, setIsMounted] = useState(false)
 
   // Sort articles based on current sort option
   const sortedReviews = useMemo(() => {
@@ -65,6 +66,15 @@ export default function ReviewsGrid({ reviews = [], sortBy = 'newest', hasActive
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentSort(e.target.value)
+  }
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  // Avoid hydration mismatch: do not render until mounted on client
+  if (!isMounted) {
+    return null
   }
   return (
     <div>

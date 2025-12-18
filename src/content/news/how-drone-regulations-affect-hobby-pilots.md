@@ -2,7 +2,7 @@
 title: "How Drone Regulations Affect Everyday Hobby Pilots"
 slug: "how-drone-regulations-affect-hobby-pilots"
 excerpt: "A clear, non‑legal explanation of how common regulatory trends around the world influence where and how hobby pilots can fly their drones."
-image: "/images/optimized/webp/urban-airspace-low-altitude-economy-2025.webp"
+image: "/images/optimized/webp/drone-regulations-hobby-pilots-hero.webp"
 category: "Regulations"
 tags: ["regulations", "safety", "beginner", "hobby pilots"]
 date: "2025-10-20"

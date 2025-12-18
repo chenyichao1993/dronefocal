@@ -1,7 +1,7 @@
 ---
 title: "Best Drones for Beginners: How to Choose Your First Drone"
 excerpt: "Clear, practical guidance for first‑time drone buyers. Understand budgets, safety, and key features so you can confidently pick your first drone without wasting money."
-image: "/images/optimized/webp/beginner-drone-guide.webp"
+image: "/images/optimized/webp/best-drones-for-beginners-hero.webp"
 date: "2025-10-20"
 readTime: "11 min read"
 category: "guides"

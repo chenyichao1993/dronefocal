@@ -16,6 +16,7 @@ export default function NewsContent({ articles }: NewsContentProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [displayedCount, setDisplayedCount] = useState(6)
+  const [isMounted, setIsMounted] = useState(false)
 
   const filteredArticles = useMemo(() => {
     let filtered = articles
@@ -52,6 +53,16 @@ export default function NewsContent({ articles }: NewsContentProps) {
   useEffect(() => {
     setDisplayedCount(6)
   }, [searchQuery, selectedCategory])
+
+  // Avoid React hydration mismatches for text that depends on client-only state
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  // 在客户端挂载完成前不渲染内容，避免服务端和客户端文本不一致导致的 hydration 报错
+  if (!isMounted) {
+    return null
+  }
 
   return (
     <div className="space-y-8">

@@ -8,7 +8,7 @@ const tutorials = [
     title: 'Drone Safety and Regulations Guide',
     slug: 'drone-safety-and-regulations-guide',
     excerpt: 'Essential safety tips and regulations every drone pilot must know before taking flight.',
-    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/images/optimized/webp/drone-safety-and-regulations-hero.webp',
     category: 'Safety',
     duration: '15 min',
     difficulty: 'Easy',
@@ -21,7 +21,7 @@ const tutorials = [
     title: 'Drone Pre-Flight Checklist: Step-by-Step',
     slug: 'drone-pre-flight-checklist',
     excerpt: 'Follow this simple, repeatable checklist before every flight to reduce risk and protect your drone.',
-    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/images/optimized/webp/drone-pre-flight-checklist-hero.webp',
     category: 'Safety',
     duration: '10 min',
     difficulty: 'Easy',
@@ -35,7 +35,11 @@ export default function TutorialsGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {tutorials.map((tutorial) => (
-        <article key={tutorial.id} className="card group hover:shadow-lg transition-shadow duration-300">
+        <Link
+          key={tutorial.id}
+          href={`/tutorials/${tutorial.slug}`}
+          className="card group hover:shadow-lg transition-shadow duration-300 block"
+        >
           <div className="relative overflow-hidden rounded-t-lg">
             <Image
               src={tutorial.image}
@@ -54,19 +58,6 @@ export default function TutorialsGrid() {
                 {tutorial.difficulty}
               </span>
             </div>
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {tutorial.type === 'Video Course' ? (
-                  <div className="bg-white rounded-full p-3">
-                    <Play className="h-6 w-6 text-primary-600" />
-                  </div>
-                ) : (
-                  <div className="bg-white rounded-full p-3">
-                    <BookOpen className="h-6 w-6 text-primary-600" />
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
 
           <div className="p-6">
@@ -77,17 +68,12 @@ export default function TutorialsGrid() {
             <p className="text-gray-600 dark:text-gray-400 line-clamp-3">
               {tutorial.excerpt}
             </p>
-            
-            <div className="mt-4">
-              <Link
-                href={`/tutorials/${tutorial.slug}`}
-                className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-              >
-                Read Tutorial
-              </Link>
+
+            <div className="mt-4 text-primary-600 dark:text-primary-400 font-medium">
+              Read Tutorial
             </div>
           </div>
-        </article>
+        </Link>
       ))}
     </div>
   )

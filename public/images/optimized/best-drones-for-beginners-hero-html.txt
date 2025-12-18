@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: best-drones-for-beginners-hero -->
+<picture>
+    <source srcset="best-drones-for-beginners-hero.avif 6000w" type="image/avif">
+    <source srcset="best-drones-for-beginners-hero-320w.webp 320w, best-drones-for-beginners-hero-640w.webp 640w, best-drones-for-beginners-hero-1024w.webp 1024w, best-drones-for-beginners-hero-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="best-drones-for-beginners-hero.webp" 
+        alt="Best Drones For Beginners Hero"
+        width="6000" 
+        height="4000"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

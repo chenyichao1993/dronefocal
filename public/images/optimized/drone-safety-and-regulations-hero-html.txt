@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: drone-safety-and-regulations-hero -->
+<picture>
+    <source srcset="drone-safety-and-regulations-hero.avif 6720w" type="image/avif">
+    <source srcset="drone-safety-and-regulations-hero-320w.webp 320w, drone-safety-and-regulations-hero-640w.webp 640w, drone-safety-and-regulations-hero-1024w.webp 1024w, drone-safety-and-regulations-hero-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="drone-safety-and-regulations-hero.webp" 
+        alt="Drone Safety And Regulations Hero"
+        width="6720" 
+        height="4480"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

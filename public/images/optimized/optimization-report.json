@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-12-18T14:55:31.071Z",
+  "totalImages": 5,
+  "images": [
+    {
+      "name": "best-drones-for-beginners-hero",
+      "originalFormat": "jpeg",
+      "originalDimensions": "6000x4000",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "drone-pre-flight-checklist-hero",
+      "originalFormat": "jpeg",
+      "originalDimensions": "5718x3812",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "drone-regulations-hobby-pilots-hero",
+      "originalFormat": "jpeg",
+      "originalDimensions": "4800x3200",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "drone-safety-and-regulations-hero",
+      "originalFormat": "jpeg",
+      "originalDimensions": "6720x4480",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "travel-drones-content-creators-hero",
+      "originalFormat": "jpeg",
+      "originalDimensions": "4256x2832",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    }
+  ]
+}

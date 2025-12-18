@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: travel-drones-content-creators-hero -->
+<picture>
+    <source srcset="travel-drones-content-creators-hero.avif 4256w" type="image/avif">
+    <source srcset="travel-drones-content-creators-hero-320w.webp 320w, travel-drones-content-creators-hero-640w.webp 640w, travel-drones-content-creators-hero-1024w.webp 1024w, travel-drones-content-creators-hero-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="travel-drones-content-creators-hero.webp" 
+        alt="Travel Drones Content Creators Hero"
+        width="4256" 
+        height="2832"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

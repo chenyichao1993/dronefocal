@@ -6,6 +6,7 @@ import { Star, Calendar, Clock, ArrowLeft, ExternalLink } from 'lucide-react'
 import { getArticleBySlug, getAllArticles } from '@/lib/content'
 import { getPopularArticles } from '@/lib/popularity'
 import Sidebar from '@/components/Sidebar'
+import RelatedArticles from '@/components/RelatedArticles'
 
 interface Props {
   params: {
@@ -104,6 +105,9 @@ export default async function TutorialPage({ params }: Props) {
     date: article.date
   }))
 
+  // Get all tutorial articles for related articles
+  const allTutorialArticles = await getAllArticles('tutorials')
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -192,44 +196,33 @@ export default async function TutorialPage({ params }: Props) {
               />
             </article>
 
-            {/* Tags */}
-            {article.tags && article.tags.length > 0 && (
-              <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                  Tags
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {article.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Author and Share */}
+            {/* Tags and Related Articles */}
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    By {article.author || 'DroneFocal Team'}
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
-                    Share this tutorial:
-                  </span>
-                  <div className="flex items-center space-x-2">
-                    <button className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                      <ExternalLink className="h-4 w-4" />
-                    </button>
+              {/* Tags */}
+              {article.tags && article.tags.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Tags
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {article.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
+              )}
+
+              {/* Related Articles */}
+              <RelatedArticles
+                articles={allTutorialArticles}
+                currentArticle={article}
+                articleType="tutorials"
+              />
             </div>
           </div>
 

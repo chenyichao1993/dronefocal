@@ -52,7 +52,8 @@ export default function RelatedArticles({ articles, currentArticle, articleType 
                        currentArticle.category === 'Regulations' ||
                        currentArticle.category === 'Industry News' ||
                        currentArticle.category === 'Events'
-  const useSimpleStyle = isGuideArticle || isNewsArticle
+  const isTutorialArticle = currentArticle.category === 'tutorials'
+  const useSimpleStyle = isGuideArticle || isNewsArticle || isTutorialArticle
 
   return (
     <div className="related-articles-section">

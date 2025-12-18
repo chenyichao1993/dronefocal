@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: drone-regulations-hobby-pilots-hero -->
+<picture>
+    <source srcset="drone-regulations-hobby-pilots-hero.avif 4800w" type="image/avif">
+    <source srcset="drone-regulations-hobby-pilots-hero-320w.webp 320w, drone-regulations-hobby-pilots-hero-640w.webp 640w, drone-regulations-hobby-pilots-hero-1024w.webp 1024w, drone-regulations-hobby-pilots-hero-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="drone-regulations-hobby-pilots-hero.webp" 
+        alt="Drone Regulations Hobby Pilots Hero"
+        width="4800" 
+        height="3200"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

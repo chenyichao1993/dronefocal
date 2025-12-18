@@ -204,6 +204,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
                 { value: 'all', label: 'All', count: articles.length },
                 { value: 'reviews', label: 'Reviews', count: articles.filter(a => a.category === 'reviews').length },
                 { value: 'guides', label: 'Guides', count: articles.filter(a => a.category === 'guides').length },
+                { value: 'tutorials', label: 'Tutorials', count: articles.filter(a => a.category === 'tutorials').length },
                 { value: 'news', label: 'News', count: articles.filter(a => a.category === 'news').length },
               ].map((category) => (
                 <label key={category.value} className="flex items-center cursor-pointer">

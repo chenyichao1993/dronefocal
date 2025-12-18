@@ -1,7 +1,7 @@
 ---
 title: "Drone Pre‑Flight Checklist: Step‑by‑Step Guide"
 excerpt: "A simple, repeatable checklist you can follow before every flight to reduce risk, protect your drone, and keep your footage consistent."
-image: "/images/optimized/webp/dji-neo-review.webp"
+image: "/images/optimized/webp/drone-pre-flight-checklist-hero.webp"
 date: "2025-10-20"
 readTime: "8 min read"
 category: "tutorials"

@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: drone-pre-flight-checklist-hero -->
+<picture>
+    <source srcset="drone-pre-flight-checklist-hero.avif 5718w" type="image/avif">
+    <source srcset="drone-pre-flight-checklist-hero-320w.webp 320w, drone-pre-flight-checklist-hero-640w.webp 640w, drone-pre-flight-checklist-hero-1024w.webp 1024w, drone-pre-flight-checklist-hero-1920w.webp 1920w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="drone-pre-flight-checklist-hero.webp" 
+        alt="Drone Pre Flight Checklist Hero"
+        width="5718" 
+        height="3812"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

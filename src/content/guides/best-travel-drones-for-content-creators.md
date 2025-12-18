@@ -1,7 +1,7 @@
 ---
 title: "Best Travel Drones for Content Creators"
 excerpt: "A practical guide to choosing a travel‑friendly drone for vlogging, social media, and on‑the‑go content creation without carrying a full production rig."
-image: "/images/optimized/webp/dji-mavic-3-review.webp"
+image: "/images/optimized/webp/travel-drones-content-creators-hero.webp"
 date: "2025-10-20"
 readTime: "10 min read"
 category: "guides"
