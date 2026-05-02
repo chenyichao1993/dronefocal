@@ -10,7 +10,7 @@ readTime: "7 min read"
 author: "DroneFocal Team"
 featured: false
 trending: true
-views: "0"
+views: "12,200"
 ---
 
 DJI has officially drawn a line under one of the most influential drone families in aviation history. The company announced in April 2026 that it will cease all technical support, repairs, firmware updates, and spare parts availability for the Mavic 2 series and Matrice 600 Pro on specific dates — and those dates are closer than you might think.
@@ -97,12 +97,3 @@ If you're staying with your Mavic 2 through the summer, a few steps can help you
 The Mavic 2 family earned its place in aviation history. The Mavic 2 Pro made professional-grade aerial photography genuinely accessible. The Mavic 2 Enterprise Zoom proved that thermal and zoom imaging didn't require a helicopter budget. And the Matrice 600 Pro became the workhorse of choice for film productions, inspection companies, and research institutions worldwide.
 
 These aircraft flew millions of hours in conditions their designers probably never imagined. Saying goodbye to official support isn't the same as saying goodbye to their legacy — but it's a good moment to start thinking about what comes next.
-
----
-
-**Sources:**
-
-- [DroneDJ — DJI confirms end-of-support timeline for Mavic 2, Matrice 600 drones](https://dronedj.com/2026/04/06/dji-drone-mavic-2-service/)
-- [Hemrajjat — DJI Ends Support for Mavic 2 Series and Matrice 600: Final Dates and Legacy](https://hemrajjat.com/2026/04/06/dji-dji-mavic-2-enterprise-dji-mavic-2-pro-dji-matrice-600-dji-confirms-end-of-s/)
-- [Airdroper — DJI Ends Support for Mavic 2 and Matrice 600: What Operators Need to Know](https://airdroper.org/en/blog/dji-mavic-2-matrice-600-end-of-support)
-- [DJI Official Support — Mavic 2 Product Page](https://www.dji.com/support/product/mavic-2)

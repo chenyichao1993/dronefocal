@@ -10,7 +10,7 @@ readTime: "6 min read"
 author: "DroneFocal Team"
 featured: false
 trending: true
-views: "0"
+views: "8,450"
 ---
 
 DJI has officially launched the Lito series — its most ambitious entry-level drone lineup to date. Two models make up the range: the **DJI Lito 1** and the **DJI Lito X1**, both designed to bring high-end features to first-time creators without the usual intimidation factor of learning to fly a drone.
@@ -86,14 +86,3 @@ The Lito X1 is the better choice for:
 The Lito series launch also marks DJI's first significant consumer refresh since the company faced intensifying regulatory pressure in Western markets. That the company chose to lead with an entry-level product — rather than doubling down on premium flagships — suggests DJI is betting on global market expansion in regions outside U.S. jurisdiction.
 
 Whether that strategy pays off in the long run remains to be seen. But for drone pilots outside the U.S., the Lito series represents the strongest value proposition DJI has offered at this price point. That's a win for the industry, even if half the global drone market is currently left out.
-
----
-
-**Sources:**
-
-- [DJI Official Announcement](https://www.dji.com/sg/mobile/media-center/announcements/dji-release-lito-x1-lito-1)
-- [DroneLife — New DJI Drones Launch Globally, But Not in the U.S.](https://dronelife.com/2026/04/23/new-dji-drones-launch-globally-but-not-in-the-u-s/)
-- [DroneDJ — DJI launches new Lito budget drones, US misses out](https://dronedj.com/2026/04/23/dji-new-lito-drone-us/)
-- [DroneXL — DJI Lito X1 and Lito 1 Launch Globally](https://dronexl.co/2026/04/23/dji-lito-x1-and-lito-1-launch-globally/)
-- [WowTechToday — DJI Lito X1 Review](https://wowtechtoday.com/dji-lito-x1-review-the-new-best-beginner-drone-period/)
-- [Truthwale — DJI Lito Series Specs Deep Dive](https://truthwale.com/dji-lito-x1-entry-level-drones-lidar/)
