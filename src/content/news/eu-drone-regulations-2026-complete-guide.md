@@ -3,7 +3,7 @@ title: "EU Drone Regulations 2026: Everything FPV Pilots and Recreational Users 
 slug: "eu-drone-regulations-2026-complete-guide"
 excerpt: "Europe's unified drone rules entered their most significant implementation phase in 2026. From drone registration and Remote ID requirements to new class markings and competency certificates, here's what every pilot flying in EU airspace needs to understand."
 image: "/images/optimized/webp/eu-drone-regulations-2026-complete-guide.webp"
-category: "Tutorial"
+category: "Industry News"
 tags: ["EU drone laws", "EASA regulations", "drone registration Europe", "FPV drone rules", "drone regulations 2026", "Remote ID Europe", "drone compliance"]
 date: "2026-05-02"
 readTime: "8 min read"
