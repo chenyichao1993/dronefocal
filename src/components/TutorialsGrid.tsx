@@ -48,16 +48,6 @@ export default function TutorialsGrid() {
               height={250}
               className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute top-4 left-4">
-              <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {tutorial.category}
-              </span>
-            </div>
-            <div className="absolute top-4 right-4">
-              <span className="bg-white dark:bg-dark-800 text-gray-900 dark:text-white px-2 py-1 rounded text-sm font-semibold">
-                {tutorial.difficulty}
-              </span>
-            </div>
           </div>
 
           <div className="p-6">
