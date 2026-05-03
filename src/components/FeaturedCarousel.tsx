@@ -31,7 +31,7 @@ export default function FeaturedCarousel({ articles }: FeaturedCarouselProps) {
   }
 
   const currentArticle = articles[currentIndex]
-  const categoryInfo = getCategoryInfo(currentArticle.category)
+  const categoryInfo = getCategoryInfo(currentArticle.routeDir)
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index)

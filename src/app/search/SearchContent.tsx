@@ -249,7 +249,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Popular Articles</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedArticles.map((article) => {
-                  const categoryInfo = getCategoryInfoLocal(article.category)
+                  const categoryInfo = getCategoryInfoLocal(article.routeDir)
                   return (
                     <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
@@ -303,7 +303,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {searchResults.map((article) => {
-                const categoryInfo = getCategoryInfoLocal(article.category)
+                const categoryInfo = getCategoryInfoLocal(article.routeDir)
                 return (
                   <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">

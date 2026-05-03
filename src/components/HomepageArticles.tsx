@@ -26,7 +26,7 @@ export default function HomepageArticles({ articles }: HomepageArticlesProps) {
       {/* Articles Grid - Card Style */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {displayedArticles.map((article) => {
-          const categoryInfo = getCategoryInfo(article.category)
+          const categoryInfo = getCategoryInfo(article.routeDir)
           return (
             <article key={article.slug} className="article-card card group hover:shadow-lg transition-shadow duration-300">
               <Link href={getArticleUrl(article)} className="block">
