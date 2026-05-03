@@ -2,7 +2,7 @@
 title: "DJI's April 2026 Blitz: Four New Products Signal a Creator-First Strategy Shift"
 slug: "dji-april-2026-blitz-creator-strategy"
 excerpt: "DJI is rolling out four new products in just two weeks — from the Osmo Pocket 4 to the DJI Lito drone. Here's what this aggressive launch strategy means for the drone industry in 2026."
-image: "/images/optimized/webp/dji-april-2026-blitz-creator-strategy.webp"
+image: "/images/blog/dji-april-2026-blitz-creator-strategy.jpg"
 category: "Industry"
 tags: ["DJI", "DJI Lito", "Osmo Pocket 4", "drone news 2026", "UAV industry", "creator economy", "product launch"]
 date: "2026-05-03"
@@ -93,9 +93,3 @@ DJI's April 2026 product blitz isn't just about four new gadgets. It's a strateg
 For drone enthusiasts, content creators, and industry watchers alike, this is one of the most significant strategic shifts we've seen from DJI in years. The Lito, in particular, could redefine the entry-level drone market — and if the rumors about LiDAR and 48MP cameras at a sub-250g weight are true, DJI might just have another category-defining product on its hands.
 
 **Stay tuned. The next two weeks are going to be interesting.**
-
----
-
-*Published on May 3, 2026 | DroneFocal Editorial Team*
-
-*Have thoughts on DJI's new strategy? Drop us a line at hello@dronefocal.com*
