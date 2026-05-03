@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -43,19 +43,6 @@ export default function Footer() {
               <li><a href="/drone-reviews?brand=Autel" className="footer-link">Autel Drones</a></li>
               <li><a href="/drone-reviews?brand=Parrot" className="footer-link">Parrot Drones</a></li>
               <li><a href="/drone-reviews?brand=Skydio" className="footer-link">Skydio Drones</a></li>
-            </ul>
-          </div>
-
-          {/* Buying Guides Column */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
-              Buying Guides
-            </h3>
-            <ul className="space-y-3">
-              <li><a href="/buying-guides" className="footer-link">Beginner's Guide</a></li>
-              <li><a href="/buying-guides" className="footer-link">Professional Photography</a></li>
-              <li><a href="/buying-guides" className="footer-link">Budget Options</a></li>
-              <li><a href="/buying-guides" className="footer-link">Racing & FPV</a></li>
             </ul>
           </div>
 
