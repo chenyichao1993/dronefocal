@@ -11,28 +11,22 @@ export default async function HomePage() {
   const allGuides = await getAllArticles('guides')
   const allNews = await getAllArticles('news')
   
-  // Process news articles: keep original category for URL generation, add displayCategory for homepage display
-  const processedNewsArticles = allNews.map(article => ({
-    ...article,
-    displayCategory: 'news' // 用于显示，保留原始 category 用于路径生成
-  }))
-  
-  // Get featured articles for carousel (筛选出 featured: true 的文章)
+  // Get featured articles for carousel
   const allFeaturedArticles = [
     ...allReviews,
     ...allGuides,
-    ...processedNewsArticles,
+    ...allNews,
     ...allTutorials
   ]
     .filter(article => article.featured === true)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5) // 最多显示5篇轮播文章
+    .slice(0, 5)
   
   // Combine all articles with weights: reviews > guides > news > tutorials
   const allArticles = [
     ...allReviews.map(article => ({ ...article, weight: 4 })),
     ...allGuides.map(article => ({ ...article, weight: 3 })),
-    ...processedNewsArticles.map(article => ({ ...article, weight: 2 })),
+    ...allNews.map(article => ({ ...article, weight: 2 })),
     ...allTutorials.map(article => ({ ...article, weight: 1 }))
   ]
     .sort((a, b) => {
@@ -54,6 +48,7 @@ export default async function HomePage() {
   const sidebarArticles = popularArticles.map(article => ({
     title: article.title,
     slug: article.slug,
+    routeDir: article.routeDir,
     category: article.category,
     views: article.views || '0',
     image: article.image,

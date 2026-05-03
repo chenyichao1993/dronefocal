@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Search, Filter, Calendar, Clock, Eye } from 'lucide-react'
 import { ArticleMeta } from '@/lib/content'
+import { getArticleUrl } from '@/lib/url'
 import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface SearchContentProps {
@@ -27,7 +28,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
     const filteredArticles = category === 'all' 
       ? articles 
-      : articles.filter(article => article.category === category)
+      : articles.filter(article => article.routeDir === category)
 
     return filteredArticles.filter(article => {
       const searchText = `${article.title} ${article.excerpt} ${article.tags?.join(' ')} ${article.brand || ''}`.toLowerCase()
@@ -62,7 +63,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
       // If no search query, show articles based on selected category
       const filteredArticles = selectedCategory === 'all' 
         ? articles 
-        : articles.filter(article => article.category === selectedCategory)
+        : articles.filter(article => article.routeDir === selectedCategory)
       return sortArticles(filteredArticles, sortBy)
     }
     
@@ -124,31 +125,11 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
     return text.replace(regex, '<mark class="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">$1</mark>')
   }
 
-  // Get article URL
-  const getArticleUrl = (article: ArticleMeta) => {
-    const category = article.category
-    const slug = article.slug
-    
-    switch (category) {
-      case 'reviews':
-        return `/drone-reviews/${slug}`
-      case 'guides':
-        return `/guides/${slug}`
-      case 'tutorials':
-        return `/tutorials/${slug}`
-      case 'news':
-        return `/news/${slug}`
-      // news 文章的 category 可能是 "Technology", "Product Launch" 等，都应该使用 /news/ 路径
-      default:
-        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
-          return `/news/${slug}`
-        }
-        return `/${category}/${slug}`
-    }
-  }
+  // Get article URL - now imported from @/lib/content
+  // const getArticleUrl = ... removed
 
-  // Get category info
-  const getCategoryInfo = (category: string) => {
+  // Local category display helper (renamed to avoid conflict with imported getCategoryInfo)
+  const getCategoryInfoLocal = (category: string) => {
     switch (category) {
       case 'reviews':
         return { name: 'Reviews', color: 'bg-blue-100 text-blue-800' }
@@ -202,10 +183,10 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
             <div className="space-y-2">
               {[
                 { value: 'all', label: 'All', count: articles.length },
-                { value: 'reviews', label: 'Reviews', count: articles.filter(a => a.category === 'reviews').length },
-                { value: 'guides', label: 'Guides', count: articles.filter(a => a.category === 'guides').length },
-                { value: 'tutorials', label: 'Tutorials', count: articles.filter(a => a.category === 'tutorials').length },
-                { value: 'news', label: 'News', count: articles.filter(a => a.category === 'news').length },
+                { value: 'reviews', label: 'Reviews', count: articles.filter(a => a.routeDir === 'reviews').length },
+                { value: 'guides', label: 'Guides', count: articles.filter(a => a.routeDir === 'guides').length },
+                { value: 'tutorials', label: 'Tutorials', count: articles.filter(a => a.routeDir === 'tutorials').length },
+                { value: 'news', label: 'News', count: articles.filter(a => a.routeDir === 'news').length },
               ].map((category) => (
                 <label key={category.value} className="flex items-center cursor-pointer">
                   <input
@@ -268,7 +249,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Popular Articles</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedArticles.map((article) => {
-                  const categoryInfo = getCategoryInfo(article.category)
+                  const categoryInfo = getCategoryInfoLocal(article.category)
                   return (
                     <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
@@ -322,7 +303,7 @@ export default function SearchContent({ searchParams, articles }: SearchContentP
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {searchResults.map((article) => {
-                const categoryInfo = getCategoryInfo(article.category)
+                const categoryInfo = getCategoryInfoLocal(article.category)
                 return (
                   <Link key={article.slug} href={getArticleUrl(article)} className="group" target="_blank" rel="noopener noreferrer">
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">

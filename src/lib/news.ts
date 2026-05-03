@@ -17,6 +17,7 @@ export interface NewsArticle {
   featured: boolean
   trending: boolean
   content: string
+  routeDir: string  // always 'news'
 }
 
 export async function getAllNewsArticles(): Promise<NewsArticle[]> {
@@ -47,6 +48,7 @@ export async function getAllNewsArticles(): Promise<NewsArticle[]> {
           featured: data.featured || false,
           trending: data.trending || false,
           content,
+          routeDir: 'news',
         }
       })
 
@@ -82,6 +84,7 @@ export async function getNewsArticleBySlug(slug: string): Promise<NewsArticle | 
       featured: data.featured || false,
       trending: data.trending || false,
       content,
+      routeDir: 'news',
     }
   } catch (error) {
     console.error('Error reading news article:', error)

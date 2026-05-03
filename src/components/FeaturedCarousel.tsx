@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArticleMeta } from '@/lib/content'
+import { getArticleUrl } from '@/lib/url'
 import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface FeaturedCarouselProps {
@@ -30,31 +31,7 @@ export default function FeaturedCarousel({ articles }: FeaturedCarouselProps) {
   }
 
   const currentArticle = articles[currentIndex]
-  const displayCategory = currentArticle.displayCategory || currentArticle.category
-  const categoryInfo = getCategoryInfo(displayCategory)
-
-  // 生成文章URL（与 HomepageArticles 中的逻辑一致）
-  const getArticleUrl = (article: ArticleMeta & { displayCategory?: string }) => {
-    const category = article.category
-    const slug = article.slug
-    
-    switch (category) {
-      case 'reviews':
-        return `/drone-reviews/${slug}`
-      case 'news':
-        return `/news/${slug}`
-      case 'tutorials':
-        return `/tutorials/${slug}`
-      case 'guides':
-        return `/guides/${slug}`
-      // news 文章的 category 可能是 "Technology", "Product Launch" 等，都应该使用 /news/ 路径
-      default:
-        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
-          return `/news/${slug}`
-        }
-        return `/${category}/${slug}`
-    }
-  }
+  const categoryInfo = getCategoryInfo(currentArticle.category)
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
@@ -93,10 +70,10 @@ export default function FeaturedCarousel({ articles }: FeaturedCarouselProps) {
             {/* 分类标签 */}
             <div className="mb-3">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm ${
-                displayCategory === 'reviews' ? 'bg-blue-100 text-blue-800' :
-                displayCategory === 'guides' ? 'bg-orange-100 text-orange-800' :
-                displayCategory === 'news' ? 'bg-green-100 text-green-800' :
-                displayCategory === 'tutorials' ? 'bg-purple-100 text-purple-800' :
+                currentArticle.routeDir === 'reviews' ? 'bg-blue-100 text-blue-800' :
+                currentArticle.routeDir === 'guides' ? 'bg-orange-100 text-orange-800' :
+                currentArticle.routeDir === 'news' ? 'bg-green-100 text-green-800' :
+                currentArticle.routeDir === 'tutorials' ? 'bg-purple-100 text-purple-800' :
                 'bg-gray-100 text-gray-800'
               }`}>
                 {categoryInfo.name}

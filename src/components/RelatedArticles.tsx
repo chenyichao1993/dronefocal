@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArticleMeta } from '@/lib/content'
+import { getArticleUrl } from '@/lib/url'
 
 interface RelatedArticlesProps {
   articles: (ArticleMeta | any)[] // 支持 ArticleMeta 和 NewsArticle 类型
@@ -60,50 +61,12 @@ export default function RelatedArticles({ articles, currentArticle, articleType 
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h3>
       <div className="related-articles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {relatedArticles.map(article => {
-          // 根据文章类型生成不同的链接
-          const getArticleUrl = (article: any) => {
-            const slug = article.slug
-            
-            // 如果明确指定了 articleType，直接使用它（这是最可靠的方式）
-            // 所有来自 news 目录的文章，无论 category 是什么，都应该使用 /news/ 路径
-            if (articleType === 'news') {
-              return `/news/${slug}`
-            }
-            if (articleType === 'guides') {
-              return `/guides/${slug}`
-            }
-            if (articleType === 'reviews') {
-              return `/drone-reviews/${slug}`
-            }
-            if (articleType === 'tutorials') {
-              return `/tutorials/${slug}`
-            }
-            
-            // 如果没有指定 articleType，根据 category 判断（兼容旧逻辑）
-            const category = article.category
-            switch (category) {
-              case 'reviews':
-                return `/drone-reviews/${slug}`
-              case 'guides':
-                return `/guides/${slug}`
-              case 'tutorials':
-                return `/tutorials/${slug}`
-              case 'news':
-                return `/news/${slug}`
-              // 对于 news 目录下的文章，即使 category 是 "Technology" 等，也应该走 news 路由
-              default:
-                // 如果当前文章是 news 类型，且 related articles 也在同一个列表，则使用 news 路由
-                const isNewsContext = currentArticle.category === 'news' || 
-                                  ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events'].includes(currentArticle.category)
-                if (isNewsContext && ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
-                  return `/news/${slug}`
-                }
-                return `/${category}/${slug}`
-            }
+          const getArticleUrlFn = (article: any) => {
+            return getArticleUrl(article)
           }
 
           return (
-            <Link key={article.slug} href={getArticleUrl(article)}>
+            <Link key={article.slug} href={getArticleUrlFn(article)}>
               <div className="related-article-card group">
                 <div className="flex items-start space-x-3 p-3 md:p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 hover:shadow-md transition-all duration-300">
                   <div className="flex-shrink-0">

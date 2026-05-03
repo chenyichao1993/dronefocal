@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getArticleUrl } from '@/lib/url'
 import { getCategoryInfo } from '@/lib/categoryColors'
 
 interface PopularArticle {
   title: string
   slug: string
+  routeDir: string
   category: string
   views: string
   image: string
@@ -30,12 +32,9 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
   }, [])
 
   // 侧边栏专用的分类信息函数：将 news 的细分分类统一显示为 "News"
-  const getSidebarCategoryInfo = (category: string) => {
-    // News 的细分分类列表
-    const newsSubCategories = ['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General']
-    
-    // 如果是 news 的细分分类，统一显示为 "News"
-    if (newsSubCategories.includes(category)) {
+  const getSidebarCategoryInfo = (article: PopularArticle) => {
+    // 如果是 news 目录下的文章，统一显示为 "News"
+    if (article.routeDir === 'news') {
       return { 
         name: 'News', 
         color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' 
@@ -43,33 +42,8 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
     }
     
     // 否则使用原来的 getCategoryInfo
-    return getCategoryInfo(category)
+    return getCategoryInfo(article.category)
   }
-
-  // Get article URL based on category
-  const getArticleUrl = (article: PopularArticle) => {
-    const category = article.category
-    const slug = article.slug
-    
-    // 对于 news 目录下的文章，无论 category 是什么（Technology, Product Launch 等），都应该使用 /news/ 路径
-    switch (category) {
-      case 'reviews':
-        return `/drone-reviews/${slug}`
-      case 'news':
-        return `/news/${slug}`
-      case 'tutorials':
-        return `/tutorials/${slug}`
-      case 'guides':
-        return `/guides/${slug}`
-      // news 文章的 category 可能是 "Technology", "Product Launch" 等
-      default:
-        if (['Product Launch', 'Technology', 'Regulations', 'Industry News', 'Events', 'General'].includes(category)) {
-          return `/news/${slug}`
-        }
-        return `/${category}/${slug}`
-    }
-  }
-
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -102,7 +76,7 @@ export default function Sidebar({ popularArticles = [] }: SidebarProps) {
           <div className="space-y-4">
             {popularArticles.length > 0 ? (
               popularArticles.map((article, index) => {
-                const categoryInfo = getSidebarCategoryInfo(article.category)
+                const categoryInfo = getSidebarCategoryInfo(article)
                 return (
                   <div key={article.slug} className={`sidebar-article ${index < popularArticles.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}>
                     <div className="flex items-start space-x-3">

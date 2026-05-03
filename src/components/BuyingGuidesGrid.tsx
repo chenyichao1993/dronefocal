@@ -138,7 +138,7 @@ export default function BuyingGuidesGrid() {
                 Updated {new Date(guide.lastUpdated).toLocaleDateString()}
               </span>
               <Link
-                href={`/buying-guides/${guide.slug}`}
+                href={`/guides/${guide.slug}`}
                 className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
               >
                 Read Guide

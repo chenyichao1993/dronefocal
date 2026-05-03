@@ -35,11 +35,24 @@ export interface ArticleMeta {
   source?: string
   featured?: boolean
   views?: string
+  // Routing: actual directory name (news/reviews/guides/tutorials), always present
+  routeDir: string
 }
 
 export interface Article extends ArticleMeta {
   content: string
   contentHtml: string
+}
+
+// Unified URL generator: routeDir → route prefix
+export function getArticleUrl(article: { routeDir: string; slug: string }): string {
+  switch (article.routeDir) {
+    case 'reviews': return `/drone-reviews/${article.slug}`
+    case 'news': return `/news/${article.slug}`
+    case 'guides': return `/guides/${article.slug}`
+    case 'tutorials': return `/tutorials/${article.slug}`
+    default: return `/${article.routeDir}/${article.slug}`
+  }
 }
 
 const contentDirectory = path.join(process.cwd(), 'src/content')
@@ -63,6 +76,7 @@ export async function getArticleBySlug(
       ...data,
       content,
       contentHtml: processedContent.toString(),
+      routeDir: category,
     } as Article
   } catch (error) {
     console.error(`Error reading article ${slug}:`, error)
@@ -88,6 +102,7 @@ export async function getAllArticles(category: string): Promise<ArticleMeta[]> {
         return {
           ...data,
           slug,
+          routeDir: category,
         } as ArticleMeta
       })
 

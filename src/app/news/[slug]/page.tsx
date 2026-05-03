@@ -99,6 +99,7 @@ export default async function NewsPage({ params }: Props) {
   const sidebarArticles = popularArticles.map(article => ({
     title: article.title,
     slug: article.slug,
+    routeDir: article.routeDir,
     category: article.category,
     views: article.views || '0',
     image: article.image,
