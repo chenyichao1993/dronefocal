@@ -51,16 +51,6 @@ export default function NewsContent({ articles }: NewsContentProps) {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Drone News
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Latest drone industry news and updates
-        </p>
-      </div>
-
       {/* No results */}
       {!hasArticles && (
         <div className="text-center py-12">
