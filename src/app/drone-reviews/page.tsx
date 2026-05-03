@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 
 interface SearchParams {
   brand?: string
-  price?: string
-  rating?: string
 }
 
 export default async function DroneReviewsPage({ 
@@ -45,42 +43,6 @@ export default async function DroneReviewsPage({
     { name: 'Skydio', value: 'skydio', count: 0 }
   ]
 
-  // Calculate price range counts
-  const priceRanges = [
-    { name: 'Under $200', value: '0-200', count: 0 },
-    { name: '$200 - $500', value: '200-500', count: 0 },
-    { name: '$500 - $1000', value: '500-1000', count: 0 },
-    { name: '$1000 - $2000', value: '1000-2000', count: 0 },
-    { name: 'Over $2000', value: '2000+', count: 0 }
-  ]
-
-  articles.forEach(article => {
-    if (article.price) {
-      const price = parseFloat(article.price.replace(/[^0-9.]/g, ''))
-      if (price < 200) priceRanges[0].count++
-      else if (price < 500) priceRanges[1].count++
-      else if (price < 1000) priceRanges[2].count++
-      else if (price < 2000) priceRanges[3].count++
-      else priceRanges[4].count++
-    }
-  })
-
-  // Calculate rating counts
-  const ratings = [
-    { name: '4.5+ Stars', value: '4.5', count: 0 },
-    { name: '4.0+ Stars', value: '4.0', count: 0 },
-    { name: '3.5+ Stars', value: '3.5', count: 0 },
-    { name: '3.0+ Stars', value: '3.0', count: 0 }
-  ]
-
-  articles.forEach(article => {
-    const rating = parseFloat(article.rating?.toString() || '0')
-    if (rating >= 4.5) ratings[0].count++
-    if (rating >= 4.0) ratings[1].count++
-    if (rating >= 3.5) ratings[2].count++
-    if (rating >= 3.0) ratings[3].count++
-  })
-
   // Apply filters
   let filteredArticles = articles
 
@@ -89,32 +51,6 @@ export default async function DroneReviewsPage({
     filteredArticles = filteredArticles.filter(article => 
       article.brand?.toLowerCase() === searchParams.brand?.toLowerCase()
     )
-  }
-
-  // Price filter
-  if (searchParams.price && searchParams.price !== 'all') {
-    filteredArticles = filteredArticles.filter(article => {
-      if (!article.price) return false
-      const price = parseFloat(article.price.replace(/[^0-9.]/g, ''))
-      
-      switch (searchParams.price) {
-        case '0-200': return price < 200
-        case '200-500': return price >= 200 && price < 500
-        case '500-1000': return price >= 500 && price < 1000
-        case '1000-2000': return price >= 1000 && price < 2000
-        case '2000+': return price >= 2000
-        default: return true
-      }
-    })
-  }
-
-  // Rating filter
-  if (searchParams.rating && searchParams.rating !== 'all') {
-    const minRating = parseFloat(searchParams.rating)
-    filteredArticles = filteredArticles.filter(article => {
-      const rating = parseFloat(article.rating?.toString() || '0')
-      return rating >= minRating
-    })
   }
 
   return (
@@ -135,8 +71,6 @@ export default async function DroneReviewsPage({
           <div className="lg:col-span-1">
             <FilterSidebar 
               brands={brands} 
-              priceRanges={priceRanges}
-              ratings={ratings}
               currentFilters={searchParams}
             />
           </div>
@@ -145,7 +79,7 @@ export default async function DroneReviewsPage({
           <div className="lg:col-span-3">
             <ReviewsGrid 
               reviews={filteredArticles} 
-              hasActiveFilters={!!(searchParams.brand || searchParams.price || searchParams.rating)}
+              hasActiveFilters={!!searchParams.brand}
             />
           </div>
         </div>

@@ -18,29 +18,21 @@ interface FilterOption {
 
 interface FilterSidebarProps {
   brands: Brand[]
-  priceRanges: FilterOption[]
-  ratings: FilterOption[]
   currentFilters: {
     brand?: string
-    price?: string
-    rating?: string
   }
 }
 
-export default function FilterSidebar({ brands, priceRanges, ratings, currentFilters }: FilterSidebarProps) {
+export default function FilterSidebar({ brands, currentFilters }: FilterSidebarProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   
   const [expandedSections, setExpandedSections] = useState({
-    brand: true,
-    price: true,
-    rating: true
+    brand: true
   })
 
   const selectedFilters = {
-    brand: currentFilters.brand?.toLowerCase() || 'all',
-    price: currentFilters.price || 'all',
-    rating: currentFilters.rating || 'all'
+    brand: currentFilters.brand?.toLowerCase() || 'all'
   }
 
   const toggleSection = (section: string) => {
@@ -130,22 +122,6 @@ export default function FilterSidebar({ brands, priceRanges, ratings, currentFil
         options={brands}
         selectedValue={selectedFilters.brand}
         onValueChange={(value) => handleFilterChange('brand', value)}
-      />
-
-      <FilterSection
-        title="Price Range"
-        section="price"
-        options={priceRanges}
-        selectedValue={selectedFilters.price}
-        onValueChange={(value) => handleFilterChange('price', value)}
-      />
-
-      <FilterSection
-        title="Rating"
-        section="rating"
-        options={ratings}
-        selectedValue={selectedFilters.rating}
-        onValueChange={(value) => handleFilterChange('rating', value)}
       />
 
       {/* Clear Filters */}
