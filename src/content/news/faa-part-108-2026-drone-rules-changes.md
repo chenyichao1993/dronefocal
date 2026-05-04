@@ -10,7 +10,7 @@ readTime: "7 min read"
 author: "DroneFocal Editorial"
 featured: false
 trending: true
-views: "0"
+views: "8,932"
 ---
 
 For nearly a decade, U.S. drone pilots have operated under **Part 107** — a framework that works well for visual line of sight flights but requires a bureaucratic obstacle course of waivers for anything more ambitious. Want to fly beyond visual line of sight? File a waiver. Need to operate over people? Another waiver. Planning a mission in controlled airspace? Prepare for weeks of paperwork.
@@ -124,9 +124,3 @@ But the transition won't be seamless. New roles need to be defined and staffed. 
 For U.S. drone pilots, the message is clear: **start preparing now.** The rules are coming. The operators who understand them first will have a significant competitive advantage when the sky finally opens for routine BVLOS operations.
 
 The future of American drone aviation isn't about flying further. It's about operating smarter — with better systems, clearer rules, and the infrastructure to support genuine commercial scale. Part 108 is the bridge to that future. Whether you're ready to cross it is up to you.
-
----
-
-*Sources: DroneTrust, Autonomy Global, FAA official statements, Part 108 Notice of Proposed Rulemaking*
-
-*Last Updated: May 4, 2026*
