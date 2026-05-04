@@ -2,7 +2,7 @@
 title: "Agricultural Drone Precision Spraying 2026: How UAVs Are Transforming Modern Farming"
 slug: "agricultural-drone-precision-spraying-2026"
 excerpt: "The global agricultural drone market is surging to $7.33 billion in 2026. From AI-driven variable spraying to multi-drone fleet coordination, here's how precision agriculture technology is reshaping farming worldwide."
-image: "/images/blog/agricultural-drone-precision-spraying-2026.jpg"
+image: "/images/optimized/webp/agricultural-drone-precision-spraying-2026.webp"
 category: "News"
 tags: ["agricultural drone", "precision spraying", "smart farming", "UAV agriculture", "drone technology 2026", "crop monitoring", "precision agriculture"]
 date: "2026-05-04"
