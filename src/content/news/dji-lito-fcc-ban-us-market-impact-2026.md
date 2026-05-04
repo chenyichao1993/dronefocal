@@ -2,7 +2,7 @@
 title: "DJI Lito Series FCC Ban: Why American Drone Pilots Are Locked Out (And What It Means for the Industry)"
 slug: "dji-lito-fcc-ban-us-market-impact-2026"
 excerpt: "DJI's Lito series is being hailed as the best beginner drone lineup ever made — but American pilots can't buy it. Here's the full story behind the FCC ban, what it means for U.S. drone enthusiasts, and how the market is shifting."
-image: "/images/blog/dji-lito-fcc-ban-us-market-impact-2026.jpg"
+image: "/images/optimized/webp/dji-lito-fcc-ban-us-market-impact-2026.webp"
 category: "News"
 tags: ["DJI", "DJI Lito", "DJI Lito X1", "FCC ban", "drone regulations", "US drone market", "beginner drone 2026", "drone news"]
 date: "2026-05-04"
