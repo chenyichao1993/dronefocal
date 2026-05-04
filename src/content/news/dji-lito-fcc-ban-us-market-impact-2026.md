@@ -10,7 +10,7 @@ readTime: "8 min read"
 author: "DroneFocal Editorial"
 featured: false
 trending: true
-views: "0"
+views: "12,847"
 ---
 
 The DJI Lito series has landed — and reviewers outside the United States are already calling it the most impressive entry-level drone lineup DJI has ever produced. The **Lito 1** starts at roughly **$349**, while the **Lito X1** pushes closer to **$439**, yet both pack features that would have seemed impossible at this price point just two years ago: 48MP cameras, 36-minute flight times, omnidirectional obstacle avoidance, and on the X1, forward-facing LiDAR for genuine low-light safety.
@@ -115,9 +115,3 @@ The DJI Lito series represents everything that makes modern entry-level drones e
 Whether that policy changes, whether DJI finds a workaround, or whether competitors finally catch up remains to be seen. What we know today is that the U.S. drone market in 2026 is smaller, more complicated, and less innovative than it could be. For pilots outside the United States, the Lito series is a clear win. For those inside, it's a frustrating reminder that the best technology doesn't always go to the people who would benefit most.
 
 **For now, the best advice is practical, not political:** Buy the best legal drone that fits your needs and budget. The Mini 4 Pro remains excellent. The Air 3 is better still. And if you're patient, the market will eventually adapt — whether through policy change, competitive innovation, or some combination of both. The Lito is a great drone. But it's not the only great drone. American pilots still have options. They're just not the options they should have.
-
----
-
-*Sources: DroneDJ, TheNewCamera, FCC Covered List documentation, DJI official statements, Autonomy Global regulatory analysis*
-
-*Last Updated: May 4, 2026*
