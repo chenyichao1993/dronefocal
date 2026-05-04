@@ -11,18 +11,31 @@ export default async function HomePage() {
   const allGuides = await getAllArticles('guides')
   const allNews = await getAllArticles('news')
   
-  // Get featured articles for carousel
-  const allFeaturedArticles = [
-    ...allReviews,
-    ...allGuides,
-    ...allNews,
-    ...allTutorials
-  ]
-    .filter(article => article.featured === true)
+  // Carousel logic: Fixed 2-3 Reviews + latest from other categories
+  // Get latest 3 reviews (sorted by date)
+  const latestReviews = [...allReviews]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5)
+    .slice(0, 3)
   
-  // Combine all articles with weights: reviews > guides > news > tutorials
+  // Get latest 1 from each other category
+  const latestGuide = [...allGuides]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  
+  const latestNews = [...allNews]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  
+  const latestTutorial = [...allTutorials]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  
+  // Build carousel array: 2-3 Reviews + 1 each from Guides/News/Tutorials
+  const carouselArticles = [
+    ...latestReviews,
+    ...(latestGuide ? [latestGuide] : []),
+    ...(latestNews ? [latestNews] : []),
+    ...(latestTutorial ? [latestTutorial] : [])
+  ].slice(0, 5) // Max 5 articles in carousel
+  
+  // Combine all articles with weights for homepage listing
   const allArticles = [
     ...allReviews.map(article => ({ ...article, weight: 4 })),
     ...allGuides.map(article => ({ ...article, weight: 3 })),
@@ -64,7 +77,7 @@ export default async function HomePage() {
           {/* Articles Grid */}
           <div className="lg:col-span-2">
             {/* Featured Carousel */}
-            <FeaturedCarousel articles={allFeaturedArticles} />
+            <FeaturedCarousel articles={carouselArticles} />
             
             {/* Articles List */}
             <HomepageArticles articles={featuredArticles} />
