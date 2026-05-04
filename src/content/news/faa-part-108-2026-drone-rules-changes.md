@@ -2,7 +2,7 @@
 title: "FAA Part 108 2026: The 5 Biggest Changes U.S. Drone Pilots Must Prepare For"
 slug: "faa-part-108-2026-drone-rules-changes"
 excerpt: "The FAA's proposed Part 108 rules will fundamentally reshape how drones operate in U.S. airspace. From BVLOS operations without waivers to new operator roles, here's everything pilots need to know before the rules drop."
-image: "/images/blog/faa-part-108-2026-drone-rules-changes.jpg"
+image: "/images/optimized/webp/faa-part-108-2026-drone-rules-changes.webp"
 category: "News"
 tags: ["FAA", "Part 108", "BVLOS", "drone regulations", "U.S. drone rules", "commercial drone operations", "drone pilot certification", "2026 drone laws"]
 date: "2026-05-04"
