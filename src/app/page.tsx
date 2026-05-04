@@ -11,24 +11,25 @@ export default async function HomePage() {
   const allGuides = await getAllArticles('guides')
   const allNews = await getAllArticles('news')
   
-  // Carousel: Fixed 2-3 Reviews + latest from other categories
-  const latestReviews = [...allReviews]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3)
-  
-  const latestGuide = [...allGuides]
+  // Carousel: News first, then 2 Reviews + 1 Guide + 1 Tutorial
+  const latestNews = [...allNews]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
   
-  const latestNews = [...allNews]
+  const latestReviews = [...allReviews]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2)
+  
+  const latestGuide = [...allGuides]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
   
   const latestTutorial = [...allTutorials]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
   
+  // News fixed at position 1, then Reviews, Guide, Tutorial
   const carouselArticles = [
+    ...(latestNews ? [latestNews] : []),
     ...latestReviews,
     ...(latestGuide ? [latestGuide] : []),
-    ...(latestNews ? [latestNews] : []),
     ...(latestTutorial ? [latestTutorial] : [])
   ].slice(0, 5)
   
