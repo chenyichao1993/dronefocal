@@ -2,7 +2,7 @@
 title: "Search and Rescue Drones 2026: Thermal Imaging and AI Autonomy Become Standard"
 slug: "search-rescue-drones-2026-thermal-ai-autonomy"
 excerpt: "Search and rescue drones in 2026 feature thermal imaging, AI-driven autonomous flight, and extended endurance. From DJI Mavic 3T to ZenaDrone 1000, here's how UAV technology is transforming emergency response operations."
-image: "/images/blog/search-rescue-drones-2026.webp"
+image: "/images/optimized/webp/search-rescue-drones-2026.webp"
 category: "News"
 tags: ["search and rescue drone", "thermal imaging", "SAR UAV", "emergency response", "DJI Mavic 3T", "autonomous flight", "drone rescue"]
 date: "2026-05-05"

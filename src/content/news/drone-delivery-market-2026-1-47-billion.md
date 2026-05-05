@@ -2,7 +2,7 @@
 title: "Drone Delivery Market 2026: $1.47 Billion Today, $6.7 Billion by 2031"
 slug: "drone-delivery-market-2026-1-47-billion"
 excerpt: "The drone delivery market reaches $1.47 billion in 2026, projected to hit $6.7 billion by 2031. Zipline, Wing, and Amazon Prime Air are scaling operations as regulations evolve and technology matures."
-image: "/images/blog/drone-delivery-market-2026.webp"
+image: "/images/optimized/webp/drone-delivery-market-2026.webp"
 category: "News"
 tags: ["drone delivery", "last mile logistics", "Zipline", "Wing", "Amazon Prime Air", "BVLOS", "drone logistics", "urban air mobility"]
 date: "2026-05-05"

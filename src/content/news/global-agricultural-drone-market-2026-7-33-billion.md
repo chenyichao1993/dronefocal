@@ -2,7 +2,7 @@
 title: "Global Agricultural Drone Market Hits $7.33 Billion in 2026: 30% Annual Growth Reshapes Farming"
 slug: "global-agricultural-drone-market-2026-7-33-billion"
 excerpt: "The global agricultural drone market surges to $7.33 billion in 2026 with 30% annual growth. From precision spraying to AI-driven crop monitoring, here's how UAV technology is transforming modern agriculture worldwide."
-image: "/images/blog/agricultural-drone-market-2026.webp"
+image: "/images/optimized/webp/agricultural-drone-market-2026.webp"
 category: "News"
 tags: ["agricultural drone", "precision farming", "drone market 2026", "smart agriculture", "UAV technology", "crop monitoring", "agriculture technology"]
 date: "2026-05-05"
