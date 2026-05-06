@@ -1,9 +1,36 @@
 {
-  "timestamp": "2026-05-05T01:51:28.429Z",
-  "totalImages": 3,
+  "timestamp": "2026-05-06T08:37:25.540Z",
+  "totalImages": 5,
   "images": [
     {
-      "name": "agricultural-drone-market-2026",
+      "name": "amazon-prime-air-2026-expansion",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x1797",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "dji-agriculture-drone-report-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x675",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "skydio-search-rescue-drone-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x802",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "us-inspection-drone-market-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,
@@ -12,18 +39,9 @@
       "hasThumbnails": 2
     },
     {
-      "name": "drone-delivery-market-2026",
+      "name": "walmart-wing-drone-delivery-2026",
       "originalFormat": "jpeg",
-      "originalDimensions": "1200x800",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "search-rescue-drones-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x800",
+      "originalDimensions": "1200x801",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,
