@@ -2,7 +2,7 @@
 title: "U.S. Coast Guard Deploys Autonomous Saildrones to Monitor Great Lakes"
 slug: "us-coast-guard-saildrones-great-lakes"
 excerpt: "The U.S. Coast Guard is deploying autonomous sail drones on the Great Lakes from May through October, marking a significant expansion of unmanned maritime surveillance capabilities in domestic waters."
-image: "/images/optimized/webp/us-coast-guard-saildrones-great-lakes.webp"
+image: "/images/optimized/webp/us-coast-guard-saildrones-great-lakes.jpg"
 category: "Guides"
 tags: ["Coast Guard", "Saildrone", "Maritime", "Surveillance", "Autonomous", "Great Lakes"]
 date: "2026-05-09"

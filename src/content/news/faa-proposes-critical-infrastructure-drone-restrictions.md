@@ -2,7 +2,7 @@
 title: "FAA Proposes Rule Allowing Critical Infrastructure Operators to Apply for Drone Flight Restrictions"
 slug: "faa-proposes-critical-infrastructure-drone-restrictions"
 excerpt: "The FAA has issued a long-awaited NPRM under Section 2209, enabling critical infrastructure operators to request drone no-fly zones around their facilities. This marks a significant shift in U.S. airspace management for security-sensitive sites."
-image: "/images/optimized/webp/faa-proposes-critical-infrastructure-drone-restrictions.webp"
+image: "/images/optimized/webp/faa-proposes-critical-infrastructure-drone-restrictions.jpg"
 category: "News"
 tags: ["FAA", "Regulation", "Critical Infrastructure", "No-Fly Zone", "Section 2209", "Security"]
 date: "2026-05-09"

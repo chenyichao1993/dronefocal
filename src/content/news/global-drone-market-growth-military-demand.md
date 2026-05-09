@@ -2,7 +2,7 @@
 title: "Global Drone Market Poised for Growth Beyond $69 Billion as Military Demand Surges"
 slug: "global-drone-market-growth-military-demand"
 excerpt: "Geopolitical tensions and military innovation are driving the global drone market beyond its current $69 billion valuation, with defense applications leading the expansion."
-image: "/images/optimized/webp/global-drone-market-growth-military-demand.webp"
+image: "/images/optimized/webp/global-drone-market-growth-military-demand.jpg"
 category: "News"
 tags: ["Market Analysis", "Military", "Defense", "Geopolitics", "Market Size", "Growth"]
 date: "2026-05-09"
