@@ -5,7 +5,7 @@ excerpt: "DJI Agriculture's fifth annual industry report reveals over 600,000 ag
 image: "/images/optimized/webp/dji-agricultural-drones-600000-brazil-2026.webp"
 category: "News"
 tags: ["DJI Agriculture", "agricultural drone", "precision farming", "Brazil farming", "DJI Agras", "sustainable agriculture", "drone spraying", "carbon emissions", "water conservation"]
-date: "2026-04-29"
+date: "2026-05-10"
 readTime: "8 min read"
 author: "DroneFocal Editorial"
 featured: true

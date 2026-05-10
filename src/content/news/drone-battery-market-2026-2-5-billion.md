@@ -5,7 +5,7 @@ excerpt: "The global drone battery market is projected to grow from $1.02 billio
 image: "/images/optimized/webp/drone-battery-market-2026-2-5-billion.webp"
 category: "News"
 tags: ["drone battery", "market analysis", "LiPo battery", "drone delivery", "swarming technology", "UAV power", "energy density", "drone industry 2026"]
-date: "2026-05-07"
+date: "2026-05-10"
 readTime: "10 min read"
 author: "DroneFocal Editorial"
 featured: true

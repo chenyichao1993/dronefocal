@@ -5,7 +5,7 @@ excerpt: "An armed unmanned surface vessel discovered in a coastal cave on Lefka
 image: "/images/optimized/webp/greece-mystery-sea-drone-may-2026.webp"
 category: "News"
 tags: ["Greece", "sea drone", "maritime UAV", "Magura drone", "Black Sea", "naval security", "unmanned surface vessel", "Ukraine", "military drone"]
-date: "2026-05-08"
+date: "2026-05-10"
 readTime: "6 min read"
 author: "DroneFocal Editorial"
 featured: false
