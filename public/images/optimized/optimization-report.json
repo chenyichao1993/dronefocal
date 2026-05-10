@@ -1,36 +1,9 @@
 {
-  "timestamp": "2026-05-06T08:37:25.540Z",
-  "totalImages": 5,
+  "timestamp": "2026-05-10T04:04:52.440Z",
+  "totalImages": 3,
   "images": [
     {
-      "name": "amazon-prime-air-2026-expansion",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x1797",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "dji-agriculture-drone-report-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x675",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "skydio-search-rescue-drone-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x802",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "us-inspection-drone-market-2026",
+      "name": "dji-agricultural-drones-600000-brazil-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,
@@ -39,9 +12,18 @@
       "hasThumbnails": 2
     },
     {
-      "name": "walmart-wing-drone-delivery-2026",
+      "name": "drone-battery-market-2026-2-5-billion",
       "originalFormat": "jpeg",
-      "originalDimensions": "1200x801",
+      "originalDimensions": "1200x800",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "greece-mystery-sea-drone-may-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x797",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,
