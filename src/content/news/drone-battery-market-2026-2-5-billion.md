@@ -3,7 +3,7 @@ title: "Drone Battery Market to Hit $2.5 Billion by 2030 as Delivery and Swarmin
 slug: "drone-battery-market-2026-2-5-billion"
 excerpt: "The global drone battery market is projected to grow from $1.02 billion in 2024 to $2.50 billion by 2030, driven by explosive demand in delivery services, swarming technologies, and emergency response applications."
 image: "/images/optimized/webp/drone-battery-market-2026-2-5-billion.webp"
-category: "Reviews"
+category: "News"
 tags: ["drone battery", "market analysis", "LiPo battery", "drone delivery", "swarming technology", "UAV power", "energy density", "drone industry 2026"]
 date: "2026-05-07"
 readTime: "10 min read"

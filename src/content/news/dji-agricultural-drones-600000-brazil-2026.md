@@ -3,7 +3,7 @@ title: "DJI Agricultural Drones Surpass 600,000 Units Globally, Transforming Bra
 slug: "dji-agricultural-drones-600000-brazil-2026"
 excerpt: "DJI Agriculture's fifth annual industry report reveals over 600,000 agricultural drones now operate across 100+ countries, saving 410 million tons of water and cutting 51 million tons of carbon emissions — with Brazil emerging as a showcase market."
 image: "/images/optimized/webp/dji-agricultural-drones-600000-brazil-2026.webp"
-category: "Guides"
+category: "News"
 tags: ["DJI Agriculture", "agricultural drone", "precision farming", "Brazil farming", "DJI Agras", "sustainable agriculture", "drone spraying", "carbon emissions", "water conservation"]
 date: "2026-04-29"
 readTime: "8 min read"
