@@ -1,36 +1,9 @@
 {
-  "timestamp": "2026-05-06T08:37:25.540Z",
+  "timestamp": "2026-05-11T12:36:38.602Z",
   "totalImages": 5,
   "images": [
     {
-      "name": "amazon-prime-air-2026-expansion",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x1797",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "dji-agriculture-drone-report-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x675",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "skydio-search-rescue-drone-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x802",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "us-inspection-drone-market-2026",
+      "name": "amazon-uk-first-drone-delivery-service-darlington-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,
@@ -39,9 +12,36 @@
       "hasThumbnails": 2
     },
     {
-      "name": "walmart-wing-drone-delivery-2026",
+      "name": "dji-osmo-pocket-4p-dual-camera-teaser-may-2026",
       "originalFormat": "jpeg",
-      "originalDimensions": "1200x801",
+      "originalDimensions": "1200x1500",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "fcc-closes-dji-comments-coverage-list-may-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x798",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "flytrex-little-caesars-drone-pizza-delivery-texas-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x1450",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "xponential-2026-detroit-drone-conference-opens",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x800",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,
