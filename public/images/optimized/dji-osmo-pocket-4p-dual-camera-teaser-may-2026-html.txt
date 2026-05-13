@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-osmo-pocket-4p-dual-camera-teaser-may-2026 -->
+<picture>
+    <source srcset="dji-osmo-pocket-4p-dual-camera-teaser-may-2026.avif 1200w" type="image/avif">
+    <source srcset="dji-osmo-pocket-4p-dual-camera-teaser-may-2026-320w.webp 320w, dji-osmo-pocket-4p-dual-camera-teaser-may-2026-640w.webp 640w, dji-osmo-pocket-4p-dual-camera-teaser-may-2026-1024w.webp 1024w, dji-osmo-pocket-4p-dual-camera-teaser-may-2026-1920w.webp 1200w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="dji-osmo-pocket-4p-dual-camera-teaser-may-2026.webp" 
+        alt="Dji Osmo Pocket 4p Dual Camera Teaser May 2026"
+        width="1200" 
+        height="1500"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

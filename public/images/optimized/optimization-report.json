@@ -1,29 +1,20 @@
 {
-  "timestamp": "2026-05-10T04:04:52.440Z",
-  "totalImages": 3,
+  "timestamp": "2026-05-13T02:24:50.724Z",
+  "totalImages": 2,
   "images": [
     {
-      "name": "dji-agricultural-drones-600000-brazil-2026",
+      "name": "detect-avoid-drone-airspace-2026",
       "originalFormat": "jpeg",
-      "originalDimensions": "1200x800",
+      "originalDimensions": "1200x798",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,
       "hasThumbnails": 2
     },
     {
-      "name": "drone-battery-market-2026-2-5-billion",
+      "name": "semi-solid-battery-drone-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "greece-mystery-sea-drone-may-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x797",
       "responsiveSizes": 4,
       "hasAVIF": true,
       "hasWebP": true,

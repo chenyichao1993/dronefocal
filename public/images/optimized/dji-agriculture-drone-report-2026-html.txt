@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: dji-agriculture-drone-report-2026 -->
+<picture>
+    <source srcset="dji-agriculture-drone-report-2026.avif 1200w" type="image/avif">
+    <source srcset="dji-agriculture-drone-report-2026-320w.webp 320w, dji-agriculture-drone-report-2026-640w.webp 640w, dji-agriculture-drone-report-2026-1024w.webp 1024w, dji-agriculture-drone-report-2026-1920w.webp 1200w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="dji-agriculture-drone-report-2026.webp" 
+        alt="Dji Agriculture Drone Report 2026"
+        width="1200" 
+        height="675"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->

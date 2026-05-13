@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: amazon-prime-air-2026-expansion -->
+<picture>
+    <source srcset="amazon-prime-air-2026-expansion.avif 1200w" type="image/avif">
+    <source srcset="amazon-prime-air-2026-expansion-320w.webp 320w, amazon-prime-air-2026-expansion-640w.webp 640w, amazon-prime-air-2026-expansion-1024w.webp 1024w, amazon-prime-air-2026-expansion-1920w.webp 1200w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="amazon-prime-air-2026-expansion.webp" 
+        alt="Amazon Prime Air 2026 Expansion"
+        width="1200" 
+        height="1797"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
