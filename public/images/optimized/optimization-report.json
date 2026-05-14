@@ -1,18 +1,9 @@
 {
-  "timestamp": "2026-05-13T02:24:50.724Z",
-  "totalImages": 2,
+  "timestamp": "2026-05-14T05:09:24.525Z",
+  "totalImages": 1,
   "images": [
     {
-      "name": "detect-avoid-drone-airspace-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x798",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "semi-solid-battery-drone-2026",
+      "name": "faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,

@@ -1,0 +1,15 @@
+
+<!-- Optimized Image: faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026 -->
+<picture>
+    <source srcset="faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026.avif 1200w" type="image/avif">
+    <source srcset="faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026-320w.webp 320w, faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026-640w.webp 640w, faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026-1024w.webp 1024w, faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026-1920w.webp 1200w" type="image/webp" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+    <img 
+        src="faa-section-2209-nprm-critical-infrastructure-drone-restrictions-2026.webp" 
+        alt="Faa Section 2209 Nprm Critical Infrastructure Drone Restrictions 2026"
+        width="1200" 
+        height="800"
+        loading="lazy"
+        class="w-full h-auto rounded-lg shadow-md"
+    >
+</picture>
+<!-- End Optimized Image -->
