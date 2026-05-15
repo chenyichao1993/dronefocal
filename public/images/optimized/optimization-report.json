@@ -1,18 +1,9 @@
 {
-  "timestamp": "2026-05-14T05:20:29.693Z",
+  "timestamp": "2026-05-15T06:42:18.585Z",
   "totalImages": 3,
   "images": [
     {
-      "name": "commercial-drone-alliance-urges-section-2209-comments-2026",
-      "originalFormat": "jpeg",
-      "originalDimensions": "1200x900",
-      "responsiveSizes": 4,
-      "hasAVIF": true,
-      "hasWebP": true,
-      "hasThumbnails": 2
-    },
-    {
-      "name": "fcc-faa-joint-action-drone-national-security-2026",
+      "name": "goldman-sachs-aerovironment-drone-stock-demand-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,
@@ -21,7 +12,16 @@
       "hasThumbnails": 2
     },
     {
-      "name": "florida-drone-critical-infrastructure-protection-act-2026",
+      "name": "us-ukraine-drone-defense-deal-3-million-fpv-2026",
+      "originalFormat": "jpeg",
+      "originalDimensions": "1200x802",
+      "responsiveSizes": 4,
+      "hasAVIF": true,
+      "hasWebP": true,
+      "hasThumbnails": 2
+    },
+    {
+      "name": "xponential-2026-drone-industry-integration-manufacturing-2026",
       "originalFormat": "jpeg",
       "originalDimensions": "1200x800",
       "responsiveSizes": 4,
